@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct VideoPlayerApp: App {
+    let mainViewModel = MainViewModel(videoImporter: .init())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: mainViewModel)
         }
     }
 }
