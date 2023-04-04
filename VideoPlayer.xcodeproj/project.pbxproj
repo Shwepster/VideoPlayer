@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		66DBDF609AA6A85FFBC9BFF9 /* Pods_VideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685120F106EC69925842244C /* Pods_VideoPlayer.framework */; };
+		F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F654C45129DC8FF200CD7B76 /* Kingfisher */; };
+		F654C45829DC939200CD7B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F654C45A29DC939200CD7B76 /* Localizable.strings */; };
+		F654C45B29DC939900CD7B76 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = F654C45D29DC939900CD7B76 /* Localizable.stringsdict */; };
+		F654C46229DC94B200CD7B76 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F654C46129DC94B200CD7B76 /* RswiftLibrary */; };
 		F6E829E929DC8C1D00E01247 /* VideoPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */; };
 		F6E829EB29DC8C1D00E01247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E829EA29DC8C1D00E01247 /* ContentView.swift */; };
 		F6E829ED29DC8C1D00E01247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E829EC29DC8C1D00E01247 /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 		2E1C406C5332924C1599EEB0 /* Pods-VideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlayer.release.xcconfig"; path = "Target Support Files/Pods-VideoPlayer/Pods-VideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		416ED8B2DA74F1AF171C64C0 /* Pods-VideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlayer.debug.xcconfig"; path = "Target Support Files/Pods-VideoPlayer/Pods-VideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		685120F106EC69925842244C /* Pods_VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F654C45929DC939200CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F654C45C29DC939900CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		F654C45E29DC939C00CD7B76 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F654C45F29DC939F00CD7B76 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = uk; path = uk.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		F6E829E529DC8C1D00E01247 /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerApp.swift; sourceTree = "<group>"; };
 		F6E829EA29DC8C1D00E01247 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,7 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */,
 				66DBDF609AA6A85FFBC9BFF9 /* Pods_VideoPlayer.framework in Frameworks */,
+				F654C46229DC94B200CD7B76 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +53,6 @@
 				416ED8B2DA74F1AF171C64C0 /* Pods-VideoPlayer.debug.xcconfig */,
 				2E1C406C5332924C1599EEB0 /* Pods-VideoPlayer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -53,6 +62,16 @@
 				685120F106EC69925842244C /* Pods_VideoPlayer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F654C45329DC933700CD7B76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F6E829EC29DC8C1D00E01247 /* Assets.xcassets */,
+				F654C45A29DC939200CD7B76 /* Localizable.strings */,
+				F654C45D29DC939900CD7B76 /* Localizable.stringsdict */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F6E829DC29DC8C1D00E01247 = {
@@ -78,7 +97,7 @@
 			children = (
 				F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */,
 				F6E829EA29DC8C1D00E01247 /* ContentView.swift */,
-				F6E829EC29DC8C1D00E01247 /* Assets.xcassets */,
+				F654C45329DC933700CD7B76 /* Resources */,
 				F6E829EE29DC8C1D00E01247 /* Preview Content */,
 			);
 			path = VideoPlayer;
@@ -107,8 +126,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				F654C46729DC971200CD7B76 /* PBXTargetDependency */,
 			);
 			name = VideoPlayer;
+			packageProductDependencies = (
+				F654C45129DC8FF200CD7B76 /* Kingfisher */,
+				F654C46129DC94B200CD7B76 /* RswiftLibrary */,
+			);
 			productName = VideoPlayer;
 			productReference = F6E829E529DC8C1D00E01247 /* VideoPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -135,8 +159,13 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = F6E829DC29DC8C1D00E01247;
+			packageReferences = (
+				F654C45029DC8FF200CD7B76 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */,
+			);
 			productRefGroup = F6E829E629DC8C1D00E01247 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6E829F029DC8C1D00E01247 /* Preview Assets.xcassets in Resources */,
+				F654C45B29DC939900CD7B76 /* Localizable.stringsdict in Resources */,
+				F654C45829DC939200CD7B76 /* Localizable.strings in Resources */,
 				F6E829ED29DC8C1D00E01247 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +225,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F654C46729DC971200CD7B76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F654C46629DC971200CD7B76 /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F654C45A29DC939200CD7B76 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F654C45929DC939200CD7B76 /* en */,
+				F654C45E29DC939C00CD7B76 /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F654C45D29DC939900CD7B76 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F654C45C29DC939900CD7B76 /* en */,
+				F654C45F29DC939F00CD7B76 /* uk */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F6E829F129DC8C1D00E01247 /* Debug */ = {
@@ -322,9 +381,12 @@
 				DEVELOPMENT_TEAM = 3QS73BWYFX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Max Video";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -352,9 +414,12 @@
 				DEVELOPMENT_TEAM = 3QS73BWYFX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Max Video";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,6 +457,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F654C45029DC8FF200CD7B76 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F654C45129DC8FF200CD7B76 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F654C45029DC8FF200CD7B76 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		F654C46129DC94B200CD7B76 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		F654C46629DC971200CD7B76 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F6E829DD29DC8C1D00E01247 /* Project object */;
 }
