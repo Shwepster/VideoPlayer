@@ -33,6 +33,7 @@ final class MainViewModel: ObservableObject {
     
     private func setupObservers() {
         videoImporter.state
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: handleImporterState)
             .store(in: &subscriptions)
     }

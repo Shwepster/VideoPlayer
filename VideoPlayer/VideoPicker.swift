@@ -15,7 +15,7 @@ struct VideoPicker: View {
         PhotosPicker(
             "Import",
             selection: $videoSelection,
-            matching: .images
+            matching: .videos
         )
     }
 }
