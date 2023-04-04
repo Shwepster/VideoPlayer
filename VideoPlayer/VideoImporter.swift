@@ -23,15 +23,19 @@ final class VideoImporter {
             
             switch result {
             case .success(let data?):
+                
+                let id = selection.itemIdentifier ?? UUID().uuidString
                 let format = selection.supportedContentTypes.first?.preferredFilenameExtension
                 
-                guard let url = try? data.saveToTempFile(format: format) else {
+                guard let url = try? data.saveToTempFile(name: id, format: format) else {
                     self.state.send(.fail)
                     return
                 }
                 
                 let asset = AVURLAsset(url: url)
                 asset.generateThumbnail { image in
+                    try? image?.pngData()?.saveToTempFile(name: id, format: "png")
+                    
                     DispatchQueue.main.async {
                         guard let image else {
                             self.state.send(.fail)
