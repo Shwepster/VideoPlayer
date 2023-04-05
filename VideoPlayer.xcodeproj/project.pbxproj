@@ -87,10 +87,45 @@
 		F62AB6E829DD9F4400994EC5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F654C47429DCBC6900CD7B76 /* Extensions */,
 				F654C46C29DCAA5600CD7B76 /* VideoImporter.swift */,
 				F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F62AB6EB29DDA9BC00994EC5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F654C46A29DCA7A100CD7B76 /* VideoPicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F62AB6EC29DDA9C300994EC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F654C46E29DCB19800CD7B76 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F62AB6ED29DDA9D400994EC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6E829EA29DC8C1D00E01247 /* ContentView.swift */,
+				F654C46829DCA3E500CD7B76 /* VideoList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F62AB6EE29DDA9DF00994EC5 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F62AB6ED29DDA9D400994EC5 /* View */,
+				F62AB6EC29DDA9C300994EC5 /* ViewModel */,
+			);
+			path = "Main Screen";
 			sourceTree = "<group>";
 		};
 		F654C45329DC933700CD7B76 /* Resources */ = {
@@ -114,12 +149,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F654C47B29DCD3B500CD7B76 /* Model */ = {
+		F654C47B29DCD3B500CD7B76 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				F654C47929DCD3B300CD7B76 /* VideoModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F6E829DC29DC8C1D00E01247 = {
@@ -144,13 +179,10 @@
 			isa = PBXGroup;
 			children = (
 				F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */,
-				F6E829EA29DC8C1D00E01247 /* ContentView.swift */,
-				F654C46829DCA3E500CD7B76 /* VideoList.swift */,
-				F654C46A29DCA7A100CD7B76 /* VideoPicker.swift */,
-				F654C46E29DCB19800CD7B76 /* MainViewModel.swift */,
+				F62AB6EE29DDA9DF00994EC5 /* Main Screen */,
+				F62AB6EB29DDA9BC00994EC5 /* Views */,
+				F654C47B29DCD3B500CD7B76 /* Models */,
 				F62AB6E829DD9F4400994EC5 /* Helpers */,
-				F654C47B29DCD3B500CD7B76 /* Model */,
-				F654C47429DCBC6900CD7B76 /* Extensions */,
 				F654C45329DC933700CD7B76 /* Resources */,
 				F6E829EE29DC8C1D00E01247 /* Preview Content */,
 			);
