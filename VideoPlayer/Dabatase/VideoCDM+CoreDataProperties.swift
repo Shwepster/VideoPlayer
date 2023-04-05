@@ -13,4 +13,12 @@ extension VideoCDM {
     @NSManaged public var id: String
     @NSManaged public var videoURL: URL
     @NSManaged public var imageURL: URL?
+    
+    func update(_ data: Any) {
+        guard let video = data as? VideoModel else { return }
+        
+        id = video.id
+        videoURL = video.videoURL
+        imageURL = video.imageURL
+    }
 }

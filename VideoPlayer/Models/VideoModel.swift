@@ -27,6 +27,12 @@ final class VideoModel {
         self.videoURL = videoURL
         self.imageURL = imageURL
     }
+    
+    init(_ cdm: VideoCDM) {
+        id = cdm.id
+        videoURL = cdm.videoURL
+        imageURL = cdm.imageURL
+    }
 }
 
 // MARK: - Transferable
