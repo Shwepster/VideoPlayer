@@ -12,6 +12,9 @@
 		F62AB6F229DDAA9000994EC5 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F029DDAA9000994EC5 /* Database.xcdatamodeld */; };
 		F62AB6F429DDD91200994EC5 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */; };
 		F62AB6F629DDD91C00994EC5 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F529DDD91C00994EC5 /* StorageService.swift */; };
+		F62AB70029DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6FF29DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift */; };
+		F62AB70229DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */; };
+		F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70429DDDDC400994EC5 /* BaseCDM.swift */; };
 		F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F654C45129DC8FF200CD7B76 /* Kingfisher */; };
 		F654C45829DC939200CD7B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F654C45A29DC939200CD7B76 /* Localizable.strings */; };
 		F654C45B29DC939900CD7B76 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = F654C45D29DC939900CD7B76 /* Localizable.stringsdict */; };
@@ -39,6 +42,9 @@
 		F62AB6F129DDAA9000994EC5 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		F62AB6F529DDD91C00994EC5 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		F62AB6FF29DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoCDM+CoreDataProperties.swift"; path = "/Users/maximvynnyk/Documents/Developer/Projects/Other/VideoPlayer/VideoPlayer/Dabatase/VideoCDM+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoCDM+CoreDataClass.swift"; path = "/Users/maximvynnyk/Documents/Developer/Projects/Other/VideoPlayer/VideoPlayer/Dabatase/VideoCDM+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		F62AB70429DDDDC400994EC5 /* BaseCDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCDM.swift; sourceTree = "<group>"; };
 		F654C45929DC939200CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F654C45C29DC939900CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		F654C45E29DC939C00CD7B76 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -137,11 +143,22 @@
 		F62AB6EF29DDAA6F00994EC5 /* Dabatase */ = {
 			isa = PBXGroup;
 			children = (
+				F62AB70329DDDDB800994EC5 /* Models */,
 				F62AB6F029DDAA9000994EC5 /* Database.xcdatamodeld */,
 				F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */,
 				F62AB6F529DDD91C00994EC5 /* StorageService.swift */,
 			);
 			path = Dabatase;
+			sourceTree = "<group>";
+		};
+		F62AB70329DDDDB800994EC5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */,
+				F62AB6FF29DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift */,
+				F62AB70429DDDDC400994EC5 /* BaseCDM.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F654C45329DC933700CD7B76 /* Resources */ = {
@@ -328,11 +345,14 @@
 				F654C47629DCCDDC00CD7B76 /* Data+Saving.swift in Sources */,
 				F62AB6F429DDD91200994EC5 /* PersistentContainer.swift in Sources */,
 				F6E829EB29DC8C1D00E01247 /* ContentView.swift in Sources */,
+				F62AB70029DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift in Sources */,
 				F654C47129DCB49100CD7B76 /* CombineExtensions.swift in Sources */,
 				F62AB6EA29DD9F6F00994EC5 /* PreviewGenerator.swift in Sources */,
 				F654C47329DCB4F500CD7B76 /* NSObject+AnuCancellable.swift in Sources */,
 				F654C47829DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift in Sources */,
+				F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */,
 				F62AB6F629DDD91C00994EC5 /* StorageService.swift in Sources */,
+				F62AB70229DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift in Sources */,
 				F6E829E929DC8C1D00E01247 /* VideoPlayerApp.swift in Sources */,
 				F654C46F29DCB19800CD7B76 /* MainViewModel.swift in Sources */,
 				F62AB6F229DDAA9000994EC5 /* Database.xcdatamodeld in Sources */,
