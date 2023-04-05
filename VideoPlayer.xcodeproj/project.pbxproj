@@ -15,6 +15,7 @@
 		F62AB70029DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6FF29DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift */; };
 		F62AB70229DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */; };
 		F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70429DDDDC400994EC5 /* BaseCDM.swift */; };
+		F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70629DE06B100994EC5 /* URL+Documents.swift */; };
 		F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F654C45129DC8FF200CD7B76 /* Kingfisher */; };
 		F654C45829DC939200CD7B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F654C45A29DC939200CD7B76 /* Localizable.strings */; };
 		F654C45B29DC939900CD7B76 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = F654C45D29DC939900CD7B76 /* Localizable.stringsdict */; };
@@ -45,6 +46,7 @@
 		F62AB6FF29DDDC8000994EC5 /* VideoCDM+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoCDM+CoreDataProperties.swift"; path = "/Users/maximvynnyk/Documents/Developer/Projects/Other/VideoPlayer/VideoPlayer/Dabatase/VideoCDM+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoCDM+CoreDataClass.swift"; path = "/Users/maximvynnyk/Documents/Developer/Projects/Other/VideoPlayer/VideoPlayer/Dabatase/VideoCDM+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		F62AB70429DDDDC400994EC5 /* BaseCDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCDM.swift; sourceTree = "<group>"; };
+		F62AB70629DE06B100994EC5 /* URL+Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Documents.swift"; sourceTree = "<group>"; };
 		F654C45929DC939200CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F654C45C29DC939900CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		F654C45E29DC939C00CD7B76 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				F654C47029DCB49100CD7B76 /* CombineExtensions.swift */,
+				F62AB70629DE06B100994EC5 /* URL+Documents.swift */,
 				F654C47729DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift */,
 				F654C47229DCB4F500CD7B76 /* NSObject+AnuCancellable.swift */,
 				F654C47529DCCDDC00CD7B76 /* Data+Saving.swift */,
@@ -357,6 +360,7 @@
 				F654C46F29DCB19800CD7B76 /* MainViewModel.swift in Sources */,
 				F62AB6F229DDAA9000994EC5 /* Database.xcdatamodeld in Sources */,
 				F654C47A29DCD3B300CD7B76 /* VideoModel.swift in Sources */,
+				F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,15 +44,10 @@ extension VideoModel: Transferable {
         } importing: { received in
             let id = UUID().uuidString
             let format = received.file.pathExtension
-            let fileName = "\(id).\(format)"
-            
-            NSLog("Format: \(format)")
-            
-            let directory = NSTemporaryDirectory()
-            let targetURL = NSURL.fileURL(withPathComponents: [directory, fileName])!
+           
+            let targetURL = URL.getPath(for: id, format: format)
                         
-            NSLog("Target path: \(targetURL)")
-            
+            NSLog("Video target path: \(targetURL)")
             try FileManager.default.copyItem(at: received.file, to: targetURL)
             return Self.init(id: id, videoURL: targetURL)
         }
