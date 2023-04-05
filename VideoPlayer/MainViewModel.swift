@@ -22,7 +22,7 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-
+    private let placeholderImage = Image(systemName: "star")
     private let videoImporter: VideoImporter
     private var subscriptions = Set<AnyCancellable>()
     
@@ -44,12 +44,22 @@ final class MainViewModel: ObservableObject {
             importState = .loading
         case .fail, .empty:
             importState = .idle
-        case .loaded(let image):
+        case .loaded(let video):
+            let image: Image = {
+                if let image = video.image {
+                    return Image(uiImage: image)
+                }
+                
+                return placeholderImage
+            }()
+            
             images.insert(image, at: 0)
             importState = .idle
         }
     }
 }
+
+// MARK: - ImportState
 
 extension MainViewModel {
     enum ImportState {

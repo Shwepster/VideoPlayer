@@ -18,39 +18,26 @@ final class VideoImporter {
         videoSelection = selection
         state.send(.loading)
         
-        selection.loadTransferable(type: Data.self) { [weak self] result in
+        selection.loadTransferable(type: VideoModel.self) { [weak self] result in
             guard let self, selection == self.videoSelection else { return }
             
             switch result {
-            case .success(let data?):
+            case .success(let videoModel?):
+                let thumbnailName = "\(videoModel.id)_thumbnail"
                 
-                let id = selection.itemIdentifier ?? UUID().uuidString
-                let format = selection.supportedContentTypes.first?.preferredFilenameExtension
-                
-                guard let url = try? data.saveToTempFile(name: id, format: format) else {
-                    self.state.send(.fail)
-                    return
-                }
-                
-                let asset = AVURLAsset(url: url)
-                asset.generateThumbnail { image in
-                    try? image?.pngData()?.saveToTempFile(name: id, format: "png")
+                videoModel.asset.generateThumbnail { image in
+                    let thumbnailURL = try? image?.pngData()?.saveToTempFile(name: thumbnailName, format: "png")
+                    videoModel.imageURL = thumbnailURL
                     
-                    DispatchQueue.main.async {
-                        guard let image else {
-                            self.state.send(.fail)
-                            return
-                        }
-                        
-                        self.state.send(.loaded(Image(uiImage: image)))
-                    }
+                    // TODO: Save viewModel to DB
+                    
+                    self.state.send(.loaded(videoModel))
                 }
             case .success(nil):
                 self.state.send(.empty)
             case .failure:
                 self.state.send(.fail)
             }
-            //            }
         }
     }
 }
@@ -62,6 +49,6 @@ extension VideoImporter {
         case loading
         case fail
         case empty
-        case loaded(Image)
+        case loaded(VideoModel)
     }
 }
