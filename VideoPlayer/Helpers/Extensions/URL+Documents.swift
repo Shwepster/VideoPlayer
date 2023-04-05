@@ -9,9 +9,13 @@ import Foundation
 
 extension URL {
     static func getDocumentsDirectory() -> URL {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+        guard let documentDirectory = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        ).first else {
             fatalError("no documents directory")
         }
+        
         return documentDirectory
     }
     
