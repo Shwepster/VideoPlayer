@@ -14,15 +14,16 @@ final class VideoImporter {
     var state: CurrentValueSubject<State, Never> = .init(.empty)
     private var videoSelection: PhotosPickerItem?
     private let previewGenerator: PreviewGenerator
+    private let storageService: StorageService
     
-    init(previewGenerator: PreviewGenerator = .shared) {
+    init(previewGenerator: PreviewGenerator = .shared, storageService: StorageService = .shared) {
         self.previewGenerator = previewGenerator
+        self.storageService = storageService
     }
     
     func loadVideo(from selection: PhotosPickerItem) async {
         videoSelection = selection
         state.send(.loading)
-        
         let videoModel = try? await selection.loadTransferable(type: VideoModel.self)
         
         guard let videoModel else {
@@ -33,8 +34,11 @@ final class VideoImporter {
         // TODO: Make generation async and dont wait for it to return video
         let thumbnailURL = await previewGenerator.generatePreview(for: videoModel)
         videoModel.imageURL = thumbnailURL
+        NSLog("Thumbnail: \(thumbnailURL?.path() ?? "")")
         
-        // TODO: Save viewModel to DB
+        storageService.saveVideo(videoModel)
+        
+        NSLog("Saved to DB")
         state.send(.loaded(videoModel))
     }
 }

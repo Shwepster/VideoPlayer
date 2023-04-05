@@ -26,11 +26,23 @@ final class MainViewModel: ObservableObject {
     
     private let placeholderImage = Image(systemName: "star")
     private let videoImporter: VideoImporter
+    private let storageService: StorageService
     private var subscriptions = Set<AnyCancellable>()
     
-    init(videoImporter: VideoImporter) {
+    init(videoImporter: VideoImporter, storageService: StorageService = .shared) {
         self.videoImporter = videoImporter
+        self.storageService = storageService
         setupObservers()
+        loadVideos()
+    }
+    
+    private func loadVideos() {
+        images = storageService.getVideos()
+            .map { video in
+                video.image == nil
+                ? placeholderImage
+                : Image(uiImage:  video.image!)
+            }
     }
     
     private func setupObservers() {
