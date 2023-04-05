@@ -15,7 +15,9 @@ final class MainViewModel: ObservableObject {
     @Published var videoSelection: PhotosPickerItem? {
         didSet {
             if let videoSelection {
-                videoImporter.loadVideo(from: videoSelection)
+                Task {
+                    await videoImporter.loadVideo(from: videoSelection)
+                }
             } else {
                 importState = .idle
             }
