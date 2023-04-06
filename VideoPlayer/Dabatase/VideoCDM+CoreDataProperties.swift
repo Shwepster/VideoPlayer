@@ -11,14 +11,14 @@ import CoreData
 
 extension VideoCDM {
     @NSManaged public var id: String
-    @NSManaged public var videoPath: String
-    @NSManaged public var imagePath: String?
+    @NSManaged public var videoURL: URL
+    @NSManaged public var imageURL: URL?
     
     func update(_ data: Any) {
         guard let video = data as? VideoModel else { return }
         
         id = video.id
-        videoPath = video.videoURL.lastPathComponent
-        imagePath = video.imageURL?.lastPathComponent
+        videoURL = video.videoURL
+        imageURL = video.imageURL
     }
 }
