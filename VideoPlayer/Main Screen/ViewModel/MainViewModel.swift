@@ -43,12 +43,23 @@ final class MainViewModel: ObservableObject {
                 ? placeholderImage
                 : Image(uiImage:  video.image!)
             }
+            .reversed()
     }
     
     private func setupObservers() {
         videoImporter.state
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: handleImporterState)
+            .sink { [weak self] state in
+                self?.handleImporterState(state)
+            }
+            .store(in: &subscriptions)
+        
+        storageService.updatesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                NSLog("Storage updated!")
+                self?.loadVideos()
+            }
             .store(in: &subscriptions)
     }
     
@@ -56,18 +67,7 @@ final class MainViewModel: ObservableObject {
         switch state {
         case .loading:
             importState = .loading
-        case .fail, .empty:
-            importState = .idle
-        case .loaded(let video):
-            let image: Image = {
-                if let image = video.image {
-                    return Image(uiImage: image)
-                }
-                
-                return placeholderImage
-            }()
-            
-            images.insert(image, at: 0)
+        case .fail, .empty, .loaded:
             importState = .idle
         }
     }

@@ -6,16 +6,24 @@
 //
 
 import CoreData
+import Combine
 
 final class StorageService {
     static let shared = StorageService()
-    private init() {}
+    let updatesPublisher: AnyPublisher<Bool, Never>
     
     private lazy var persistentContainer: PersistentContainer = {
         let container = PersistentContainer(name: "Database")
         container.setup()
         return container
     }()
+    
+    private init() {
+        updatesPublisher = NotificationCenter.default
+            .publisher(for: .NSManagedObjectContextDidSave)
+            .map { _ in true }
+            .eraseToAnyPublisher()
+    }
     
     func getVideos() -> [VideoModel] {
         let models: [VideoCDM] = persistentContainer.getObjects() ?? []
