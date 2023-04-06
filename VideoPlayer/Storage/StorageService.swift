@@ -12,8 +12,9 @@ final class StorageService {
     static let shared = StorageService()
     let updatesPublisher: AnyPublisher<Bool, Never>
     
+    private let databaseName = "Database"
     private lazy var persistentContainer: PersistentContainer = {
-        let container = PersistentContainer(name: "Database")
+        let container = PersistentContainer(name: databaseName)
         container.setup()
         return container
     }()

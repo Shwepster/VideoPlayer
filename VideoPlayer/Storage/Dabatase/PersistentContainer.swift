@@ -11,6 +11,11 @@ final class PersistentContainer: NSPersistentContainer {
     private lazy var backgroundContext = newBackgroundContext()
     
     func setup() {
+        let storeDescription = NSPersistentStoreDescription()
+        storeDescription.shouldMigrateStoreAutomatically = true
+        storeDescription.shouldInferMappingModelAutomatically = false // because we have custom mapper
+        persistentStoreDescriptions.append(storeDescription)
+        
         loadPersistentStores { description, error in
             if let error = error {
                 fatalError("Unable to load persistent stores: \(error)")
