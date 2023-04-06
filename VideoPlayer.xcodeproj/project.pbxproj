@@ -16,6 +16,7 @@
 		F62AB70229DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */; };
 		F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70429DDDDC400994EC5 /* BaseCDM.swift */; };
 		F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70629DE06B100994EC5 /* URL+Documents.swift */; };
+		F6309C7C29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F6309C7B29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel */; };
 		F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F654C45129DC8FF200CD7B76 /* Kingfisher */; };
 		F654C45829DC939200CD7B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F654C45A29DC939200CD7B76 /* Localizable.strings */; };
 		F654C45B29DC939900CD7B76 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = F654C45D29DC939900CD7B76 /* Localizable.stringsdict */; };
@@ -33,6 +34,7 @@
 		F6E829EB29DC8C1D00E01247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E829EA29DC8C1D00E01247 /* ContentView.swift */; };
 		F6E829ED29DC8C1D00E01247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E829EC29DC8C1D00E01247 /* Assets.xcassets */; };
 		F6E829F029DC8C1D00E01247 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E829EF29DC8C1D00E01247 /* Preview Assets.xcassets */; };
+		F6FED3C529DEF658001926A0 /* VideoCDMMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FED3C429DEF658001926A0 /* VideoCDMMigration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,9 @@
 		F62AB70129DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoCDM+CoreDataClass.swift"; path = "/Users/maximvynnyk/Documents/Developer/Projects/Other/VideoPlayer/VideoPlayer/Dabatase/VideoCDM+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		F62AB70429DDDDC400994EC5 /* BaseCDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCDM.swift; sourceTree = "<group>"; };
 		F62AB70629DE06B100994EC5 /* URL+Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Documents.swift"; sourceTree = "<group>"; };
+		F6309C7929DECC78004D5D1C /* Database v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Database v2.xcdatamodel"; sourceTree = "<group>"; };
+		F6309C7A29DEDC33004D5D1C /* Database_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database_1.1.xcdatamodel; sourceTree = "<group>"; };
+		F6309C7B29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "ModelMapper_1.0-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		F654C45929DC939200CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F654C45C29DC939900CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		F654C45E29DC939C00CD7B76 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		F6E829EA29DC8C1D00E01247 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6E829EC29DC8C1D00E01247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6E829EF29DC8C1D00E01247 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F6FED3C429DEF658001926A0 /* VideoCDMMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCDMMigration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,10 +151,11 @@
 		F62AB6EF29DDAA6F00994EC5 /* Dabatase */ = {
 			isa = PBXGroup;
 			children = (
-				F62AB70329DDDDB800994EC5 /* Models */,
-				F62AB6F029DDAA9000994EC5 /* Database.xcdatamodeld */,
-				F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */,
 				F62AB6F529DDD91C00994EC5 /* StorageService.swift */,
+				F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */,
+				F62AB70329DDDDB800994EC5 /* Models */,
+				F6FED3C629DF005D001926A0 /* Migration */,
+				F62AB6F029DDAA9000994EC5 /* Database.xcdatamodeld */,
 			);
 			path = Dabatase;
 			sourceTree = "<group>";
@@ -232,6 +239,15 @@
 				F6E829EF29DC8C1D00E01247 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F6FED3C629DF005D001926A0 /* Migration */ = {
+			isa = PBXGroup;
+			children = (
+				F6FED3C429DEF658001926A0 /* VideoCDMMigration.swift */,
+				F6309C7B29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel */,
+			);
+			path = Migration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,12 +371,14 @@
 				F654C47829DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift in Sources */,
 				F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */,
 				F62AB6F629DDD91C00994EC5 /* StorageService.swift in Sources */,
+				F6309C7C29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel in Sources */,
 				F62AB70229DDDC8300994EC5 /* VideoCDM+CoreDataClass.swift in Sources */,
 				F6E829E929DC8C1D00E01247 /* VideoPlayerApp.swift in Sources */,
 				F654C46F29DCB19800CD7B76 /* MainViewModel.swift in Sources */,
 				F62AB6F229DDAA9000994EC5 /* Database.xcdatamodeld in Sources */,
 				F654C47A29DCD3B300CD7B76 /* VideoModel.swift in Sources */,
 				F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */,
+				F6FED3C529DEF658001926A0 /* VideoCDMMigration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,9 +657,11 @@
 		F62AB6F029DDAA9000994EC5 /* Database.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F6309C7A29DEDC33004D5D1C /* Database_1.1.xcdatamodel */,
+				F6309C7929DECC78004D5D1C /* Database v2.xcdatamodel */,
 				F62AB6F129DDAA9000994EC5 /* Database.xcdatamodel */,
 			);
-			currentVersion = F62AB6F129DDAA9000994EC5 /* Database.xcdatamodel */;
+			currentVersion = F6309C7A29DEDC33004D5D1C /* Database_1.1.xcdatamodel */;
 			path = Database.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

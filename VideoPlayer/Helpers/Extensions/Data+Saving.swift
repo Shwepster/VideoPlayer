@@ -17,4 +17,10 @@ extension Data {
         
         return fullURL
     }
+    
+    func saveToStorageFile(name: String = UUID().uuidString, format: String? = nil) throws -> URL {
+        let url = URL.getPath(for: name, format: format)
+        try self.write(to: url)
+        return url
+    }
 }

@@ -10,13 +10,7 @@ import CoreData
 final class PersistentContainer: NSPersistentContainer {
     private lazy var backgroundContext = newBackgroundContext()
     
-    
     func setup() {
-        let storeDescription = NSPersistentStoreDescription()
-        storeDescription.shouldMigrateStoreAutomatically = true
-        storeDescription.shouldInferMappingModelAutomatically = true
-        persistentStoreDescriptions.append(storeDescription)
-       
         loadPersistentStores { description, error in
             if let error = error {
                 fatalError("Unable to load persistent stores: \(error)")

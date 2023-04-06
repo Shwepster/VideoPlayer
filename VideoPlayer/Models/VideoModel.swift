@@ -30,8 +30,8 @@ final class VideoModel {
     
     init(_ cdm: VideoCDM) {
         id = cdm.id
-        videoURL = cdm.videoURL
-        imageURL = cdm.imageURL
+        videoURL = URL.getPath(for: cdm.videoPath)
+        imageURL = cdm.imagePath.map { URL.getPath(for: $0) }
     }
 }
 

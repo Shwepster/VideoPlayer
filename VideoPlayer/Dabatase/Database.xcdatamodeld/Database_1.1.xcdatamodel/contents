@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E252" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="VideoCDM" representedClassName="VideoCDM" elementID="videoURL" syncable="YES">
         <attribute name="id" attributeType="String"/>
-        <attribute name="imageURL" optional="YES" attributeType="URI" elementID="imageURL"/>
-        <attribute name="videoURL" attributeType="URI" elementID="videoURL"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" elementID="imageURL"/>
+        <attribute name="videoPath" attributeType="String" elementID="videoURL"/>
     </entity>
 </model>
