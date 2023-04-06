@@ -10,6 +10,24 @@ import CoreData
 final class PersistentContainer: NSPersistentContainer {
     private lazy var backgroundContext = newBackgroundContext()
     
+    
+    func setup() {
+        let storeDescription = NSPersistentStoreDescription()
+        storeDescription.shouldMigrateStoreAutomatically = true
+        storeDescription.shouldInferMappingModelAutomatically = true
+        persistentStoreDescriptions.append(storeDescription)
+       
+        loadPersistentStores { description, error in
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
+            }
+        }
+        
+        viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        viewContext.shouldDeleteInaccessibleFaults = true
+        viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
     func getObjects<T: FetchableCDM>(_ predicate: NSPredicate? = nil) -> [T]? {
         let request = T.fetchRequest(predicate: predicate)
         let objects = try? viewContext.fetch(request)

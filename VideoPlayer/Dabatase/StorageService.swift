@@ -13,16 +13,7 @@ final class StorageService {
     
     private lazy var persistentContainer: PersistentContainer = {
         let container = PersistentContainer(name: "Database")
-        
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                fatalError("Unable to load persistent stores: \(error)")
-            }
-        }
-        
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        container.viewContext.shouldDeleteInaccessibleFaults = true
-        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.setup()
         return container
     }()
     
