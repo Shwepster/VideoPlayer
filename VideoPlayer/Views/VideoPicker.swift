@@ -13,10 +13,11 @@ struct VideoPicker: View {
         
     var body: some View {
         PhotosPicker(
-            "Import",
             selection: $videoSelection,
-            matching: .videos
-        )
+            matching: .videos) {
+                Label("Import", systemImage: "arrow.down.circle")
+                    .bold()
+        }
     }
 }
 

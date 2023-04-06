@@ -8,7 +8,7 @@
 import AVKit
 import CoreTransferable
 
-final class VideoModel {
+final class VideoModel: Identifiable {
     let id: String
     let videoURL: URL
     var imageURL: URL?
@@ -52,4 +52,14 @@ extension VideoModel: Transferable {
             return Self.init(id: id, videoURL: targetURL)
         }
     }
+}
+
+// TODO: Make only for debug
+
+extension VideoModel {
+    static var testModel = VideoModel(
+        id: "23",
+        videoURL: Bundle.main.url(forResource: "video",
+                                  withExtension: "MOV")!
+    )
 }

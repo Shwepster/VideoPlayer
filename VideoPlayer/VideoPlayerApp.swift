@@ -13,7 +13,7 @@ struct VideoPlayerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: mainViewModel)
+            MainView(viewModel: mainViewModel)
         }
     }
 }
