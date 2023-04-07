@@ -13,10 +13,10 @@ final class VideoModel: Identifiable {
     let videoURL: URL
     var imageURL: URL?
     
-    var image: UIImage? {
+    lazy var image: UIImage? = {
         guard let imageURL else { return nil }
         return UIImage(contentsOfFile: imageURL.path())
-    }
+    }()
     
     var asset: AVURLAsset {
         .init(url: videoURL)

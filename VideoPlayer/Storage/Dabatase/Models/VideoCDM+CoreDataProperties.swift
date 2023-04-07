@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 extension VideoCDM {
-    @NSManaged public var id: String
-    @NSManaged public var videoPath: String
-    @NSManaged public var imagePath: String?
+    @NSManaged var id: String
+    @NSManaged var videoPath: String
+    @NSManaged var imagePath: String?
     
     func update(_ data: Any) {
         guard let video = data as? VideoModel else { return }

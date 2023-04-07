@@ -10,8 +10,7 @@ import SwiftUI
 import PhotosUI
 
 extension MainView {
-    class ViewModel: ObservableObject {
-        @Published var videos: [VideoModel] = []
+    @MainActor class ViewModel: ObservableObject {
         @Published var importState = ImportState.idle
         @Published var videoSelection: PhotosPickerItem? {
             didSet {
@@ -26,18 +25,15 @@ extension MainView {
         }
         
         private let videoImporter: VideoImporter
-        private let storageService: StorageService
         private var subscriptions = Set<AnyCancellable>()
         
-        init(videoImporter: VideoImporter, storageService: StorageService = .shared) {
+        init(videoImporter: VideoImporter) {
             self.videoImporter = videoImporter
-            self.storageService = storageService
             setupObservers()
-            loadVideos()
         }
         
-        private func loadVideos() {
-            videos = storageService.getVideos().reversed()
+        deinit {
+            subscriptions.removeAll()
         }
         
         private func setupObservers() {
@@ -45,14 +41,6 @@ extension MainView {
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] state in
                     self?.handleImporterState(state)
-                }
-                .store(in: &subscriptions)
-            
-            storageService.updatesPublisher
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] _ in
-                    NSLog("Storage updated!")
-                    self?.loadVideos()
                 }
                 .store(in: &subscriptions)
         }

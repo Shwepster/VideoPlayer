@@ -4,5 +4,10 @@
         <attribute name="id" attributeType="String"/>
         <attribute name="imagePath" optional="YES" attributeType="String" elementID="imageURL"/>
         <attribute name="videoPath" attributeType="String" elementID="videoURL"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>
