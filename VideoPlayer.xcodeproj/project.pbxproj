@@ -135,28 +135,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F62AB6EC29DDA9C300994EC5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F654C46E29DCB19800CD7B76 /* MainViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F62AB6ED29DDA9D400994EC5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F6E829EA29DC8C1D00E01247 /* MainView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F62AB6EE29DDA9DF00994EC5 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
+				F6E829EA29DC8C1D00E01247 /* MainView.swift */,
+				F654C46E29DCB19800CD7B76 /* MainViewModel.swift */,
 				F6FED3E229E03D24001926A0 /* VideoList */,
-				F62AB6ED29DDA9D400994EC5 /* View */,
-				F62AB6EC29DDA9C300994EC5 /* ViewModel */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";

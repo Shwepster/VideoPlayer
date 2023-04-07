@@ -11,7 +11,6 @@ struct MainView: View {
     @ObservedObject var viewModel: ViewModel
     @StateObject private var videoViewModel = VideoList.ViewModel()
 
-    
     var body: some View {
         NavigationStack {
             VideoList(viewModel: videoViewModel)
