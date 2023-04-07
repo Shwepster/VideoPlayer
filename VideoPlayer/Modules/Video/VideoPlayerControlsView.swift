@@ -22,7 +22,7 @@ struct VideoPlayerControlsView: View {
             ? player.pause()
             : player.play()
 
-            withAnimation(.easeInOut(duration: 0.2)) {
+            withAnimation(.spring()) {
                 buttonDegree = player.isPlaying ? 180 : 0
             }
         } label: {

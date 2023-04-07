@@ -8,14 +8,16 @@
 import Foundation
 import AVKit
 
-final class VideoPlayerViewModel: ObservableObject {
-    @Published var player: AVPlayer
-    private let video: VideoModel
-    
-    init(video: VideoModel) {
-        self.video = video
+extension VideoPlayerView {
+    class ViewModel: ObservableObject {
+        @Published var player: AVPlayer
+        private let video: VideoModel
         
-        let playerItem = AVPlayerItem(asset: video.asset)
-        player = AVPlayer(playerItem: playerItem)
+        init(video: VideoModel) {
+            self.video = video
+            
+            let playerItem = AVPlayerItem(asset: video.asset)
+            player = AVPlayer(playerItem: playerItem)
+        }
     }
 }

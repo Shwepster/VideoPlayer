@@ -38,7 +38,7 @@ struct VideoList: View {
                 }
             }
         }
-        .fullScreenCover(item: $selectedVideo) {
+        .sheet(item: $selectedVideo) {
             selectedVideo = nil
         } content: { video in
             VideoPlayerView(viewModel: .init(video: video))

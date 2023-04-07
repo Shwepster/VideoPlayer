@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationStack {
@@ -28,7 +28,7 @@ struct MainView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let viewModel = MainViewModel(videoImporter: .init())
+    static let viewModel = MainView.ViewModel(videoImporter: .init())
     static var previews: some View {
         MainView(viewModel: viewModel)
     }
