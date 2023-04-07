@@ -9,7 +9,7 @@ import Foundation
 import AVKit
 
 extension VideoPlayerView {
-    class ViewModel: ObservableObject {
+    @MainActor class ViewModel: ObservableObject {
         @Published var player: AVPlayer
         private let video: VideoModel
         

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct VideoList: View {
-    var videos: [VideoModel]
-    @State private var selectedVideo: VideoModel?
+    @ObservedObject var viewModel: ViewModel
     
     private let columns = [
         GridItem(.flexible()),
@@ -22,7 +21,7 @@ struct VideoList: View {
                 Divider()
                 
                 LazyVGrid(columns: columns, spacing: 4) {
-                    ForEach(videos) { video in
+                    ForEach(viewModel.videos) { video in
                         image(for: video)
                             .resizable()
                             .scaledToFill()
@@ -32,32 +31,33 @@ struct VideoList: View {
                             )
                             .clipped()
                             .onTapGesture {
-                                selectedVideo = video
+                                viewModel.selectVideo(video)
                             }
                     }
                 }
             }
         }
-        .sheet(item: $selectedVideo) {
-            selectedVideo = nil
+        .sheet(item: $viewModel.selectedVideo) {
+            viewModel.deselectVideo()
         } content: { video in
             VideoPlayerView(viewModel: .init(video: video))
         }
     }
     
-    private var placeholderImage: Image {
+    @ViewBuilder private var placeholderImage: Image {
         Image(systemName: "star")
     }
 
-    func image(for video: VideoModel) -> Image {
-        return video.image == nil
+    @ViewBuilder func image(for video: VideoModel) -> Image {
+        video.image == nil
         ? placeholderImage
         : Image(uiImage: video.image!)
     }
 }
 
 struct VideoList_Previews: PreviewProvider {
+    static let viewModel = VideoList.ViewModel()
     static var previews: some View {
-        VideoList(videos: [.testModel])
+        VideoList(viewModel: viewModel)
     }
 }

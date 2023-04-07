@@ -10,7 +10,7 @@ import AVKit
 
 struct VideoPlayerControlsView: View {
     var player: AVPlayer
-    @State private var buttonDegree: Double = 0
+    @State private var isPlaying = false
     
     var body: some View {
         playButton
@@ -22,14 +22,23 @@ struct VideoPlayerControlsView: View {
             ? player.pause()
             : player.play()
 
-            withAnimation(.spring()) {
-                buttonDegree = player.isPlaying ? 180 : 0
+            withAnimation(.spring().speed(1.2)) {
+                isPlaying = player.isPlaying
             }
         } label: {
-            Image(systemName: player.isPlaying ? "pause.circle" : "play.circle")
+            Image(systemName: isPlaying ? "pause.circle" : "play.circle")
                 .imageScale(.large)
+                .opacity(isPlaying ? 0.5 : 0.8)
         }
-        .rotation3DEffect(.init(degrees: buttonDegree), axis: (x: 0, y: 1, z: 0))
+        .tint(.white)
+        .padding(4)
+        .background(
+            Color.black
+                .opacity(0.4)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .scaleEffect(isPlaying ? 1 : 1.5)
+        
     }
 }
 
