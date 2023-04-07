@@ -19,12 +19,9 @@ struct VideoPlayerView: View {
             }
             .ignoresSafeArea()
             .disabled(true)
-            .aspectRatio(contentMode: contentMode)
+//            .aspectRatio(contentMode: contentMode)
             
             VideoPlayerControlsView(player: viewModel.player)
-                .padding()
-                .foregroundColor(.white)
-                .bold()
         }
     }
 }
@@ -34,23 +31,5 @@ struct VideoPlayerView_Previews: PreviewProvider {
                                                 
     static var previews: some View {
         VideoPlayerView(viewModel: viewModel)
-    }
-}
-
-struct WatermarkView: View {
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("CocoaMex")
-                    .fontDesign(.serif)
-                    .bold()
-                    .italic()
-                    .shadow(color: .black, radius: 8)
-                    .foregroundColor(.white.opacity(0.5))
-                    .padding()
-                Spacer()
-            }
-            Spacer()
-        }
     }
 }
