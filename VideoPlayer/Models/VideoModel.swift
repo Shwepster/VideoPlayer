@@ -62,4 +62,10 @@ extension VideoModel {
         videoURL: Bundle.main.url(forResource: "video",
                                   withExtension: "MOV")!
     )
+    
+    static var testModel2 = VideoModel(
+        id: "24",
+        videoURL: Bundle.main.url(forResource: "video",
+                                  withExtension: "MOV")!
+    )
 }

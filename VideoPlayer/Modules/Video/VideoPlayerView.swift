@@ -19,7 +19,6 @@ struct VideoPlayerView: View {
             }
             .ignoresSafeArea()
             .disabled(true)
-//            .aspectRatio(contentMode: contentMode)
             
             VideoPlayerControlsView(player: viewModel.player)
         }

@@ -14,6 +14,9 @@ struct VideoPlayerApp: App {
     var body: some Scene {
         WindowGroup {
              MainView(viewModel: mainViewModel)
+                .onAppear {
+                    UIScrollView.appearance().isPagingEnabled = true
+                }
         }
     }
 }

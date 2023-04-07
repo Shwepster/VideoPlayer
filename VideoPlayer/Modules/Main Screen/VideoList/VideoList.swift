@@ -17,24 +17,26 @@ struct VideoList: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(.horizontal, showsIndicators: false) {
                 Divider()
-                
-                LazyVGrid(columns: columns, spacing: 4) {
+
+                HStack(spacing: 30) {
                     ForEach(viewModel.videos) { video in
                         image(for: video)
                             .resizable()
                             .scaledToFill()
                             .frame(
-                                width: geometry.size.width / 2,
-                                height: geometry.size.width / 2 / 1.4
+                                width: geometry.size.width  * 0.8,
+                                height: (geometry.size.width  * 0.8) * 1.8
                             )
-                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .shadow(color: .primary.opacity(0.5), radius: 8)
                             .onTapGesture {
                                 viewModel.selectVideo(video)
                             }
                     }
                 }
+                .padding(30)
             }
         }
         .sheet(item: $viewModel.selectedVideo) {
