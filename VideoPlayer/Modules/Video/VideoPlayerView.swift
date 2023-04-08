@@ -33,7 +33,7 @@ struct VideoPlayerView: View {
 }
 
 struct VideoPlayerView_Previews: PreviewProvider {
-    static var viewModel = VideoPlayerView.ViewModel(video: .testModel)
+    static var viewModel = VideoPlayerView.ViewModel(video: PreviewHelper.videoModels[0])
                                                 
     static var previews: some View {
         VideoPlayerView(viewModel: viewModel)

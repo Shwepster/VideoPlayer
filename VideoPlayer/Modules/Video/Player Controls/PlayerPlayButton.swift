@@ -9,17 +9,12 @@ import SwiftUI
 import AVKit
 
 struct PlayerPlayButton: View {
-//    var player: AVPlayer // TODO: remove
     var isPlaying: Bool
     var onTap: () -> Void
     
     var body: some View {
         Button {
            onTap()
-            
-//            withAnimation(.spring().speed(1.2)) {
-//                isPlaying = player.isPlaying
-//            }
         } label: {
             Image(systemName: isPlaying ? "pause.circle" : "play.circle")
                 .imageScale(.large)
@@ -42,6 +37,5 @@ struct PlayerPlayButton_Previews: PreviewProvider {
         PlayerPlayButton(isPlaying: false) {
             
         }
-
     }
 }

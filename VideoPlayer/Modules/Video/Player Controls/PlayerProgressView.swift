@@ -51,6 +51,6 @@ struct PlayerProgressView: View {
 
 struct PlayerProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerProgressView(player: .init())
+        PlayerProgressView(player: PreviewHelper.player)
     }
 }

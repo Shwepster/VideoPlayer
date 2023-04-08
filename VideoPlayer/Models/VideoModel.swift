@@ -58,21 +58,3 @@ extension VideoModel: Transferable {
         }
     }
 }
-
-// TODO: Make only for debug
-
-extension VideoModel {
-    static var testModel = VideoModel(
-        id: "23",
-        title: "test 1",
-        videoURL: Bundle.main.url(forResource: "video",
-                                  withExtension: "MOV")!
-    )
-    
-    static var testModel2 = VideoModel(
-        id: "24",
-        title: "test 2",
-        videoURL: Bundle.main.url(forResource: "video",
-                                  withExtension: "MOV")!
-    )
-}

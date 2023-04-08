@@ -54,6 +54,6 @@ struct VideoItemView: View {
 
 struct VideoItemView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoItemView(video: .testModel)
+        VideoItemView(video: PreviewHelper.videoModels[0])
     }
 }
