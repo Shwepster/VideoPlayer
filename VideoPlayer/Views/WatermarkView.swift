@@ -15,8 +15,10 @@ struct WatermarkView: View {
                     .fontDesign(.serif)
                     .bold()
                     .italic()
-                    .shadow(color: .black, radius: 8)
-                    .foregroundColor(.white.opacity(0.6))
+                    .foregroundColor(.white.opacity(0.5))
+                    .padding(8)
+                    .background(Color.black.opacity(0.5))
+                    .clipShape(Capsule(style: .continuous))
                     .padding()
                 Spacer()
             }

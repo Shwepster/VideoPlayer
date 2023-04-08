@@ -13,14 +13,21 @@ struct VideoPlayerView: View {
     @State private var contentMode: ContentMode = .fill
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VideoPlayer(player: viewModel.player) {
+        GeometryReader { geometry in
+            ZStack(alignment: .bottom) {
+                VideoPlayer(player: viewModel.player)
+                .ignoresSafeArea()
+                .disabled(true)
+                .aspectRatio(contentMode: contentMode)
+                .frame(
+                    width: geometry.size.width,
+                    height: geometry.size.height
+                )
+                
                 WatermarkView()
+                
+                VideoPlayerControlsView(player: viewModel.player)
             }
-            .ignoresSafeArea()
-            .disabled(true)
-            
-            VideoPlayerControlsView(player: viewModel.player)
         }
     }
 }
