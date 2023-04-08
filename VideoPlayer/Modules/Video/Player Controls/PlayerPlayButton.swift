@@ -13,29 +13,29 @@ struct PlayerPlayButton: View {
     var onTap: () -> Void
     
     var body: some View {
-        Button {
-           onTap()
-        } label: {
-            Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-                .imageScale(.large)
-                .frame(width: 25, height: 25)
-                .opacity(isPlaying ? 0.5 : 0.8)
+        GeometryReader { geometry in
+            Button {
+                onTap()
+            } label: {
+                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                    .resizable()
+                    .opacity(isPlaying ? 0.4 : 0.6)
+            }
+            .tint(.white)
+            .padding(geometry.size.width / 8)
+            .background(
+                Color.black
+                    .opacity(0.4)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: geometry.size.width / 4))
+            .scaleEffect(isPlaying ? 0.8 : 1)
         }
-        .tint(.white)
-        .padding(4)
-        .background(
-            Color.black
-                .opacity(0.4)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .scaleEffect(isPlaying ? 0.8 : 1)
     }
 }
 
 struct PlayerPlayButton_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerPlayButton(isPlaying: false) {
-            
-        }
+        PlayerPlayButton(isPlaying: false) {}
+            .frame(width: 100, height: 100)
     }
 }

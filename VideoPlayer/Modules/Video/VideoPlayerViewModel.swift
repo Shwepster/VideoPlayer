@@ -18,6 +18,8 @@ extension VideoPlayerView {
             
             let playerItem = AVPlayerItem(asset: video.asset)
             player = AVPlayer(playerItem: playerItem)
+            
+//            player
         }
     }
 }

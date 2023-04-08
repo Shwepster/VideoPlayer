@@ -9,13 +9,12 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: ViewModel
-    @StateObject private var videoViewModel = VideoList.ViewModel()
 
     var body: some View {
         NavigationStack {
             VStack {
                 Divider()
-                VideoList(viewModel: videoViewModel)
+                VideoList(viewModel: .init())
                     .navigationTitle("Imported Videos")
                     .toolbar {
                         if viewModel.importState == .idle {

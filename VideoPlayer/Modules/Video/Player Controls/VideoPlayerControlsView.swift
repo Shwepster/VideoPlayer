@@ -16,21 +16,22 @@ struct VideoPlayerControlsView: View {
         VStack {
             Spacer()
             
-            playButton
-                .scaleEffect(isPlaying ? 0 : 2)
-                .opacity(isPlaying ? 0 : 1)
+            if !isPlaying {
+                playButton
+                    .frame(width: 100, height: 100)
+            }
             
             Spacer()
             
             HStack {
                 PlayerProgressView(player: player)
-                    .padding(.leading)
 
-                playButton
-                    .padding(.trailing)
-                    .frame(width: isPlaying ? nil : 0)
-                    .scaleEffect(isPlaying ? 1 : 0)
+                if isPlaying {
+                    playButton
+                }
             }
+            .frame(height: 30)
+            .padding(.horizontal)
         }
     }
     
@@ -44,11 +45,13 @@ struct VideoPlayerControlsView: View {
                 isPlaying = player.isPlaying
             }
         }
+        .aspectRatio(1 / 1, contentMode: .fit)
+        .transition(.scale.combined(with: .opacity))
     }
 }
 
 struct VideoPlayerControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoPlayerControlsView(player: .init())
+        VideoPlayerControlsView(player: PreviewHelper.player)
     }
 }

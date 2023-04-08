@@ -23,7 +23,7 @@ struct PlayerProgressView: View {
     var body: some View {
         ProgressView(value: currentTime, total: totalTime)
             .progressViewStyle(.linear)
-            .tint(.white)
+            .tint(.white.opacity(0.5))
             .background(
                 GeometryReader { geometry in
                     Color.clear
