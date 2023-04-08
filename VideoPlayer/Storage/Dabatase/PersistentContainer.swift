@@ -8,8 +8,6 @@
 import CoreData
 
 final class PersistentContainer: NSPersistentContainer {
-    private lazy var backgroundContext = newBackgroundContext()
-    
     func setup() {
         let storeDescription = NSPersistentStoreDescription()
         storeDescription.shouldMigrateStoreAutomatically = true
@@ -38,9 +36,9 @@ final class PersistentContainer: NSPersistentContainer {
     }
     
     func createObject<T: UpdatableCDM>(type: T.Type, data: Any) {
-        let object = T(context: backgroundContext)
+        let object = T(context: viewContext)
         object.update(data)
-        saveContext(backgroundContext)
+        saveContext()
     }
     
     /// Updates object. If it does not exist - creates it
@@ -49,7 +47,7 @@ final class PersistentContainer: NSPersistentContainer {
         
         if let object {
             object.update(data)
-            saveContext(backgroundContext)
+            saveContext()
         } else {
             createObject(type: type, data: data)
         }
@@ -58,10 +56,10 @@ final class PersistentContainer: NSPersistentContainer {
     func deleteObjects<T: FetchableCDM>(of type: T.Type, predicate: NSPredicate) {
         let a: [T]? = getObjects(predicate)
         a?.forEach { object in
-            backgroundContext.delete(object)
+            viewContext.delete(object)
         }
         
-        saveContext(backgroundContext)
+        saveContext()
     }
     
     private func saveContext(_ context: NSManagedObjectContext? = nil) {

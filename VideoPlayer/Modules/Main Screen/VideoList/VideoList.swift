@@ -19,11 +19,19 @@ struct VideoList: View {
         TabView {
             ForEach(viewModel.videos) { video in
                 VideoItemView(video: video)
-                    .aspectRatio(1 / 1.8, contentMode: .fit)
+                    .aspectRatio(1 / 1.75, contentMode: .fit)
                     .onTapGesture {
                         viewModel.selectVideo(video)
                     }
-                    .padding(30)
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            viewModel.deleteVideo(video)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 50)
             }
         }
         .tabViewStyle(.page)

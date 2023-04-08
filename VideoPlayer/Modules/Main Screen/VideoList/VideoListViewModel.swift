@@ -35,6 +35,10 @@ extension VideoList {
             selectedVideo = nil
         }
         
+        func deleteVideo(_ video: VideoModel) {
+            storageService.deleteVideo(video)
+        }
+        
         private func loadVideos() {
             videos = storageService.getVideos().reversed()
         }
