@@ -9,11 +9,12 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: ViewModel
-
+    
     var body: some View {
         NavigationStack {
             VStack {
                 Divider()
+                
                 VideoList(viewModel: viewModel.videoListViewModel)
                     .navigationTitle("Imported Videos")
                     .toolbar {
@@ -22,9 +23,9 @@ struct MainView: View {
                                 .padding()
                         } else {
                             ProgressView()
-                            .padding()
+                                .padding()
                         }
-                }
+                    }
             }
         }
     }

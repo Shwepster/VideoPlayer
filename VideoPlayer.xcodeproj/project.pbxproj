@@ -18,9 +18,7 @@
 		F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70429DDDDC400994EC5 /* BaseCDM.swift */; };
 		F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB70629DE06B100994EC5 /* URL+Documents.swift */; };
 		F6309C7C29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F6309C7B29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel */; };
-		F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F654C45129DC8FF200CD7B76 /* Kingfisher */; };
 		F654C45829DC939200CD7B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F654C45A29DC939200CD7B76 /* Localizable.strings */; };
-		F654C46229DC94B200CD7B76 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F654C46129DC94B200CD7B76 /* RswiftLibrary */; };
 		F654C46929DCA3E500CD7B76 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C46829DCA3E500CD7B76 /* VideoList.swift */; };
 		F654C46B29DCA7A100CD7B76 /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C46A29DCA7A100CD7B76 /* VideoPicker.swift */; };
 		F654C46D29DCAA5600CD7B76 /* VideoImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C46C29DCAA5600CD7B76 /* VideoImporter.swift */; };
@@ -105,9 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F654C45229DC8FF200CD7B76 /* Kingfisher in Frameworks */,
 				66DBDF609AA6A85FFBC9BFF9 /* Pods_VideoPlayer.framework in Frameworks */,
-				F654C46229DC94B200CD7B76 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,12 +350,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				F654C46729DC971200CD7B76 /* PBXTargetDependency */,
 			);
 			name = VideoPlayer;
 			packageProductDependencies = (
-				F654C45129DC8FF200CD7B76 /* Kingfisher */,
-				F654C46129DC94B200CD7B76 /* RswiftLibrary */,
 			);
 			productName = VideoPlayer;
 			productReference = F6E829E529DC8C1D00E01247 /* VideoPlayer.app */;
@@ -391,8 +384,6 @@
 			);
 			mainGroup = F6E829DC29DC8C1D00E01247;
 			packageReferences = (
-				F654C45029DC8FF200CD7B76 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */,
 			);
 			productRefGroup = F6E829E629DC8C1D00E01247 /* Products */;
 			projectDirPath = "";
@@ -486,13 +477,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F654C46729DC971200CD7B76 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = F654C46629DC971200CD7B76 /* RswiftGenerateInternalResources */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F654C45A29DC939200CD7B76 /* Localizable.strings */ = {
@@ -709,42 +693,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F654C45029DC8FF200CD7B76 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mac-cain13/R.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F654C45129DC8FF200CD7B76 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F654C45029DC8FF200CD7B76 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		F654C46129DC94B200CD7B76 /* RswiftLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F654C46029DC94B200CD7B76 /* XCRemoteSwiftPackageReference "R" */;
-			productName = RswiftLibrary;
-		};
-		F654C46629DC971200CD7B76 /* RswiftGenerateInternalResources */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "plugin:RswiftGenerateInternalResources";
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F6FED3C729DF021D001926A0 /* Database.xcdatamodeld */ = {
