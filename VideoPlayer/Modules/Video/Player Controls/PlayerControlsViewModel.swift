@@ -15,16 +15,19 @@ extension VideoPlayerControlsView {
         private var playObserver: NSKeyValueObservation?
         private var subscriptions = Set<AnyCancellable>()
         
+        var progressViewModel: PlayerProgressView.ViewModel
+        
         init(player: AVPlayer) {
             self.player = player
             self.isPlaying = player.isPlaying
-            
+            progressViewModel = .init(player: player)
             player.actionAtItemEnd = .pause
             subscribeObservers()
         }
         
         deinit {
             playObserver?.invalidate()
+            NSLog("PlayerControls.VM deinit")
         }
         
         // MARK: - Actions

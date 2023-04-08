@@ -9,48 +9,26 @@ import SwiftUI
 import AVKit
 
 struct PlayerProgressView: View {
-    var player: AVPlayer
-    private var totalTime: Double
-    @State private var currentTime: Double
-    @State private var observer: AnyObject?
-
-    init(player: AVPlayer) {
-        self.player = player
-        self.currentTime = player.currentTime().seconds
-        self.totalTime = player.currentItem?.asset.duration.seconds ?? 0
-    }
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        ProgressView(value: currentTime, total: totalTime)
+        ProgressView(value: viewModel.currentTime, total: viewModel.totalTime)
             .progressViewStyle(.linear)
             .tint(.white.opacity(0.5))
             .background(
                 GeometryReader { geometry in
                     Color.clear
                         .task {
-                            let updateSeconds = 0.5 * totalTime / geometry.size.width
-                            
-                            let timeScale = CMTimeScale(NSEC_PER_SEC)
-                            let updateTime = CMTime(seconds: updateSeconds, preferredTimescale: timeScale)
-                            
-                            observer = player.addPeriodicTimeObserver(
-                                forInterval: updateTime,
-                                queue: .main
-                            ) { [self] time in
-                                self.currentTime = time.seconds
-                            } as AnyObject
+                            await viewModel.didDraw(with: geometry.size.width)
                         }
                 }
             )
-            .onDisappear {
-                player.removeTimeObserver(observer as Any)
-            }
     }
 }
 
 
 struct PlayerProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerProgressView(player: PreviewHelper.player)
+        PlayerProgressView(viewModel: .init(player: PreviewHelper.player))
     }
 }

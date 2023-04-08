@@ -24,11 +24,13 @@ extension MainView {
             }
         }
         
+        let videoListViewModel: VideoList.ViewModel
         private let videoImporter: VideoImporter
         private var subscriptions = Set<AnyCancellable>()
         
         init(videoImporter: VideoImporter) {
             self.videoImporter = videoImporter
+            self.videoListViewModel = .init()
             setupObservers()
         }
         

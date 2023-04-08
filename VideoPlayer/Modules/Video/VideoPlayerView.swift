@@ -26,7 +26,7 @@ struct VideoPlayerView: View {
                 
                 WatermarkView(text: viewModel.title)
                 
-                VideoPlayerControlsView(viewModel: .init(player: viewModel.player))
+                VideoPlayerControlsView(viewModel: viewModel.controlsViewModel)
             }
         }
     }

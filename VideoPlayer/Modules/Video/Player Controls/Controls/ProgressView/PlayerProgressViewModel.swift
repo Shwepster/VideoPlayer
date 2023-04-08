@@ -24,6 +24,7 @@ extension PlayerProgressView {
         
         deinit {
             player.removeTimeObserver(observer as Any)
+            NSLog("ProgressView.VM deinit")
         }
         
         func didDraw(with width: CGFloat) async {
@@ -35,8 +36,8 @@ extension PlayerProgressView {
             observer = player.addPeriodicTimeObserver(
                 forInterval: updateTime,
                 queue: .main
-            ) { [self] time in
-                self.currentTime = time.seconds
+            ) { [weak self] time in
+                self?.currentTime = time.seconds
             } as AnyObject
         }
     }

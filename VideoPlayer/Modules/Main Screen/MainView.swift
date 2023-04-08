@@ -14,7 +14,7 @@ struct MainView: View {
         NavigationStack {
             VStack {
                 Divider()
-                VideoList(viewModel: .init())
+                VideoList(viewModel: viewModel.videoListViewModel)
                     .navigationTitle("Imported Videos")
                     .toolbar {
                         if viewModel.importState == .idle {

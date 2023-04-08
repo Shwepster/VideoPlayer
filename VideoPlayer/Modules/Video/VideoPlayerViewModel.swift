@@ -13,13 +13,20 @@ extension VideoPlayerView {
         @Published var player: AVPlayer
         @Published var title: String
         private let video: VideoModel
+        let controlsViewModel: VideoPlayerControlsView.ViewModel
         
         init(video: VideoModel) {
             self.video = video
-            title = video.title
+            self.title = video.title
             
             let playerItem = AVPlayerItem(asset: video.asset)
-            player = AVPlayer(playerItem: playerItem)
+            let player = AVPlayer(playerItem: playerItem)
+            self.player = player
+            self.controlsViewModel = .init(player: player)
+        }
+        
+        deinit {
+            NSLog("VideoPlayerView.VM deinit")
         }
     }
 }

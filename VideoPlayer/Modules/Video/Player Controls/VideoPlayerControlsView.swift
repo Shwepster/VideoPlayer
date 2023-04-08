@@ -23,7 +23,7 @@ struct VideoPlayerControlsView: View {
             Spacer()
             
             HStack {
-                PlayerProgressView(player: viewModel.player)
+                PlayerProgressView(viewModel: viewModel.progressViewModel)
 
                 if viewModel.isPlaying {
                     playButton
