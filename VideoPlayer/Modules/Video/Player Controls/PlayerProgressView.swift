@@ -1,59 +1,12 @@
 //
-//  VideoPlayerControlsView.swift
+//  PlayerProgressView.swift
 //  VideoPlayer
 //
-//  Created by Maxim Vynnyk on 06.04.2023.
+//  Created by Maxim Vynnyk on 08.04.2023.
 //
 
 import SwiftUI
 import AVKit
-
-struct VideoPlayerControlsView: View {
-    var player: AVPlayer
-    @State private var isPlaying: Bool = false
-    
-    var body: some View {
-        HStack {
-            PlayerProgressView(player: player)
-                .padding(.leading)
-
-            playButton
-                .padding(.trailing)
-        }
-    }
-    
-    var playButton: some View {
-        Button {
-            player.isPlaying
-            ? player.pause()
-            : player.play()
-
-            withAnimation(.spring().speed(1.2)) {
-                isPlaying = player.isPlaying
-            }
-        } label: {
-            Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-                .imageScale(.large)
-                .frame(width: 25, height: 25)
-                .opacity(isPlaying ? 0.5 : 0.8)
-        }
-        .tint(.white)
-        .padding(4)
-        .background(
-            Color.black
-                .opacity(0.4)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .scaleEffect(isPlaying ? 0.8 : 1)
-        
-    }
-}
-
-struct VideoPlayerControlsView_Previews: PreviewProvider {
-    static var previews: some View {
-        VideoPlayerControlsView(player: .init())
-    }
-}
 
 struct PlayerProgressView: View {
     var player: AVPlayer
@@ -92,5 +45,12 @@ struct PlayerProgressView: View {
             .onDisappear {
                 player.removeTimeObserver(observer as Any)
             }
+    }
+}
+
+
+struct PlayerProgressView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlayerProgressView(player: .init())
     }
 }

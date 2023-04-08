@@ -10,6 +10,8 @@
 		66DBDF609AA6A85FFBC9BFF9 /* Pods_VideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685120F106EC69925842244C /* Pods_VideoPlayer.framework */; };
 		F604E53F29E18ACE00153BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E53E29E18ACE00153BA7 /* AppDelegate.swift */; };
 		F604E54529E18EB900153BA7 /* VideoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E54429E18EB900153BA7 /* VideoItemView.swift */; };
+		F604E54A29E1A91500153BA7 /* PlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E54929E1A91500153BA7 /* PlayerProgressView.swift */; };
+		F604E54D29E1A95500153BA7 /* PlayerPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E54C29E1A95500153BA7 /* PlayerPlayButton.swift */; };
 		F62AB6EA29DD9F6F00994EC5 /* PreviewGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */; };
 		F62AB6F429DDD91200994EC5 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */; };
 		F62AB6F629DDD91C00994EC5 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F529DDD91C00994EC5 /* StorageService.swift */; };
@@ -53,6 +55,8 @@
 		F604E53E29E18ACE00153BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F604E54229E18DC300153BA7 /* Database_1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database_1.2.xcdatamodel; sourceTree = "<group>"; };
 		F604E54429E18EB900153BA7 /* VideoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemView.swift; sourceTree = "<group>"; };
+		F604E54929E1A91500153BA7 /* PlayerProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgressView.swift; sourceTree = "<group>"; };
+		F604E54C29E1A95500153BA7 /* PlayerPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPlayButton.swift; sourceTree = "<group>"; };
 		F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewGenerator.swift; sourceTree = "<group>"; };
 		F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		F62AB6F529DDD91C00994EC5 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
@@ -128,6 +132,16 @@
 				F604E53E29E18ACE00153BA7 /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		F604E54E29E1A98C00153BA7 /* Player Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F6FED3D829DF5073001926A0 /* VideoPlayerControlsView.swift */,
+				F604E54C29E1A95500153BA7 /* PlayerPlayButton.swift */,
+				F604E54929E1A91500153BA7 /* PlayerProgressView.swift */,
+			);
+			path = "Player Controls";
 			sourceTree = "<group>";
 		};
 		F62AB6E829DD9F4400994EC5 /* Helpers */ = {
@@ -275,8 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				F6FED3D229DF49BD001926A0 /* VideoPlayerView.swift */,
-				F6FED3D829DF5073001926A0 /* VideoPlayerControlsView.swift */,
 				F6FED3D429DF4A37001926A0 /* VideoPlayerViewModel.swift */,
+				F604E54E29E1A98C00153BA7 /* Player Controls */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -413,6 +427,7 @@
 				F654C46D29DCAA5600CD7B76 /* VideoImporter.swift in Sources */,
 				F654C46B29DCA7A100CD7B76 /* VideoPicker.swift in Sources */,
 				F6FED3D329DF49BD001926A0 /* VideoPlayerView.swift in Sources */,
+				F604E54A29E1A91500153BA7 /* PlayerProgressView.swift in Sources */,
 				F604E53F29E18ACE00153BA7 /* AppDelegate.swift in Sources */,
 				F678881629E0981500BAF93F /* WatermarkView.swift in Sources */,
 				F654C47629DCCDDC00CD7B76 /* Data+Saving.swift in Sources */,
@@ -437,6 +452,7 @@
 				F654C46F29DCB19800CD7B76 /* MainViewModel.swift in Sources */,
 				F654C47A29DCD3B300CD7B76 /* VideoModel.swift in Sources */,
 				F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */,
+				F604E54D29E1A95500153BA7 /* PlayerPlayButton.swift in Sources */,
 				F6FED3C529DEF658001926A0 /* VideoCDMMigration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
