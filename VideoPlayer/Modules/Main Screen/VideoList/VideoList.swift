@@ -16,41 +16,22 @@ struct VideoList: View {
     ]
     
     var body: some View {
-        GeometryReader { geometry in
-            TabView {
-                ForEach(viewModel.videos) { video in
-                    image(for: video)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: geometry.size.width  * 0.8,
-                            height: (geometry.size.width  * 0.8) * 1.8
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .shadow(color: .primary.opacity(0.5), radius: 8)
-                        .onTapGesture {
-                            viewModel.selectVideo(video)
-                        }
-                        .padding(30)
-                }
+        TabView {
+            ForEach(viewModel.videos) { video in
+                VideoItemView(video: video)
+                    .aspectRatio(1 / 1.8, contentMode: .fit)
+                    .onTapGesture {
+                        viewModel.selectVideo(video)
+                    }
+                    .padding(30)
             }
-            .tabViewStyle(.page)
         }
+        .tabViewStyle(.page)
         .sheet(item: $viewModel.selectedVideo) {
             viewModel.deselectVideo()
         } content: { video in
             VideoPlayerView(viewModel: .init(video: video))
         }
-    }
-    
-    @ViewBuilder private var placeholderImage: Image {
-        Image(systemName: "star")
-    }
-
-    @ViewBuilder func image(for video: VideoModel) -> Image {
-        video.image == nil
-        ? placeholderImage
-        : Image(uiImage: video.image!)
     }
 }
 

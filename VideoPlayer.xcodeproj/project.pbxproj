@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		66DBDF609AA6A85FFBC9BFF9 /* Pods_VideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685120F106EC69925842244C /* Pods_VideoPlayer.framework */; };
 		F604E53F29E18ACE00153BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E53E29E18ACE00153BA7 /* AppDelegate.swift */; };
+		F604E54529E18EB900153BA7 /* VideoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E54429E18EB900153BA7 /* VideoItemView.swift */; };
 		F62AB6EA29DD9F6F00994EC5 /* PreviewGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */; };
 		F62AB6F429DDD91200994EC5 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */; };
 		F62AB6F629DDD91C00994EC5 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62AB6F529DDD91C00994EC5 /* StorageService.swift */; };
@@ -50,6 +51,8 @@
 		416ED8B2DA74F1AF171C64C0 /* Pods-VideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlayer.debug.xcconfig"; path = "Target Support Files/Pods-VideoPlayer/Pods-VideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		685120F106EC69925842244C /* Pods_VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604E53E29E18ACE00153BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F604E54229E18DC300153BA7 /* Database_1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database_1.2.xcdatamodel; sourceTree = "<group>"; };
+		F604E54429E18EB900153BA7 /* VideoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemView.swift; sourceTree = "<group>"; };
 		F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewGenerator.swift; sourceTree = "<group>"; };
 		F62AB6F329DDD91200994EC5 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		F62AB6F529DDD91C00994EC5 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
@@ -291,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				F654C46829DCA3E500CD7B76 /* VideoList.swift */,
+				F604E54429E18EB900153BA7 /* VideoItemView.swift */,
 				F6FED3E329E03D35001926A0 /* VideoListViewModel.swift */,
 			);
 			path = VideoList;
@@ -419,6 +423,7 @@
 				F654C47129DCB49100CD7B76 /* CombineExtensions.swift in Sources */,
 				F62AB6EA29DD9F6F00994EC5 /* PreviewGenerator.swift in Sources */,
 				F654C47329DCB4F500CD7B76 /* NSObject+AnuCancellable.swift in Sources */,
+				F604E54529E18EB900153BA7 /* VideoItemView.swift in Sources */,
 				F6FED3CF29DF0C32001926A0 /* VideoCDM+CoreDataClass.swift in Sources */,
 				F654C47829DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift in Sources */,
 				F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */,
@@ -701,10 +706,11 @@
 		F6FED3C729DF021D001926A0 /* Database.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F604E54229E18DC300153BA7 /* Database_1.2.xcdatamodel */,
 				F6FED3C829DF021D001926A0 /* Database.xcdatamodel */,
 				F6FED3C929DF021D001926A0 /* Database_1.1.xcdatamodel */,
 			);
-			currentVersion = F6FED3C929DF021D001926A0 /* Database_1.1.xcdatamodel */;
+			currentVersion = F604E54229E18DC300153BA7 /* Database_1.2.xcdatamodel */;
 			path = Database.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

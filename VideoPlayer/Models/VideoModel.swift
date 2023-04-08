@@ -10,6 +10,7 @@ import CoreTransferable
 
 final class VideoModel: Identifiable {
     let id: String
+    let title: String
     let videoURL: URL
     var imageURL: URL?
     
@@ -22,14 +23,16 @@ final class VideoModel: Identifiable {
         .init(url: videoURL)
     }
    
-    init(id: String, videoURL: URL, imageURL: URL? = nil) {
+    init(id: String, title: String, videoURL: URL, imageURL: URL? = nil) {
         self.id = id
+        self.title = title
         self.videoURL = videoURL
         self.imageURL = imageURL
     }
     
     init(_ cdm: VideoCDM) {
         id = cdm.id
+        title = cdm.title
         videoURL = URL.getPath(for: cdm.videoPath)
         imageURL = cdm.imagePath.map { URL.getPath(for: $0) }
     }
@@ -44,12 +47,14 @@ extension VideoModel: Transferable {
         } importing: { received in
             let id = UUID().uuidString
             let format = received.file.pathExtension
-           
             let targetURL = URL.getPath(for: id, format: format)
+            let title = received.file
+                .lastPathComponent
+                .replacing(".\(format)", with: "")
                         
             NSLog("Video target path: \(targetURL)")
             try FileManager.default.copyItem(at: received.file, to: targetURL)
-            return Self.init(id: id, videoURL: targetURL)
+            return Self.init(id: id, title: title, videoURL: targetURL)
         }
     }
 }
@@ -59,12 +64,14 @@ extension VideoModel: Transferable {
 extension VideoModel {
     static var testModel = VideoModel(
         id: "23",
+        title: "test 1",
         videoURL: Bundle.main.url(forResource: "video",
                                   withExtension: "MOV")!
     )
     
     static var testModel2 = VideoModel(
         id: "24",
+        title: "test 2",
         videoURL: Bundle.main.url(forResource: "video",
                                   withExtension: "MOV")!
     )
