@@ -24,9 +24,9 @@ struct VideoPlayerView: View {
                     height: geometry.size.height
                 )
                 
-                WatermarkView()
+                WatermarkView(text: viewModel.title)
                 
-                VideoPlayerControlsView(player: viewModel.player)
+                VideoPlayerControlsView(viewModel: .init(player: viewModel.player))
             }
         }
     }

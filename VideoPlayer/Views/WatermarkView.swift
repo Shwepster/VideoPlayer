@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct WatermarkView: View {
+    let text: String
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("CocoaMex")
+                Text(text)
                     .fontDesign(.serif)
                     .bold()
                     .italic()
@@ -29,7 +31,7 @@ struct WatermarkView: View {
 
 struct WatermarkView_Previews: PreviewProvider {
     static var previews: some View {
-        WatermarkView()
+        WatermarkView(text: "CocoaMex")
             .background(Color.purple)
     }
 }

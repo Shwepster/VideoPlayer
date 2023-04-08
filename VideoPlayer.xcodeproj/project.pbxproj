@@ -145,9 +145,7 @@
 			children = (
 				F6FED3D829DF5073001926A0 /* VideoPlayerControlsView.swift */,
 				F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */,
-				F604E54C29E1A95500153BA7 /* PlayerPlayButton.swift */,
-				F604E54929E1A91500153BA7 /* PlayerProgressView.swift */,
-				F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */,
+				F69528EF29E1CB4D003BCD1A /* Controls */,
 			);
 			path = "Player Controls";
 			sourceTree = "<group>";
@@ -233,6 +231,24 @@
 				F654C47929DCD3B300CD7B76 /* VideoModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F69528EE29E1CB29003BCD1A /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				F604E54929E1A91500153BA7 /* PlayerProgressView.swift */,
+				F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		F69528EF29E1CB4D003BCD1A /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F604E54C29E1A95500153BA7 /* PlayerPlayButton.swift */,
+				F69528EE29E1CB29003BCD1A /* ProgressView */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		F6E829DC29DC8C1D00E01247 = {

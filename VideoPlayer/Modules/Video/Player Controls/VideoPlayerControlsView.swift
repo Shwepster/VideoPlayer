@@ -9,14 +9,13 @@ import SwiftUI
 import AVKit
 
 struct VideoPlayerControlsView: View {
-    var player: AVPlayer
-    @State private var isPlaying = false
-    
+    @ObservedObject var viewModel: ViewModel
+
     var body: some View {
         VStack {
             Spacer()
-            
-            if !isPlaying {
+
+            if !viewModel.isPlaying {
                 playButton
                     .frame(width: 100, height: 100)
             }
@@ -24,9 +23,9 @@ struct VideoPlayerControlsView: View {
             Spacer()
             
             HStack {
-                PlayerProgressView(player: player)
+                PlayerProgressView(player: viewModel.player)
 
-                if isPlaying {
+                if viewModel.isPlaying {
                     playButton
                 }
             }
@@ -36,13 +35,9 @@ struct VideoPlayerControlsView: View {
     }
     
     var playButton: some View {
-        PlayerPlayButton(isPlaying: isPlaying) {
-            player.isPlaying
-            ? player.pause()
-            : player.play()
-            
+        PlayerPlayButton(isPlaying: viewModel.isPlaying) {
             withAnimation(.spring().speed(1.2)) {
-                isPlaying = player.isPlaying
+                viewModel.togglePlay()
             }
         }
         .aspectRatio(1 / 1, contentMode: .fit)
@@ -52,6 +47,6 @@ struct VideoPlayerControlsView: View {
 
 struct VideoPlayerControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoPlayerControlsView(player: PreviewHelper.player)
+        VideoPlayerControlsView(viewModel: .init(player: PreviewHelper.player))
     }
 }

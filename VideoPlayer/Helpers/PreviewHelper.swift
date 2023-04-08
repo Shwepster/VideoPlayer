@@ -26,7 +26,7 @@ struct PreviewHelper {
     ]
     
     static let player: AVPlayer = {
-        let asset = videoModels[0].asset
+        let asset = videoModels[1].asset
         let playerItem = AVPlayerItem(asset: asset)
         return AVPlayer(playerItem: playerItem)
     }()
