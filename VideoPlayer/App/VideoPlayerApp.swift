@@ -10,13 +10,11 @@ import SwiftUI
 @main
 struct VideoPlayerApp: App {
     @StateObject private var mainViewModel = MainView.ViewModel(videoImporter: .init())
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
              MainView(viewModel: mainViewModel)
-                .onAppear {
-                    UIScrollView.appearance().isPagingEnabled = true
-                }
         }
     }
 }

@@ -17,27 +17,24 @@ struct VideoList: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView(.horizontal, showsIndicators: false) {
-                Divider()
-
-                HStack(spacing: 30) {
-                    ForEach(viewModel.videos) { video in
-                        image(for: video)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(
-                                width: geometry.size.width  * 0.8,
-                                height: (geometry.size.width  * 0.8) * 1.8
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .shadow(color: .primary.opacity(0.5), radius: 8)
-                            .onTapGesture {
-                                viewModel.selectVideo(video)
-                            }
-                    }
+            TabView {
+                ForEach(viewModel.videos) { video in
+                    image(for: video)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(
+                            width: geometry.size.width  * 0.8,
+                            height: (geometry.size.width  * 0.8) * 1.8
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .shadow(color: .primary.opacity(0.5), radius: 8)
+                        .onTapGesture {
+                            viewModel.selectVideo(video)
+                        }
+                        .padding(30)
                 }
-                .padding(30)
             }
+            .tabViewStyle(.page)
         }
         .sheet(item: $viewModel.selectedVideo) {
             viewModel.deselectVideo()
