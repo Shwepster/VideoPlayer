@@ -21,11 +21,11 @@ struct SeekPartView: View {
                     if isArrowsShown {
                         Image(systemName: "chevron.\(side).2")
                             .resizable()
+                            .shadow(radius: 8)
                             .scaledToFit()
                             .foregroundColor(.white)
                             .opacity(0.6)
                             .padding(geometry.size.width / 8)
-                            .background(Color.black.opacity(0.4))
                             .clipShape(RoundedRectangle(
                                 cornerRadius: geometry.size.width / 4
                             ))
@@ -38,9 +38,9 @@ struct SeekPartView: View {
                     }
                 }
                 .onTapGesture(count: 2) {
-                    withAnimation {
+                    withAnimation(.default.speed(3)) {
                         isArrowsShown = true
-                        withAnimation(.default.delay(0.3)) {
+                        withAnimation(.default.delay(0.1)) {
                             isArrowsShown = false
                         }
                     }

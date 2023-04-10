@@ -18,24 +18,26 @@ struct VideoPlayerControlsView: View {
             } onSeekBack: {
                 viewModel.seekBack()
             }
-            
-            VStack {
-                Spacer()
-                HStack {
-                    PlayerProgressView(viewModel: viewModel.progressViewModel)
-
-                    if viewModel.isPlaying {
-                        playButton
-                    }
+            .onTapGesture {
+                withAnimation {
+                    viewModel.isControlsShown.toggle()
                 }
-                .frame(height: 30)
-                .padding(.horizontal)
             }
             
-            if !viewModel.isPlaying {
+            Group {
+                VStack {
+                    Spacer()
+                    HStack {
+                        PlayerProgressView(viewModel: viewModel.progressViewModel)
+                    }
+                    .frame(height: 30)
+                    .padding(.horizontal)
+                }
+                
                 playButton
-                    .frame(width: 100, height: 100)
+                    .frame(width: 80, height: 80)
             }
+            .opacity(viewModel.isControlsShown ? 1 : 0.01)
         }
     }
     
@@ -47,11 +49,5 @@ struct VideoPlayerControlsView: View {
         }
         .aspectRatio(1 / 1, contentMode: .fit)
         .transition(.scale.combined(with: .opacity))
-    }
-}
-
-struct VideoPlayerControlsView_Previews: PreviewProvider {
-    static var previews: some View {
-        VideoPlayerControlsView(viewModel: .init(player: PreviewHelper.player))
     }
 }

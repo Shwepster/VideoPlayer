@@ -5,13 +5,15 @@
 //  Created by Maxim Vynnyk on 06.04.2023.
 //
 
-import Foundation
+import SwiftUI
 import AVKit
 
 extension VideoPlayerView {
     @MainActor class ViewModel: ObservableObject {
         @Published var player: AVPlayer
         @Published var title: String
+        @Published var contentMode: ContentMode = .fill
+        
         private let video: VideoModel
         let controlsViewModel: VideoPlayerControlsView.ViewModel
         

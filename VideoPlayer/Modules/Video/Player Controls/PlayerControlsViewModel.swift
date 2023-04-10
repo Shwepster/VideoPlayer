@@ -11,6 +11,7 @@ import AVKit
 extension VideoPlayerControlsView {
     @MainActor class ViewModel: ObservableObject {
         @Published var isPlaying: Bool
+        @Published var isControlsShown = true
         private(set) var player: AVPlayer
         private var playObserver: NSKeyValueObservation?
         private var subscriptions = Set<AnyCancellable>()

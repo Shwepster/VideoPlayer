@@ -10,7 +10,6 @@ import AVKit
 
 struct VideoPlayerView: View {
     @ObservedObject var viewModel: ViewModel
-    @State private var contentMode: ContentMode = .fill
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,14 +17,13 @@ struct VideoPlayerView: View {
                 VideoPlayer(player: viewModel.player)
                 .ignoresSafeArea()
                 .disabled(true)
-                .aspectRatio(contentMode: contentMode)
+                .aspectRatio(contentMode: viewModel.contentMode)
                 .frame(
                     width: geometry.size.width,
                     height: geometry.size.height
                 )
                 
                 WatermarkView(text: viewModel.title)
-                
                 VideoPlayerControlsView(viewModel: viewModel.controlsViewModel)
             }
         }
