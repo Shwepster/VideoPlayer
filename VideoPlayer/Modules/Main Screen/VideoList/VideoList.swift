@@ -35,10 +35,14 @@ struct VideoList: View {
             }
         }
         .tabViewStyle(.page)
-        .sheet(item: $viewModel.selectedVideo) {
+        .fullScreenCover(item: $viewModel.selectedVideo) {
             viewModel.deselectVideo()
         } content: { video in
             VideoPlayerView(viewModel: .init(video: video))
+                .presentationBackground(.clear)
+                .modifier(SwipeToDismissModifier {
+                    viewModel.selectedVideo = nil
+                })
         }
     }
 }
