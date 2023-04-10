@@ -30,5 +30,15 @@ extension VideoPlayerView {
         deinit {
             NSLog("VideoPlayerView.VM deinit")
         }
+        
+        func handleZoom(_ value: CGFloat) {
+            if value >= 1.5 {
+                contentMode = .fill
+            }
+            
+            if value <= 0.75 {
+                contentMode = .fit
+            }
+        }
     }
 }

@@ -15,16 +15,24 @@ struct VideoPlayerView: View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
                 VideoPlayer(player: viewModel.player)
-                .ignoresSafeArea()
-                .disabled(true)
-                .aspectRatio(contentMode: viewModel.contentMode)
-                .frame(
-                    width: geometry.size.width,
-                    height: geometry.size.height
-                )
+                    .ignoresSafeArea()
+                    .disabled(true)
+                    .aspectRatio(contentMode: viewModel.contentMode)
+                    .frame(
+                        width: geometry.size.width,
+                        height: geometry.size.height
+                    )
+                    .background(Color.black)
                 
                 WatermarkView(text: viewModel.title)
                 VideoPlayerControlsView(viewModel: viewModel.controlsViewModel)
+                    .simultaneousGesture(
+                        MagnificationGesture().onChanged { amount in
+                            withAnimation(.spring()) {
+                                viewModel.handleZoom(amount)
+                            }
+                        }
+                    )
             }
         }
     }
