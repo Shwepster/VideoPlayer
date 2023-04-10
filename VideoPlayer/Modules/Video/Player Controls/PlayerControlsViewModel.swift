@@ -14,6 +14,7 @@ extension VideoPlayerControlsView {
         private(set) var player: AVPlayer
         private var playObserver: NSKeyValueObservation?
         private var subscriptions = Set<AnyCancellable>()
+        private let seekSeconds = 5.0
         
         var progressViewModel: PlayerProgressView.ViewModel
         
@@ -38,6 +39,20 @@ extension VideoPlayerControlsView {
             : player.play()
             
             isPlaying = player.isPlaying
+        }
+        
+        func seekForward() {
+            seek(appendingSecconds: seekSeconds)
+        }
+        
+        func seekBack() {
+            seek(appendingSecconds: -seekSeconds)
+        }
+        
+        private func seek(appendingSecconds: Double) {
+            guard let currentTime = player.currentItem?.currentTime() else { return }
+            let newTime = CMTime(seconds: currentTime.seconds + appendingSecconds, preferredTimescale: 600)
+            player.seek(to: newTime, toleranceBefore: .zero, toleranceAfter: .zero)
         }
         
         // MARK: - Subscriptions

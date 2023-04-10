@@ -12,25 +12,30 @@ struct VideoPlayerControlsView: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        VStack {
-            Spacer()
+        ZStack {
+            PlayerSeekView {
+                viewModel.seekForward()
+            } onSeekBack: {
+                viewModel.seekBack()
+            }
+            
+            VStack {
+                Spacer()
+                HStack {
+                    PlayerProgressView(viewModel: viewModel.progressViewModel)
 
+                    if viewModel.isPlaying {
+                        playButton
+                    }
+                }
+                .frame(height: 30)
+                .padding(.horizontal)
+            }
+            
             if !viewModel.isPlaying {
                 playButton
                     .frame(width: 100, height: 100)
             }
-            
-            Spacer()
-            
-            HStack {
-                PlayerProgressView(viewModel: viewModel.progressViewModel)
-
-                if viewModel.isPlaying {
-                    playButton
-                }
-            }
-            .frame(height: 30)
-            .padding(.horizontal)
         }
     }
     
