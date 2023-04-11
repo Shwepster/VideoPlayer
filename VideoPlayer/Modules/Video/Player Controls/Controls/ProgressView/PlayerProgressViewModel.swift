@@ -10,35 +10,47 @@ import Combine
 
 extension PlayerProgressView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var currentTime: Double
-        @Published var totalTime: Double = 0
-        private var observer: AnyObject?
-        private var player: AVPlayer
+        @Published var totalTime = 0.0
+        @Published var isEditing = false
+        @Published var currentTime: Double {
+            didSet {
+                guard isEditing else { return }
+            }
+        }
+        private var subscriptions = Set<AnyCancellable>()
+        private var engine: VideoPlayerEngine
         private let updateFrequency = 0.5
         
-        init(player: VideoPlayerEngine) {
-            self.player = player.player
-            self.currentTime = player.player.currentTime().seconds
+        init(engine: VideoPlayerEngine) {
+            self.engine = engine
+            self.currentTime = engine.currentTime
+            subscribe()
         }
         
         deinit {
-            player.removeTimeObserver(observer as Any)
             NSLog("ProgressView.VM deinit")
         }
         
         func didDraw(with width: CGFloat) async {
-            guard let duration = (try? await player.currentItem?.asset.load(.duration)) else { return }
+            print("didDraw")
             
-            totalTime = duration.seconds
-            let updateSeconds = updateFrequency * totalTime / width
-            let updateTime = CMTime(seconds: updateSeconds, preferredTimescale: duration.timescale)
-            
-            observer = player.addPeriodicTimeObserver(
-                forInterval: updateTime,
-                queue: .main
-            ) { [weak self] time in
-                self?.currentTime = time.seconds
-            } as AnyObject
+            engine.subscribeOnProgress(forWidth: width, updateFrequency: updateFrequency)
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] time in
+                    // Update only when user is not manualy changing time
+                    if self?.isEditing == false {
+                        self?.currentTime = time
+                    }                    
+                }
+                .store(in: &subscriptions)
+        }
+        
+        // MARK: - Private
+
+        private func subscribe() {
+            engine.duration
+                .compactMap(\.?.seconds)
+                .assign(to: &$totalTime)
         }
     }
 }

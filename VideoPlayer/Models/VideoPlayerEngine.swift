@@ -80,18 +80,15 @@ final class VideoPlayerEngine {
                 let updateSeconds = updateFrequency * time.seconds / width
                 let updateTime = CMTime(seconds: updateSeconds, preferredTimescale: time.timescale)
                 
-                return self.player.periodicTimePublisher()
+                return self.player.periodicTimePublisher(forInterval: updateTime)
                     .map { $0.seconds }
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
-        
-        
-//        return player.periodicTimePublisher()
-//            .map { $0.seconds }
-//            .eraseToAnyPublisher()
     }
     
+    // MARK: - Private
+
     private func loadDuration() {
         Task { [weak self] in
             let duration = try? await self?.player.currentItem?.asset.load(.duration)

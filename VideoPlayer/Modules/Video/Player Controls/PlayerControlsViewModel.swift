@@ -18,7 +18,7 @@ extension VideoPlayerControlsView {
         
         init(player: VideoPlayerEngine) {
             self.player = player
-            progressViewModel = .init(player: player)
+            progressViewModel = .init(engine: player)
             subscribe()
         }
         
@@ -41,6 +41,8 @@ extension VideoPlayerControlsView {
         func seekBack() {
             player.seek(appendingSeconds: -seekSeconds)
         }
+        
+        // MARK: - Private
         
         private func subscribe() {
             player.isPlaying.assign(to: &$isPlaying)

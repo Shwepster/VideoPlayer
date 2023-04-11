@@ -23,6 +23,7 @@ struct PlayerProgressView: View {
                         }
                 }
             )
+            .animation(.spring(), value: viewModel.currentTime)
         
 //        Slider(value: $viewModel.currentTime, in: 0...100) {
 //            Text("Time")
@@ -38,7 +39,7 @@ struct PlayerProgressView: View {
 
 
 struct PlayerProgressView_Previews: PreviewProvider {
-    static let vm = PlayerProgressView.ViewModel(player: .init(
+    static let vm = PlayerProgressView.ViewModel(engine: .init(
         asset: PreviewHelper.videoModels[0].asset
     ))
     
