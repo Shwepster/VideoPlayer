@@ -10,6 +10,11 @@ import Combine
 
 final class VideoPlayerEngine {
     var isPlaying = CurrentValueSubject<Bool, Never>(false)
+    var duration = CurrentValueSubject<CMTime?, Never>(nil)
+    var currentTime: Double {
+        player.currentTime().seconds
+    }
+    
     private(set) var player: AVPlayer
 
     private var playObserver: NSKeyValueObservation?
@@ -21,6 +26,7 @@ final class VideoPlayerEngine {
         player = AVPlayer(playerItem: item)
         player.actionAtItemEnd = .pause
         subscribeObservers()
+        loadDuration()
     }
     
     deinit {
@@ -45,10 +51,8 @@ final class VideoPlayerEngine {
     }
     
     func seek(appendingSeconds: Double) {
-        guard let currentTime = player.currentItem?.currentTime() else { return }
-        
         let newTime = CMTime(
-            seconds: currentTime.seconds + appendingSeconds,
+            seconds: currentTime + appendingSeconds,
             preferredTimescale: 600
         )
         
@@ -59,13 +63,49 @@ final class VideoPlayerEngine {
         )
     }
     
+    func subscribeOnProgress(
+        forWidth width: CGFloat,
+        updateFrequency: Double = 0.5
+    ) -> AnyPublisher<Double, Never> {
+        return duration
+            .compactMap {
+                $0
+            }
+            .flatMap { [weak self] time in
+                guard let self else {
+                    return Just(0.0)
+                        .eraseToAnyPublisher()
+                }
+                
+                let updateSeconds = updateFrequency * time.seconds / width
+                let updateTime = CMTime(seconds: updateSeconds, preferredTimescale: time.timescale)
+                
+                return self.player.periodicTimePublisher()
+                    .map { $0.seconds }
+                    .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+        
+        
+//        return player.periodicTimePublisher()
+//            .map { $0.seconds }
+//            .eraseToAnyPublisher()
+    }
+    
+    private func loadDuration() {
+        Task { [weak self] in
+            let duration = try? await self?.player.currentItem?.asset.load(.duration)
+            self?.duration.send(duration)
+        }
+    }
+    
     private func subscribeObservers() {
         subscribeOnPlayChange()
         subscribeOnPlayEnd()
     }
     
     private func subscribeOnPlayChange() {
-        playObserver = player.observe(\.rate, options: .new) { [weak self] player, value in
+        playObserver = player.observe(\.rate, options: [.initial, .new]) { [weak self] player, value in
             Task { @MainActor [weak self] in
                 guard player.error == nil else {
                     self?.isPlaying.send(false)
