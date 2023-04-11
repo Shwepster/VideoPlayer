@@ -10,20 +10,14 @@ import AVKit
 
 extension VideoPlayerView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var player: AVPlayer
         @Published var title: String
         @Published var contentMode: ContentMode = .fill
-        
-        private let video: VideoModel
+        private(set) var player: VideoPlayerEngine
         let controlsViewModel: VideoPlayerControlsView.ViewModel
         
         init(video: VideoModel) {
-            self.video = video
             self.title = video.title
-            
-            let playerItem = AVPlayerItem(asset: video.asset)
-            let player = AVPlayer(playerItem: playerItem)
-            self.player = player
+            self.player = VideoPlayerEngine(asset: video.asset)
             self.controlsViewModel = .init(player: player)
         }
         

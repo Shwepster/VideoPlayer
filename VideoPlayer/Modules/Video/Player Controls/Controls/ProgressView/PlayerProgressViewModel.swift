@@ -16,9 +16,9 @@ extension PlayerProgressView {
         private var player: AVPlayer
         private let updateFrequency = 0.5
         
-        init(player: AVPlayer) {
-            self.player = player
-            self.currentTime = player.currentTime().seconds
+        init(player: VideoPlayerEngine) {
+            self.player = player.player
+            self.currentTime = player.player.currentTime().seconds
         }
         
         deinit {

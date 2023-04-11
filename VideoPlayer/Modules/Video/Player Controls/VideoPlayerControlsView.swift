@@ -19,35 +19,30 @@ struct VideoPlayerControlsView: View {
                 viewModel.seekBack()
             }
             .onTapGesture {
-                withAnimation {
-                    viewModel.isControlsShown.toggle()
-                }
+                viewModel.isControlsShown.toggle()
             }
             
             Group {
                 VStack {
                     Spacer()
-                    HStack {
-                        PlayerProgressView(viewModel: viewModel.progressViewModel)
-                    }
-                    .frame(height: 30)
-                    .padding(.horizontal)
+                    PlayerProgressView(viewModel: viewModel.progressViewModel)
+                        .frame(height: 30)
+                        .padding(.horizontal)
                 }
                 
                 playButton
                     .frame(width: 80, height: 80)
             }
             .opacity(viewModel.isControlsShown ? 1 : 0.01)
+            .animation(.default.speed(1.5), value: viewModel.isControlsShown)
         }
     }
     
     var playButton: some View {
         PlayerPlayButton(isPlaying: viewModel.isPlaying) {
-            withAnimation(.spring().speed(1.2)) {
-                viewModel.togglePlay()
-            }
+            viewModel.togglePlay()
         }
         .aspectRatio(1 / 1, contentMode: .fit)
-        .transition(.scale.combined(with: .opacity))
+        .animation(.spring().speed(1.5), value: viewModel.isPlaying)
     }
 }

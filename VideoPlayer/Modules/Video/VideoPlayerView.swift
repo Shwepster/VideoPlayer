@@ -14,7 +14,7 @@ struct VideoPlayerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
-                VideoPlayer(player: viewModel.player)
+                VideoPlayer(player: viewModel.player.player)
                     .ignoresSafeArea()
                     .disabled(true)
                     .aspectRatio(contentMode: viewModel.contentMode)
