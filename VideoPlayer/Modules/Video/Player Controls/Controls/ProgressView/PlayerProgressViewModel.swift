@@ -10,20 +10,32 @@ import Combine
 
 extension PlayerProgressView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var totalTime = 0.0
-        @Published var isEditing = false
+        @Published var totalTimeText: String
+        @Published var currentTimeText: String
+        
+        @Published var isEditing: Bool
+        @Published var totalTime: Double
         @Published var currentTime: Double {
             didSet {
-                guard isEditing else { return }
+                if isEditing {
+                    // Seek if user is manualiy scrolling
+                    engine.seek(to: currentTime)
+                }
+                               
+                currentTimeText = Self.timeToString(time: currentTime)
             }
         }
         private var subscriptions = Set<AnyCancellable>()
         private var engine: VideoPlayerEngine
-        private let updateFrequency = 0.5
-        
+        private let updateFrequency: Double = 0.5
+       
         init(engine: VideoPlayerEngine) {
             self.engine = engine
+            self.isEditing = false
             self.currentTime = engine.currentTime
+            self.currentTimeText = Self.timeToString(time: engine.currentTime)
+            self.totalTime = 0
+            self.totalTimeText = Self.timeToString(time: 0)
             subscribe()
         }
         
@@ -37,7 +49,7 @@ extension PlayerProgressView {
             engine.subscribeOnProgress(forWidth: width, updateFrequency: updateFrequency)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] time in
-                    // Update only when user is not manualy changing time
+                    // Update only when user is not manualy scrolling time
                     if self?.isEditing == false {
                         self?.currentTime = time
                     }                    
@@ -49,8 +61,26 @@ extension PlayerProgressView {
 
         private func subscribe() {
             engine.duration
+                .receive(on: DispatchQueue.main)
                 .compactMap(\.?.seconds)
-                .assign(to: &$totalTime)
+                .sink { [weak self] time in
+                    self?.totalTime = time
+                    self?.totalTimeText = Self.timeToString(time: time)
+                }
+                .store(in: &subscriptions)
+        }
+        
+        static func timeToString(time: Double) -> String {
+            let timeInterval = Int(time)
+            let seconds = timeInterval % 60
+            let minutes = (timeInterval / 60) % 60
+            let hours = timeInterval / 3600
+            
+            let formattedString = hours > 0
+            ? String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            : String(format: "%02d:%02d", minutes, seconds)
+            
+            return formattedString
         }
     }
 }

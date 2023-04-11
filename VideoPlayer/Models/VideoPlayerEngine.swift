@@ -16,7 +16,6 @@ final class VideoPlayerEngine {
     }
     
     private(set) var player: AVPlayer
-
     private var playObserver: NSKeyValueObservation?
     private var subscriptions = Set<AnyCancellable>()
     private var didEnd = false
@@ -47,13 +46,22 @@ final class VideoPlayerEngine {
     }
     
     func seek(to time: Double) {
-        // TODO:
+        let newTime = CMTime(
+            seconds: time,
+            preferredTimescale: duration.value?.timescale ?? 600
+        )
+        
+        player.seek(
+            to: newTime,
+            toleranceBefore: .zero,
+            toleranceAfter: .zero
+        )
     }
     
     func seek(appendingSeconds: Double) {
         let newTime = CMTime(
             seconds: currentTime + appendingSeconds,
-            preferredTimescale: 600
+            preferredTimescale: duration.value?.timescale ?? 600
         )
         
         player.seek(

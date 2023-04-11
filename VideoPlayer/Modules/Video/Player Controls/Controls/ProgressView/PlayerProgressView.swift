@@ -12,28 +12,26 @@ struct PlayerProgressView: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        ProgressView(value: viewModel.currentTime, total: viewModel.totalTime)
-            .progressViewStyle(.linear)
-            .tint(.white.opacity(0.5))
-            .background(
-                GeometryReader { geometry in
-                    Color.clear
-                        .task {
-                            await viewModel.didDraw(with: geometry.size.width)
-                        }
-                }
-            )
-            .animation(.spring(), value: viewModel.currentTime)
-        
-//        Slider(value: $viewModel.currentTime, in: 0...100) {
-//            Text("Time")
-//        } minimumValueLabel: {
-//            Text(viewModel.currentTime.description)
-//        } maximumValueLabel: {
-//            Text(viewModel.totalTime.description)
-//        } onEditingChanged: { isEditing in
-//            
-//        }
+        GeometryReader { geometry in
+            Slider(value: $viewModel.currentTime, in: 0...viewModel.totalTime) {
+                Text("Time")
+            } minimumValueLabel: {
+                Text(viewModel.currentTimeText)
+                    .foregroundColor(.white.opacity(0.6))
+                    .monospaced()
+            } maximumValueLabel: {
+                Text(viewModel.totalTimeText)
+                    .foregroundColor(.white.opacity(0.6))
+                    .monospaced()
+            } onEditingChanged: { isEditing in
+                viewModel.isEditing = isEditing
+            }
+            .tint(.white.opacity(0.6))
+            .task {
+                await viewModel.didDraw(with: geometry.size.width)
+            }
+        }
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 

@@ -27,7 +27,7 @@ struct VideoPlayerControlsView: View {
                     Spacer()
                     PlayerProgressView(viewModel: viewModel.progressViewModel)
                         .frame(height: 30)
-                        .padding(.horizontal)
+                        .padding([.horizontal, .bottom])
                 }
                 
                 playButton
