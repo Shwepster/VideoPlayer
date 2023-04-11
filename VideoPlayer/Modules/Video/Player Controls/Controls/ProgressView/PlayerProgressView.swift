@@ -23,12 +23,26 @@ struct PlayerProgressView: View {
                         }
                 }
             )
+        
+//        Slider(value: $viewModel.currentTime, in: 0...100) {
+//            Text("Time")
+//        } minimumValueLabel: {
+//            Text(viewModel.currentTime.description)
+//        } maximumValueLabel: {
+//            Text(viewModel.totalTime.description)
+//        } onEditingChanged: { isEditing in
+//            
+//        }
     }
 }
 
 
 struct PlayerProgressView_Previews: PreviewProvider {
+    static let vm = PlayerProgressView.ViewModel(player: .init(
+        asset: PreviewHelper.videoModels[0].asset
+    ))
+    
     static var previews: some View {
-        PlayerProgressView(viewModel: .init(player: PreviewHelper.player))
+        PlayerProgressView(viewModel: vm)
     }
 }
