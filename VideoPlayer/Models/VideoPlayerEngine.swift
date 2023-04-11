@@ -75,23 +75,19 @@ final class VideoPlayerEngine {
         forWidth width: CGFloat,
         updateFrequency: Double = 0.5
     ) -> AnyPublisher<Double, Never> {
-        return duration
-            .compactMap {
-                $0
+        duration
+            .compactMap { $0 }
+            .map { time in
+                let updateSeconds = updateFrequency * time.seconds / width
+                return CMTime(seconds: updateSeconds, preferredTimescale: time.timescale)
             }
             .flatMap { [weak self] time in
-                guard let self else {
-                    return Just(0.0)
-                        .eraseToAnyPublisher()
-                }
-                
-                let updateSeconds = updateFrequency * time.seconds / width
-                let updateTime = CMTime(seconds: updateSeconds, preferredTimescale: time.timescale)
-                
-                return self.player.periodicTimePublisher(forInterval: updateTime)
-                    .map { $0.seconds }
-                    .eraseToAnyPublisher()
+                self.publisher
+                    .flatMap { engine in
+                        engine.player.periodicTimePublisher(forInterval: time)
+                    }
             }
+            .map(\.seconds)
             .eraseToAnyPublisher()
     }
     

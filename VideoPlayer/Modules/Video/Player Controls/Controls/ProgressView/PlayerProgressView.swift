@@ -17,10 +17,12 @@ struct PlayerProgressView: View {
                 Text("Time")
             } minimumValueLabel: {
                 Text(viewModel.currentTimeText)
+                    .font(.caption)
                     .foregroundColor(.white.opacity(0.6))
                     .monospaced()
             } maximumValueLabel: {
                 Text(viewModel.totalTimeText)
+                    .font(.caption)
                     .foregroundColor(.white.opacity(0.6))
                     .monospaced()
             } onEditingChanged: { isEditing in
