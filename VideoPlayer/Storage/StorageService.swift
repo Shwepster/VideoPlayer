@@ -12,6 +12,7 @@ final class StorageService {
     static let shared = StorageService()
     let updatesPublisher: AnyPublisher<Bool, Never>
     
+    private let fileManager = FileManager.default
     private let databaseName = "Database"
     private lazy var persistentContainer: PersistentContainer = {
         let container = PersistentContainer(name: databaseName)
@@ -46,6 +47,10 @@ final class StorageService {
             predicate: VideoCDM.objectPredicate(id: video.id)
         )
         
-        // TODO: Delete files on disk (video, image)
+        do {
+            try fileManager.removeItem(at: video.videoURL)
+            guard let imageURL = video.imageURL else { return }
+            try fileManager.removeItem(at: imageURL )
+        } catch {}
     }
 }
