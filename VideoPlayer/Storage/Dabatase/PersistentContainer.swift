@@ -25,24 +25,24 @@ final class PersistentContainer: NSPersistentContainer {
         viewContext.automaticallyMergesChangesFromParent = true
     }
     
-    func getObjects<T: FetchableCDM>(_ predicate: NSPredicate? = nil) -> [T]? {
+    func getObjects<T: BaseCDM>(_ predicate: NSPredicate? = nil) -> [T]? {
         let request = T.fetchRequest(predicate: predicate)
         let objects = try? viewContext.fetch(request)
-        return objects as? [T]
+        return objects
     }
     
-    func getObject<T: FetchableCDM>(predicate: NSPredicate) -> T? {
+    func getObject<T: BaseCDM>(predicate: NSPredicate) -> T? {
         getObjects(predicate)?.first
     }
     
-    func createObject<T: UpdatableCDM>(type: T.Type, data: Any) {
+    func createObject<T: BaseCDM>(type: T.Type, data: Any) {
         let object = T(context: viewContext)
         object.update(data)
         saveContext()
     }
     
     /// Updates object. If it does not exist - creates it
-    func saveObject<T: UpdatableCDM & FetchableCDM>(type: T.Type, data: Any, predicate: NSPredicate) {
+    func saveObject<T: BaseCDM>(type: T.Type, data: Any, predicate: NSPredicate) {
         let object: T? = getObject(predicate: predicate)
         
         if let object {
@@ -53,7 +53,7 @@ final class PersistentContainer: NSPersistentContainer {
         }
     }
     
-    func deleteObjects<T: FetchableCDM>(of type: T.Type, predicate: NSPredicate) {
+    func deleteObjects<T: BaseCDM>(of type: T.Type, predicate: NSPredicate) {
         let a: [T]? = getObjects(predicate)
         a?.forEach { object in
             viewContext.delete(object)

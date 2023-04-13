@@ -7,28 +7,22 @@
 
 import CoreData
 
-protocol BaseCDM: UpdatableCDM, FetchableCDM {}
-
-protocol UpdatableCDM: NSManagedObject {
-    func update(_ data: Any)
-}
-
-protocol FetchableCDM: NSManagedObject {
-    associatedtype FetchableType: NSManagedObject = Self
+protocol BaseCDM: NSManagedObject {
     associatedtype Identifier
     
     static var entityName : String { get }
-    static func fetchRequest(predicate: NSPredicate?) -> NSFetchRequest<FetchableType>
+    static func fetchRequest(predicate: NSPredicate?) -> NSFetchRequest<Self>
     static func objectPredicate(id: Identifier) -> NSPredicate
+    func update(_ data: Any)
 }
 
-extension FetchableCDM where Self: NSManagedObject {
+extension BaseCDM {
     static var entityName: String {
-        return String(describing: self)
+        String(describing: self)
     }
     
-    static func fetchRequest(predicate: NSPredicate?) -> NSFetchRequest<FetchableType> {
-        let request = NSFetchRequest<FetchableType>(entityName: entityName)
+    static func fetchRequest(predicate: NSPredicate?) -> NSFetchRequest<Self> {
+        let request = NSFetchRequest<Self>(entityName: entityName)
         request.predicate = predicate
         return request
     }
