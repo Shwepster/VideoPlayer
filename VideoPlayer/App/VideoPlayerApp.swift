@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct VideoPlayerApp: App {
-    @StateObject private var mainViewModel = MainView.ViewModel(videoImporter: .init())
+    @StateObject private var viewModel = ViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-             MainView(viewModel: mainViewModel)
+            MainView(viewModel: viewModel.mainViewModel)
+                .sheet(item: $viewModel.campaign, content: CampaignViewBuilder.buildCampaign)
         }
     }
 }

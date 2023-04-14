@@ -23,26 +23,31 @@ struct VideoPlayerControlsView: View {
             }
             
             Group {
-                VStack {
-                    Spacer()
-                    PlayerProgressView(viewModel: viewModel.progressViewModel)
-                        .frame(height: 30)
-                        .padding([.horizontal, .bottom])
-                }
-                
+                progressLayer
                 playButton
-                    .frame(width: 80, height: 80)
             }
             .opacity(viewModel.isControlsShown ? 1 : 0.01)
             .animation(.default.speed(1.5), value: viewModel.isControlsShown)
         }
     }
     
-    var playButton: some View {
+    @ViewBuilder var playButton: some View {
         PlayerPlayButton(isPlaying: viewModel.isPlaying) {
             viewModel.togglePlay()
         }
-        .aspectRatio(1 / 1, contentMode: .fit)
-        .animation(.spring().speed(1.5), value: viewModel.isPlaying)
+        .frame(width: 80, height: 80)
+        .animation(
+            .spring().speed(1.5),
+            value: viewModel.isPlaying
+        )
+    }
+    
+    @ViewBuilder var progressLayer: some View {
+        VStack {
+            Spacer()
+            PlayerProgressView(viewModel: viewModel.progressViewModel)
+                .frame(height: 30)
+                .padding([.horizontal, .bottom])
+        }
     }
 }

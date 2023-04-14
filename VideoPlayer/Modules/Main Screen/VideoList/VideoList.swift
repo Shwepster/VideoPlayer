@@ -10,11 +10,6 @@ import SwiftUI
 struct VideoList: View {
     @ObservedObject var viewModel: ViewModel
     
-    private let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
     var body: some View {
         TabView {
             ForEach(viewModel.videos) { video in
@@ -28,6 +23,12 @@ struct VideoList: View {
                             viewModel.deleteVideo(video)
                         } label: {
                             Label("Delete", systemImage: "trash")
+                        }
+                        
+                        Button {
+                            // TODO: Add edit
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
                         }
                     }
                     .padding(.horizontal, 30)

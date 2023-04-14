@@ -38,6 +38,14 @@ final class VideoModel: Identifiable {
     }
 }
 
+// MARK: - Equatable
+
+extension VideoModel: Equatable {
+    static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 // MARK: - Transferable
 
 extension VideoModel: Transferable {

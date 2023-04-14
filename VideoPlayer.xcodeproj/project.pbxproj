@@ -28,6 +28,9 @@
 		F654C47629DCCDDC00CD7B76 /* Data+Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C47529DCCDDC00CD7B76 /* Data+Saving.swift */; };
 		F654C47829DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C47729DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift */; };
 		F654C47A29DCD3B300CD7B76 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C47929DCD3B300CD7B76 /* VideoModel.swift */; };
+		F672E4AE29E971B100F30D90 /* CampaignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4AD29E971B100F30D90 /* CampaignService.swift */; };
+		F672E4B029E974B500F30D90 /* CampaignViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4AF29E974B500F30D90 /* CampaignViewBuilder.swift */; };
+		F672E4B229E974F800F30D90 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B129E974F800F30D90 /* AppViewModel.swift */; };
 		F678881629E0981500BAF93F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F678881529E0981500BAF93F /* WatermarkView.swift */; };
 		F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
@@ -80,6 +83,9 @@
 		F654C47529DCCDDC00CD7B76 /* Data+Saving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Saving.swift"; sourceTree = "<group>"; };
 		F654C47729DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+Tumbnail.swift"; sourceTree = "<group>"; };
 		F654C47929DCD3B300CD7B76 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		F672E4AD29E971B100F30D90 /* CampaignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignService.swift; sourceTree = "<group>"; };
+		F672E4AF29E974B500F30D90 /* CampaignViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignViewBuilder.swift; sourceTree = "<group>"; };
+		F672E4B129E974F800F30D90 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F678881529E0981500BAF93F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */,
+				F672E4B129E974F800F30D90 /* AppViewModel.swift */,
 				F604E53E29E18ACE00153BA7 /* AppDelegate.swift */,
 			);
 			path = App;
@@ -163,6 +170,8 @@
 				F654C46C29DCAA5600CD7B76 /* VideoImporter.swift */,
 				F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */,
 				F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */,
+				F672E4AD29E971B100F30D90 /* CampaignService.swift */,
+				F672E4AF29E974B500F30D90 /* CampaignViewBuilder.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -472,6 +481,7 @@
 			files = (
 				F654C46929DCA3E500CD7B76 /* VideoList.swift in Sources */,
 				F654C46D29DCAA5600CD7B76 /* VideoImporter.swift in Sources */,
+				F672E4B229E974F800F30D90 /* AppViewModel.swift in Sources */,
 				F654C46B29DCA7A100CD7B76 /* VideoPicker.swift in Sources */,
 				F6FED3D329DF49BD001926A0 /* VideoPlayerView.swift in Sources */,
 				F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */,
@@ -479,6 +489,8 @@
 				F604E54A29E1A91500153BA7 /* PlayerProgressView.swift in Sources */,
 				F604E53F29E18ACE00153BA7 /* AppDelegate.swift in Sources */,
 				F69528E829E1B6CD003BCD1A /* PlayerProgressViewModel.swift in Sources */,
+				F672E4AE29E971B100F30D90 /* CampaignService.swift in Sources */,
+				F672E4B029E974B500F30D90 /* CampaignViewBuilder.swift in Sources */,
 				F678881629E0981500BAF93F /* WatermarkView.swift in Sources */,
 				F654C47629DCCDDC00CD7B76 /* Data+Saving.swift in Sources */,
 				F62AB6F429DDD91200994EC5 /* PersistentContainer.swift in Sources */,
