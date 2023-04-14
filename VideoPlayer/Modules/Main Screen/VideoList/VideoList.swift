@@ -31,7 +31,7 @@ struct VideoList: View {
         .fullScreenCover(item: $viewModel.selectedVideo) {
             viewModel.deselectVideo()
         } content: { video in
-            VideoPlayerView(viewModel: .init(video: video))
+            VideoView(viewModel: .init(video: video))
                 .presentationBackground(.clear)
                 .modifier(SwipeToDismissModifier {
                     viewModel.selectedVideo = nil

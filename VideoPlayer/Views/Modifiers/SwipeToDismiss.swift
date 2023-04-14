@@ -19,16 +19,19 @@ extension CGSize {
 struct SwipeToDismissModifier: ViewModifier {
     var onDismiss: () -> Void
     @State private var offset: CGSize = .zero
-
+    
     func body(content: Content) -> some View {
         content
+            .scaleEffect(offset == .zero ? 1 : 0.97)
+            .clipShape(Rectangle())
             .offset(y: offset.height)
+            .ignoresSafeArea()
             .animation(.interactiveSpring(), value: offset)
             .simultaneousGesture(
                 DragGesture()
                     .onChanged { gesture in
-                        if gesture.translation.width < 50 {
-                            offset = gesture.translation.multiplied(by: 0.5)
+                        if abs(gesture.translation.width) < 20, abs(gesture.translation.height) > 20 {
+                            offset = gesture.translation.multiplied(by: 0.3)
                         }
                     }
                     .onEnded { _ in

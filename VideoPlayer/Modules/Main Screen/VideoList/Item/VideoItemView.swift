@@ -12,7 +12,7 @@ struct VideoItemView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            imageNew
+            VideoItemImageView(uiImage: video.image)
             
             LinearGradient(
                 gradient: Gradient(colors: [.black, .clear]),
@@ -21,7 +21,7 @@ struct VideoItemView: View {
             )
             
             Text(video.title)
-                .font(.largeTitle)
+                .font(.headline)
                 .bold()
                 .foregroundColor(.white)
                 .padding()
@@ -31,29 +31,6 @@ struct VideoItemView: View {
             color: .primary.opacity(0.5),
             radius: 4
         )
-    }
-    
-    @ViewBuilder var image: some View {
-        if video.image == nil {
-            Image("kp")
-                .resizable()
-                .background(Color.purple)
-        } else {
-            Image(uiImage: video.image!)
-                .resizable()
-        }
-    }
-    
-    @ViewBuilder var imageNew: some View {
-        GeometryReader { geometry in
-            image
-                .scaledToFill()
-                .frame(
-                    width: geometry.size.width,
-                    height: geometry.size.height
-                )
-                .contentShape(Rectangle())
-        }
     }
 }
 

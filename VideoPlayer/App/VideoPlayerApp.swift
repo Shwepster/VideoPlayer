@@ -11,9 +11,11 @@ import SwiftUI
 struct VideoPlayerApp: App {
     @StateObject private var viewModel = ViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+//    @StateObject var model: TestModel = .init()
     
     var body: some Scene {
         WindowGroup {
+//            TestParentView(model: .init())
             MainView(viewModel: viewModel.mainViewModel)
                 .sheet(item: $viewModel.campaign, content: CampaignViewBuilder.buildCampaign)
         }

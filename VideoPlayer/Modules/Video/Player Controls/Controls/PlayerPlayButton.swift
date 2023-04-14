@@ -9,8 +9,8 @@ import SwiftUI
 import AVKit
 
 struct PlayerPlayButton: View {
-    var isPlaying: Bool
-    var onTap: () -> Void
+    let isPlaying: Bool
+    let onTap: () -> Void
     
     var body: some View {
         GeometryReader { geometry in

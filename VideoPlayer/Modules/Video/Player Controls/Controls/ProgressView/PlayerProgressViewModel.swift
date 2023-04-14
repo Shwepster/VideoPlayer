@@ -18,7 +18,7 @@ extension PlayerProgressView {
         @Published var currentTime: Double {
             didSet {
                 if isEditing {
-                    // Seek if user is manualy scrolling
+                    // Seek if user is manually scrolling
                     engine.seek(to: currentTime)
                 }
                                
@@ -44,12 +44,10 @@ extension PlayerProgressView {
         }
         
         func didDraw(with width: CGFloat) async {
-            print("didDraw")
-            
             engine.subscribeOnProgress(forWidth: width, updateFrequency: updateFrequency)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] time in
-                    // Update only when user is not manualy scrolling time
+                    // Update only when user is not manually scrolling time
                     if self?.isEditing == false {
                         self?.currentTime = time
                     }                    

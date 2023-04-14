@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-extension VideoPlayerView {
+extension VideoView {
     @MainActor class ViewModel: ObservableObject {
         @Published var title: String
         @Published var contentMode: ContentMode = .fill
@@ -22,7 +22,7 @@ extension VideoPlayerView {
         }
         
         deinit {
-            NSLog("VideoPlayerView.VM deinit")
+            NSLog("VideoView.VM deinit")
         }
         
         func handleZoom(_ value: CGFloat) {
