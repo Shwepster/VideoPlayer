@@ -12,21 +12,17 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Divider()
-                
-                VideoList(viewModel: viewModel.videoListViewModel)
-                    .navigationTitle("Imported Videos")
-                    .toolbar {
-                        if viewModel.importState == .idle {
-                            VideoPicker(videoSelection: $viewModel.videoSelection)
-                                .padding()
-                        } else {
-                            ProgressView()
-                                .padding()
-                        }
+            VideoList(viewModel: viewModel.videoListViewModel)
+                .navigationTitle("Your Videos")
+                .toolbar {
+                    if viewModel.importState == .idle {
+                        VideoPicker(videoSelection: $viewModel.videoSelection)
+                            .padding()
+                    } else {
+                        ProgressView()
+                            .padding()
                     }
-            }
+                }
         }
     }
 }

@@ -18,7 +18,7 @@ extension PlayerProgressView {
         @Published var currentTime: Double {
             didSet {
                 if isEditing {
-                    // Seek if user is manualiy scrolling
+                    // Seek if user is manualy scrolling
                     engine.seek(to: currentTime)
                 }
                                

@@ -11,31 +11,23 @@ struct VideoList: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        TabView {
-            ForEach(viewModel.videos) { video in
-                VideoItemView(video: video)
-                    .aspectRatio(1 / 1.75, contentMode: .fit)
-                    .onTapGesture {
-                        viewModel.selectVideo(video)
-                    }
-                    .contextMenu {
-                        Button(role: .destructive) {
-                            viewModel.deleteVideo(video)
-                        } label: {
-                            Label("Delete", systemImage: "trash")
+        ScrollView(.vertical) {
+            LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
+                ForEach(viewModel.videos) { video in
+                    VideoItemView(video: video)
+                        .aspectRatio(10/16, contentMode: .fit)
+                        .onTapGesture {
+                            viewModel.selectVideo(video)
                         }
-                        
-                        Button {
-                            // TODO: Add edit
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
+                        .contextMenu {
+                           contextMenu(for: video)
                         }
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.bottom, 50)
+                }
             }
+            .padding(.horizontal)
+            .animation(.spring(), value: viewModel.videos)
+            .tabViewStyle(.page)
         }
-        .tabViewStyle(.page)
         .fullScreenCover(item: $viewModel.selectedVideo) {
             viewModel.deselectVideo()
         } content: { video in
@@ -44,6 +36,20 @@ struct VideoList: View {
                 .modifier(SwipeToDismissModifier {
                     viewModel.selectedVideo = nil
                 })
+        }
+    }
+    
+    @ViewBuilder func contextMenu(for video: VideoModel) -> some View {
+        Button(role: .destructive) {
+            viewModel.deleteVideo(video)
+        } label: {
+            Label("Delete", systemImage: "trash")
+        }
+        
+        Button {
+            // TODO: Add edit
+        } label: {
+            Label("Edit", systemImage: "pencil")
         }
     }
 }
