@@ -19,6 +19,7 @@ struct VideoItemImageView: View {
                     height: geometry.size.height
                 )
                 .contentShape(Rectangle())
+                .animation(.default, value: uiImage)
         }
     }
     

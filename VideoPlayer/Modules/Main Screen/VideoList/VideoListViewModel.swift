@@ -13,6 +13,7 @@ extension VideoList {
     @MainActor class ViewModel: ObservableObject {
         @Published private(set) var videos: [VideoModel] = []
         @Published var selectedVideo: VideoModel?
+        @Published var editedVideo: VideoModel?
         @AppStorage("selectedVideoId") var selectedVideoId: String?
         
         private let storageService: StorageService
@@ -34,12 +35,12 @@ extension VideoList {
             selectedVideo = video
         }
         
-        func deselectVideo() {
-            selectedVideo = nil
-        }
-        
         func deleteVideo(_ video: VideoModel) {
             storageService.deleteVideo(video)
+        }
+        
+        func editVideo(_ video: VideoModel) {
+            editedVideo = video
         }
         
         private func loadVideos() {

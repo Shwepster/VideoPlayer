@@ -14,7 +14,9 @@ struct PreviewHelper {
             id: "23",
             title: "test 1",
             videoURL: Bundle.main.url(forResource: "video",
-                                      withExtension: "MOV")!
+                                      withExtension: "MOV")!,
+            imageURL: Bundle.main.url(forResource: "kp2",
+                                      withExtension: "jpg")!
         ),
         
         .init(

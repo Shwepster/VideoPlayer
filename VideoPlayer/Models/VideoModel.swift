@@ -42,7 +42,18 @@ final class VideoModel: Identifiable {
 
 extension VideoModel: Equatable {
     static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
-        lhs.id == rhs.id
+        lhs.id       == rhs.id &&
+        lhs.title    == rhs.title &&
+        lhs.videoURL == rhs.videoURL &&
+        lhs.imageURL == rhs.imageURL
+    }
+}
+
+// MARK: - Copying
+
+extension VideoModel: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        VideoModel(id: id, title: title, videoURL: videoURL)
     }
 }
 

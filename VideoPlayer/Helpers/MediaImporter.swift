@@ -1,5 +1,5 @@
 //
-//  VideoImporter.swift
+//  MediaImporter.swift
 //  VideoPlayer
 //
 //  Created by Maxim Vynnyk on 04.04.2023.
@@ -10,9 +10,9 @@ import SwiftUI
 import Combine
 import AVKit
 
-final class VideoImporter {
+final class MediaImporter {
     var state: CurrentValueSubject<State, Never> = .init(.empty)
-    private var videoSelection: PhotosPickerItem?
+    private var mediaSelection: PhotosPickerItem?
     private let previewGenerator: PreviewGenerator
     private let storageService: StorageService
     
@@ -21,35 +21,53 @@ final class VideoImporter {
         self.storageService = storageService
     }
     
-    func loadVideo(from selection: PhotosPickerItem) async {
-        videoSelection = selection
+    func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
+        mediaSelection = selection
         state.send(.loading)
         let videoModel = try? await selection.loadTransferable(type: VideoModel.self)
         
         guard let videoModel else {
             state.send(.fail)
-            return
+            return nil
         }
                 
-        // TODO: Make generation async and dont wait for it to return video
+        // TODO: Make generation async and don't wait for it to return video
         let thumbnailURL = await previewGenerator.generatePreview(for: videoModel)
         videoModel.imageURL = thumbnailURL
         NSLog("Thumbnail: \(thumbnailURL?.path() ?? "")")
         
         storageService.saveVideo(videoModel)
-        
-        NSLog("Saved to DB")
-        state.send(.loaded(videoModel))
+        state.send(.loaded)
+        return videoModel
+    }
+    
+    func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
+        mediaSelection = selection
+        state.send(.loading)
+        do {
+            let imageData = try await selection.loadTransferable(type: Data.self)
+            
+            guard let imageData, let image = UIImage(data: imageData) else {
+                state.send(.fail)
+                return (nil, nil)
+            }
+            
+            let imageURL = try imageData.saveToStorageFile(format: "png")
+            return (image, imageURL)
+        } catch {
+            state.send(.fail)
+            return (nil, nil)
+        }
     }
 }
 
 // MARK: - State
 
-extension VideoImporter {
+extension MediaImporter {
     enum State {
         case loading
+        case loaded
         case fail
         case empty
-        case loaded(VideoModel)
     }
 }
