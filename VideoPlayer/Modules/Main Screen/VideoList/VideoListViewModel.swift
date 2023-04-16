@@ -7,16 +7,19 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 extension VideoList {
     @MainActor class ViewModel: ObservableObject {
         @Published private(set) var videos: [VideoModel] = []
         @Published var selectedVideo: VideoModel?
+        @AppStorage("selectedVideoId") var selectedVideoId: String?
+        
         private let storageService: StorageService
         private var subscriptions = Set<AnyCancellable>()
 
-        init(selectedVideo: VideoModel? = nil, storageService: StorageService = .shared) {
-            self.selectedVideo = selectedVideo
+        init(storageService: StorageService = .shared) {
+            self.selectedVideo = nil
             self.storageService = storageService
             
             setupObservers()
@@ -42,6 +45,12 @@ extension VideoList {
         private func loadVideos() {
 //            videos = PreviewHelper.videoModels
             videos = storageService.getVideos().reversed()
+            
+            if selectedVideo == nil, let selectedVideoId {
+                selectedVideo = videos.first { video in
+                    video.id == selectedVideoId
+                }
+            }
         }
         
         private func setupObservers() {
@@ -49,6 +58,13 @@ extension VideoList {
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] _ in
                     self?.loadVideos()
+                }
+                .store(in: &subscriptions)
+            
+            $selectedVideo
+                .map(\.?.id)
+                .sink { [weak self] id in
+                    self?.selectedVideoId = id
                 }
                 .store(in: &subscriptions)
         }
