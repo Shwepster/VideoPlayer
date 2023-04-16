@@ -37,6 +37,7 @@
 		F672E4BD29EC1CB600F30D90 /* EditVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */; };
 		F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */; };
 		F672E4C129EC27C900F30D90 /* kp2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F672E4C029EC27C900F30D90 /* kp2.jpg */; };
+		F672E4C329EC545700F30D90 /* EditVideoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4C229EC545700F30D90 /* EditVideoImagePicker.swift */; };
 		F678881629E0981500BAF93F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F678881529E0981500BAF93F /* WatermarkView.swift */; };
 		F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
@@ -98,6 +99,7 @@
 		F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoView.swift; sourceTree = "<group>"; };
 		F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoViewModel.swift; sourceTree = "<group>"; };
 		F672E4C029EC27C900F30D90 /* kp2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kp2.jpg; sourceTree = "<group>"; };
+		F672E4C229EC545700F30D90 /* EditVideoImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoImagePicker.swift; sourceTree = "<group>"; };
 		F678881529E0981500BAF93F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */,
+				F672E4C229EC545700F30D90 /* EditVideoImagePicker.swift */,
 				F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */,
 			);
 			path = EditVideo;
@@ -525,6 +528,7 @@
 				F654C46929DCA3E500CD7B76 /* VideoList.swift in Sources */,
 				F654C46D29DCAA5600CD7B76 /* MediaImporter.swift in Sources */,
 				F672E4B229E974F800F30D90 /* AppViewModel.swift in Sources */,
+				F672E4C329EC545700F30D90 /* EditVideoImagePicker.swift in Sources */,
 				F654C46B29DCA7A100CD7B76 /* VideoPicker.swift in Sources */,
 				F6FED3D329DF49BD001926A0 /* VideoView.swift in Sources */,
 				F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */,

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct EditVideoView: View {
     @StateObject var viewModel: ViewModel
@@ -15,23 +14,10 @@ struct EditVideoView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
-                VideoItemImageView(uiImage: viewModel.thumbnail)
-                    .aspectRatio(1, contentMode: .fit)
-                    .clipped()
-                    .listRowInsets(.init())
-                    .overlay {
-                        PhotosPicker(
-                            selection: $viewModel.imageSelection,
-                            matching: .images
-                        ) {
-                            Color.black.opacity(0.15)
-                            Image(systemName: "camera.circle.fill")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .tint(.white)
-                                .shadow(radius: 8)
-                        }
-                    }
+                EditVideoImagePicker(
+                    selection: $viewModel.imageSelection,
+                    uiImage: viewModel.thumbnail
+                )
                 
                 HStack {
                     Text("Title")

@@ -46,4 +46,6 @@ struct PreviewHelper {
         let playerItem = AVPlayerItem(asset: asset)
         return AVPlayer(playerItem: playerItem)
     }()
+    
+    static let image = UIImage(named: "kp")!
 }
