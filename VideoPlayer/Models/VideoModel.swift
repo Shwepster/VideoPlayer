@@ -8,30 +8,41 @@
 import AVKit
 import CoreTransferable
 
-final class VideoModel {
+final class VideoModel: Identifiable {
     let id: String
+    let title: String
     let videoURL: URL
     var imageURL: URL?
     
-    var image: UIImage? {
+    lazy var image: UIImage? = {
         guard let imageURL else { return nil }
         return UIImage(contentsOfFile: imageURL.path())
-    }
+    }()
     
     var asset: AVURLAsset {
         .init(url: videoURL)
     }
    
-    init(id: String, videoURL: URL, imageURL: URL? = nil) {
+    init(id: String, title: String, videoURL: URL, imageURL: URL? = nil) {
         self.id = id
+        self.title = title
         self.videoURL = videoURL
         self.imageURL = imageURL
     }
     
     init(_ cdm: VideoCDM) {
         id = cdm.id
+        title = cdm.title
         videoURL = URL.getPath(for: cdm.videoPath)
         imageURL = cdm.imagePath.map { URL.getPath(for: $0) }
+    }
+}
+
+// MARK: - Equatable
+
+extension VideoModel: Equatable {
+    static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
@@ -44,12 +55,14 @@ extension VideoModel: Transferable {
         } importing: { received in
             let id = UUID().uuidString
             let format = received.file.pathExtension
-           
             let targetURL = URL.getPath(for: id, format: format)
+            let title = received.file
+                .lastPathComponent
+                .replacing(".\(format)", with: "")
                         
             NSLog("Video target path: \(targetURL)")
             try FileManager.default.copyItem(at: received.file, to: targetURL)
-            return Self.init(id: id, videoURL: targetURL)
+            return Self.init(id: id, title: title, videoURL: targetURL)
         }
     }
 }
