@@ -56,6 +56,7 @@ extension VideoList {
         
         private func setupObservers() {
             storageService.updatesPublisher
+                .debounce(for: 0.3, scheduler: RunLoop.current) // storage can update few times a second
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] _ in
                     self?.loadVideos()

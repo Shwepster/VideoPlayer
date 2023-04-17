@@ -42,6 +42,7 @@
 		F672E4E229EC637500F30D90 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E129EC637500F30D90 /* Event.swift */; };
 		F672E4E429EC642E00F30D90 /* MediaImporterLoggingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */; };
 		F672E4E629ED2BB200F30D90 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E529ED2BB200F30D90 /* AppServices.swift */; };
+		F672E4E829ED2CE100F30D90 /* MediaImporterDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E729ED2CE100F30D90 /* MediaImporterDecorator.swift */; };
 		F678881629E0981500BAF93F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F678881529E0981500BAF93F /* WatermarkView.swift */; };
 		F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
@@ -108,6 +109,7 @@
 		F672E4E129EC637500F30D90 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterLoggingProxy.swift; sourceTree = "<group>"; };
 		F672E4E529ED2BB200F30D90 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		F672E4E729ED2CE100F30D90 /* MediaImporterDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterDecorator.swift; sourceTree = "<group>"; };
 		F678881529E0981500BAF93F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				F672E4DE29EC62F300F30D90 /* Logger.swift */,
 				F672E4E129EC637500F30D90 /* Event.swift */,
 				F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */,
+				F672E4E729ED2CE100F30D90 /* MediaImporterDecorator.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				F672E4AE29E971B100F30D90 /* CampaignService.swift in Sources */,
 				F672E4B029E974B500F30D90 /* CampaignViewBuilder.swift in Sources */,
 				F678881629E0981500BAF93F /* WatermarkView.swift in Sources */,
+				F672E4E829ED2CE100F30D90 /* MediaImporterDecorator.swift in Sources */,
 				F654C47629DCCDDC00CD7B76 /* Data+Saving.swift in Sources */,
 				F672E4BA29EA0ECB00F30D90 /* VideoPlayerView.swift in Sources */,
 				F62AB6F429DDD91200994EC5 /* PersistentContainer.swift in Sources */,

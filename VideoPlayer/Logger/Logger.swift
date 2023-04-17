@@ -12,10 +12,11 @@ protocol Logger {
 }
 
 final class BaseLogger: Logger {
-    static let shared = BaseLogger()
-    private init() {}
-    
     func log(event: Event) {
-        NSLog(event.name)
+        if event.parameters.isEmpty {
+            NSLog("%@", event.name)
+        } else {
+            NSLog("%@\nParameters:\n%@", event.name, event.parameters)
+        }
     }
 }

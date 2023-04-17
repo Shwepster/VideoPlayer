@@ -11,13 +11,11 @@ import PhotosUI
 import SwiftUI
 import Combine
 
-final class MediaImporterLoggingProxy: MediaImporterProtocol {
-    var state: CurrentValueSubject<MediaImporterState, Never> { mediaImporter.state }
-    
+final class MediaImporterLoggingProxy: MediaImporterProtocol {    
     private let mediaImporter: MediaImporterProtocol
     private let logger: Logger
     
-    init(mediaImporter: MediaImporterProtocol, logger: Logger = BaseLogger.shared) {
+    init(mediaImporter: MediaImporterProtocol, logger: Logger) {
         self.mediaImporter = mediaImporter
         self.logger = logger
     }
@@ -25,12 +23,20 @@ final class MediaImporterLoggingProxy: MediaImporterProtocol {
     func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
         logger.log(event: .startImportingVideo())
         let result = await mediaImporter.loadVideo(from: selection)
-        logger.log(event: .finishImportingVideo())
         
+        if let preview = result?.imageURL {
+            logger.log(event: .generatedPreview(path: preview.path()))
+        }
+        
+        if let result {
+            logger.log(event: .videoImportedSuccess(videoPath: result.videoURL.path()))
+        }
+        
+        logger.log(event: .finishImportingVideo())
         return result
     }
     
     func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
-        return await mediaImporter.loadImage(from: selection)
+        await mediaImporter.loadImage(from: selection)
     }
 }

@@ -10,8 +10,10 @@ import Foundation
 enum AppServices {
     static func createMediaImporter() -> MediaImporterProtocol {
         let mediaImporter = MediaImporter()
-        let loggerImporter = MediaImporterLoggingProxy(mediaImporter: mediaImporter)
-        // TODO: Add Decorator for preview generation
+        let previewDecorator = MediaImporterPreviewDecorator(mediaImporter: mediaImporter)
+        let loggerImporter = MediaImporterLoggingProxy(mediaImporter: previewDecorator, logger: logger)
         return loggerImporter
     }
+    
+    static var logger: Logger = BaseLogger()
 }
