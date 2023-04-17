@@ -14,7 +14,7 @@ final class PreviewGenerator {
     func generatePreview(for video: VideoModel) async -> URL? {
         let image = await video.asset.generateThumbnail()
         let thumbnailName = "\(video.id)_thumbnail"
-        let thumbnailURL = try? image?.pngData()?.saveToStorageFile(name: thumbnailName, format: "png")
+        let thumbnailURL = try? image?.jpegData(compressionQuality: 0.25)?.saveToStorageFile(name: thumbnailName, format: "jpeg")
         return thumbnailURL
     }
 }

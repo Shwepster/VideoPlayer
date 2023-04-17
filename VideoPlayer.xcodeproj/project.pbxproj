@@ -32,7 +32,7 @@
 		F672E4B029E974B500F30D90 /* CampaignViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4AF29E974B500F30D90 /* CampaignViewBuilder.swift */; };
 		F672E4B229E974F800F30D90 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B129E974F800F30D90 /* AppViewModel.swift */; };
 		F672E4B429EA026800F30D90 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B329EA026800F30D90 /* Test.swift */; };
-		F672E4B729EA086A00F30D90 /* VideoItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B629EA086A00F30D90 /* VideoItemImageView.swift */; };
+		F672E4B729EA086A00F30D90 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B629EA086A00F30D90 /* ImageView.swift */; };
 		F672E4BA29EA0ECB00F30D90 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B929EA0ECB00F30D90 /* VideoPlayerView.swift */; };
 		F672E4BD29EC1CB600F30D90 /* EditVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */; };
 		F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */; };
@@ -43,6 +43,9 @@
 		F672E4E429EC642E00F30D90 /* MediaImporterLoggingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */; };
 		F672E4E629ED2BB200F30D90 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E529ED2BB200F30D90 /* AppServices.swift */; };
 		F672E4E829ED2CE100F30D90 /* MediaImporterDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E729ED2CE100F30D90 /* MediaImporterDecorator.swift */; };
+		F672E4EA29EDADC100F30D90 /* ViewImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E929EDADC100F30D90 /* ViewImageFetcher.swift */; };
+		F672E4EC29EDB2E100F30D90 /* ItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4EB29EDB2E100F30D90 /* ItemImageView.swift */; };
+		F6751A7C29EDC1B7003145FC /* ThumbnailCompressorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6751A7B29EDC1B7003145FC /* ThumbnailCompressorService.swift */; };
 		F678881629E0981500BAF93F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F678881529E0981500BAF93F /* WatermarkView.swift */; };
 		F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
@@ -99,7 +102,7 @@
 		F672E4AF29E974B500F30D90 /* CampaignViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignViewBuilder.swift; sourceTree = "<group>"; };
 		F672E4B129E974F800F30D90 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F672E4B329EA026800F30D90 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		F672E4B629EA086A00F30D90 /* VideoItemImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemImageView.swift; sourceTree = "<group>"; };
+		F672E4B629EA086A00F30D90 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		F672E4B929EA0ECB00F30D90 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoView.swift; sourceTree = "<group>"; };
 		F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +113,9 @@
 		F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterLoggingProxy.swift; sourceTree = "<group>"; };
 		F672E4E529ED2BB200F30D90 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		F672E4E729ED2CE100F30D90 /* MediaImporterDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterDecorator.swift; sourceTree = "<group>"; };
+		F672E4E929EDADC100F30D90 /* ViewImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageFetcher.swift; sourceTree = "<group>"; };
+		F672E4EB29EDB2E100F30D90 /* ItemImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageView.swift; sourceTree = "<group>"; };
+		F6751A7B29EDC1B7003145FC /* ThumbnailCompressorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCompressorService.swift; sourceTree = "<group>"; };
 		F678881529E0981500BAF93F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 				F654C47429DCBC6900CD7B76 /* Extensions */,
 				F654C46C29DCAA5600CD7B76 /* MediaImporter.swift */,
 				F672E4E529ED2BB200F30D90 /* AppServices.swift */,
+				F672E4E929EDADC100F30D90 /* ViewImageFetcher.swift */,
+				F6751A7B29EDC1B7003145FC /* ThumbnailCompressorService.swift */,
 				F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */,
 				F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */,
 				F672E4AD29E971B100F30D90 /* CampaignService.swift */,
@@ -289,7 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				F604E54429E18EB900153BA7 /* VideoItemView.swift */,
-				F672E4B629EA086A00F30D90 /* VideoItemImageView.swift */,
+				F672E4B629EA086A00F30D90 /* ImageView.swift */,
+				F672E4EB29EDB2E100F30D90 /* ItemImageView.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -555,6 +564,7 @@
 				F654C46B29DCA7A100CD7B76 /* VideoPicker.swift in Sources */,
 				F672E4E429EC642E00F30D90 /* MediaImporterLoggingProxy.swift in Sources */,
 				F6FED3D329DF49BD001926A0 /* VideoView.swift in Sources */,
+				F672E4EC29EDB2E100F30D90 /* ItemImageView.swift in Sources */,
 				F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */,
 				F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */,
 				F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */,
@@ -583,7 +593,7 @@
 				F6FED3CF29DF0C32001926A0 /* VideoCDM+CoreDataClass.swift in Sources */,
 				F6B6A19F29E587440054093A /* AVPlayer+Publisher.swift in Sources */,
 				F654C47829DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift in Sources */,
-				F672E4B729EA086A00F30D90 /* VideoItemImageView.swift in Sources */,
+				F672E4B729EA086A00F30D90 /* ImageView.swift in Sources */,
 				F62AB70529DDDDC400994EC5 /* BaseCDM.swift in Sources */,
 				F62AB6F629DDD91C00994EC5 /* StorageService.swift in Sources */,
 				F69528F529E46A6B003BCD1A /* SeekPartView.swift in Sources */,
@@ -596,6 +606,8 @@
 				F6FED3E429E03D35001926A0 /* VideoListViewModel.swift in Sources */,
 				F6FED3D929DF5073001926A0 /* VideoPlayerControlsView.swift in Sources */,
 				F672E4BD29EC1CB600F30D90 /* EditVideoView.swift in Sources */,
+				F672E4EA29EDADC100F30D90 /* ViewImageFetcher.swift in Sources */,
+				F6751A7C29EDC1B7003145FC /* ThumbnailCompressorService.swift in Sources */,
 				F654C46F29DCB19800CD7B76 /* MainViewModel.swift in Sources */,
 				F654C47A29DCD3B300CD7B76 /* VideoModel.swift in Sources */,
 				F62AB70729DE06B100994EC5 /* URL+Documents.swift in Sources */,

@@ -16,7 +16,7 @@ struct EditVideoView: View {
             Form {
                 EditVideoImagePicker(
                     selection: $viewModel.imageSelection,
-                    uiImage: viewModel.thumbnail
+                    image: viewModel.thumbnail
                 )
                 
                 HStack {

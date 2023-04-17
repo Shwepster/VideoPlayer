@@ -10,10 +10,10 @@ import PhotosUI
 
 struct EditVideoImagePicker: View {
     @Binding var selection: PhotosPickerItem?
-    let uiImage: UIImage?
+    let image: Image?
     
     var body: some View {
-        VideoItemImageView(uiImage: uiImage)
+        ImageView(image: image)
             .aspectRatio(1, contentMode: .fit)
             .clipped()
             .listRowInsets(.init())
@@ -37,6 +37,6 @@ struct EditVideoImagePicker: View {
 
 struct EditVideoImagePicker_Previews: PreviewProvider {
     static var previews: some View {
-        EditVideoImagePicker(selection: .constant(nil), uiImage: PreviewHelper.image)
+        EditVideoImagePicker(selection: .constant(nil), image: PreviewHelper.image)
     }
 }

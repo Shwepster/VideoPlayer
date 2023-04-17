@@ -11,6 +11,9 @@ import UIKit
 final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         UIScrollView.appearance().isPagingEnabled = true
+        
+//        ThumbnailCompressorService.shared.findAndCompressAll()
+        
         return true
     }
 }

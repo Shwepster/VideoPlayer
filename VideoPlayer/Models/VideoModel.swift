@@ -8,25 +8,18 @@
 import AVKit
 import CoreTransferable
 
-struct VideoModel: Identifiable {
+final class VideoModel: Identifiable {
     let id: String
     let title: String
     let videoURL: URL
+    var asset: AVURLAsset
     var imageURL: URL?
-    
-    var image: UIImage? {
-        guard let imageURL else { return nil }
-        return UIImage(contentsOfFile: imageURL.path())
-    }
-    
-    var asset: AVURLAsset {
-        .init(url: videoURL)
-    }
    
     init(id: String, title: String, videoURL: URL, imageURL: URL? = nil) {
         self.id = id
         self.title = title
         self.videoURL = videoURL
+        self.asset = .init(url: videoURL)
         self.imageURL = imageURL
     }
     
@@ -34,6 +27,7 @@ struct VideoModel: Identifiable {
         id = cdm.id
         title = cdm.title
         videoURL = URL.getPath(for: cdm.videoPath)
+        asset = .init(url: videoURL)
         imageURL = cdm.imagePath.map { URL.getPath(for: $0) }
     }
 }
@@ -46,6 +40,14 @@ extension VideoModel: Equatable {
         lhs.title    == rhs.title &&
         lhs.videoURL == rhs.videoURL &&
         lhs.imageURL == rhs.imageURL
+    }
+}
+
+// MARK: - Copying
+
+extension VideoModel: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        VideoModel(id: id, title: title, videoURL: videoURL)
     }
 }
 
@@ -63,6 +65,7 @@ extension VideoModel: Transferable {
                 .lastPathComponent
                 .replacing(".\(format)", with: "")
                         
+            NSLog("Video target path: \(targetURL)")
             try FileManager.default.copyItem(at: received.file, to: targetURL)
             return Self.init(id: id, title: title, videoURL: targetURL)
         }

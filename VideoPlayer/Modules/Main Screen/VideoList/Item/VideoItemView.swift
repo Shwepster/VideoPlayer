@@ -12,7 +12,7 @@ struct VideoItemView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            VideoItemImageView(uiImage: video.image)
+            ItemImageView(url: video.imageURL)
             
             LinearGradient(
                 gradient: Gradient(colors: [.black, .clear]),

@@ -7,6 +7,7 @@
 
 import Foundation
 import AVKit
+import SwiftUI
 
 struct PreviewHelper {
     static let videoModels: [VideoModel] = [
@@ -47,5 +48,5 @@ struct PreviewHelper {
         return AVPlayer(playerItem: playerItem)
     }()
     
-    static let image = UIImage(named: "kp")!
+    static let image = Image("kp")
 }

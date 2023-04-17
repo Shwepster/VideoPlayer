@@ -51,8 +51,13 @@ final class MediaImporter: MediaImporterProtocol {
                 return (nil, nil)
             }
             
-            let imageURL = try imageData.saveToStorageFile(format: "png")
-            return (image, imageURL)
+            // compress
+            guard let compressedData = image.jpegData(compressionQuality: 0.25),
+                  let compressedImage = UIImage(data: compressedData)
+            else { return (nil, nil) }
+            
+            let imageURL = try compressedData.saveToStorageFile(format: "jpeg")
+            return (compressedImage, imageURL)
         } catch {
             return (nil, nil)
         }

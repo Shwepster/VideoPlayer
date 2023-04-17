@@ -43,7 +43,7 @@ final class MediaImporterPreviewDecorator: MediaImporterDecorator {
     override func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
         let video = await super.loadVideo(from: selection)
 
-        if var video {
+        if let video {
             let thumbnailURL = await previewGenerator.generatePreview(for: video)
             video.imageURL = thumbnailURL
             storageService.saveVideo(video)

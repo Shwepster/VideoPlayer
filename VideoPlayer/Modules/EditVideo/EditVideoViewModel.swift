@@ -14,7 +14,7 @@ extension EditVideoView {
     @MainActor class ViewModel: ObservableObject {
         @Published var imageLoadingState: ImportState = .idle
         @Published var title: String
-        @Published var thumbnail: UIImage?
+        @Published var thumbnail: Image?
         @Published var imageSelection: PhotosPickerItem? {
             didSet {
                 if let imageSelection {
@@ -35,8 +35,11 @@ extension EditVideoView {
             self.storageService = storageService
             self.mediaImporter = mediaImporter
             self.title = video.title
-            self.thumbnail = video.image
             self.thumbnailURL = video.imageURL
+            
+            Task {
+                thumbnail = await ViewImageFetcher.makeImage(from: video.imageURL)
+            }
         }
         
         func save() {
@@ -61,7 +64,7 @@ extension EditVideoView {
                     return
                 }
                 
-                thumbnail = image
+                thumbnail = Image(uiImage: image)
                 thumbnailURL = url
                 imageLoadingState = .idle
             }
