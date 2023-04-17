@@ -11,44 +11,38 @@ struct VideoList: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView(.vertical) {
-                LazyVGrid(
-                    columns: [
-                        .init(.fixed(geometry.size.width / 2 - 16)),
-                        .init(.fixed(geometry.size.width / 2 - 16))
-                    ]
-                ) {
-                    ForEach(viewModel.videos) { video in
-                        VideoItemView(video: video)
-                            .aspectRatio(10/16, contentMode: .fit)
-                            .onTapGesture {
-                                viewModel.selectVideo(video)
-                            }
-                            .contextMenu {
-                                contextMenu(for: video)
-                            }
-                    }
+        ScrollView(.vertical) {
+            LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
+                ForEach(viewModel.videos) { video in
+                    VideoItemView(video: video)
+                        .aspectRatio(10/16, contentMode: .fit)
+                        .onTapGesture {
+                            viewModel.selectVideo(video)
+                        }
+                        .contextMenu {
+                           contextMenu(for: video)
+                        }
                 }
-                .animation(.spring(), value: viewModel.videos)
-                .tabViewStyle(.page)
             }
-            .fullScreenCover(item: $viewModel.selectedVideo) { video in
-                VideoView(viewModel: .init(video: video))
-                    .presentationBackground(.clear)
-                    .modifier(SwipeToDismissModifier {
-                        viewModel.selectedVideo = nil
-                    })
-            }
-            .sheet(item: $viewModel.editedVideo) { video in
-                EditVideoView(viewModel: .init(
-                    video: video,
-                    mediaImporter: AppServices.createMediaImporter()
-                ))
-                .presentationDetents([.fraction(0.7)])
-                .presentationDragIndicator(.visible)
-                .presentationContentInteraction(.resizes)
-            }
+            .padding(.horizontal)
+            .animation(.spring(), value: viewModel.videos)
+            .tabViewStyle(.page)
+        }
+        .fullScreenCover(item: $viewModel.selectedVideo) { video in
+            VideoView(viewModel: .init(video: video))
+                .presentationBackground(.clear)
+                .modifier(SwipeToDismissModifier {
+                    viewModel.selectedVideo = nil
+                })
+        }
+        .sheet(item: $viewModel.editedVideo) { video in
+            EditVideoView(viewModel: .init(
+                video: video,
+                mediaImporter: AppServices.createMediaImporter()
+            ))
+            .presentationDetents([.fraction(0.7)])
+            .presentationDragIndicator(.visible)
+            .presentationContentInteraction(.resizes)
         }
     }
     

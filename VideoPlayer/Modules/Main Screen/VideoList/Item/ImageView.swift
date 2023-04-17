@@ -12,7 +12,7 @@ struct ImageView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            (image ?? Image("kp"))
+            image?
                 .resizable()
                 .scaledToFill()
                 .frame(

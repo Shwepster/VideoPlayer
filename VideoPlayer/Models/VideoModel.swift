@@ -12,14 +12,15 @@ final class VideoModel: Identifiable {
     let id: String
     let title: String
     let videoURL: URL
-    var asset: AVURLAsset
     var imageURL: URL?
+    var asset: AVURLAsset {
+        .init(url: videoURL)
+    }
    
     init(id: String, title: String, videoURL: URL, imageURL: URL? = nil) {
         self.id = id
         self.title = title
         self.videoURL = videoURL
-        self.asset = .init(url: videoURL)
         self.imageURL = imageURL
     }
     
@@ -27,7 +28,6 @@ final class VideoModel: Identifiable {
         id = cdm.id
         title = cdm.title
         videoURL = URL.getPath(for: cdm.videoPath)
-        asset = .init(url: videoURL)
         imageURL = cdm.imagePath.map { URL.getPath(for: $0) }
     }
 }
