@@ -10,8 +10,23 @@ import SwiftUI
 import Combine
 import AVKit
 
-final class MediaImporter {
-    var state: CurrentValueSubject<State, Never> = .init(.empty)
+protocol MediaImporterProtocol {
+    var state: CurrentValueSubject<MediaImporterState, Never> { get }
+    func loadVideo(from selection: PhotosPickerItem) async -> VideoModel?
+    func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?)
+}
+
+// MARK: - State
+
+enum MediaImporterState {
+    case loading
+    case loaded
+    case fail
+    case empty
+}
+
+final class MediaImporter: MediaImporterProtocol {
+    var state: CurrentValueSubject<MediaImporterState, Never> = .init(.empty)
     private var mediaSelection: PhotosPickerItem?
     private let previewGenerator: PreviewGenerator
     private let storageService: StorageService
@@ -58,16 +73,5 @@ final class MediaImporter {
             state.send(.fail)
             return (nil, nil)
         }
-    }
-}
-
-// MARK: - State
-
-extension MediaImporter {
-    enum State {
-        case loading
-        case loaded
-        case fail
-        case empty
     }
 }

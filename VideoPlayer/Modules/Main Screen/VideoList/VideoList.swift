@@ -38,7 +38,7 @@ struct VideoList: View {
         .sheet(item: $viewModel.editedVideo) { video in
             EditVideoView(viewModel: .init(
                 video: video,
-                mediaImporter: .init()
+                mediaImporter: AppServices.createMediaImporter()
             ))
             .presentationDetents([.fraction(0.7)])
             .presentationDragIndicator(.visible)

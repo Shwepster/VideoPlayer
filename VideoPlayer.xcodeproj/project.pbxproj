@@ -38,6 +38,10 @@
 		F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */; };
 		F672E4C129EC27C900F30D90 /* kp2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F672E4C029EC27C900F30D90 /* kp2.jpg */; };
 		F672E4C329EC545700F30D90 /* EditVideoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4C229EC545700F30D90 /* EditVideoImagePicker.swift */; };
+		F672E4DF29EC62F300F30D90 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4DE29EC62F300F30D90 /* Logger.swift */; };
+		F672E4E229EC637500F30D90 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E129EC637500F30D90 /* Event.swift */; };
+		F672E4E429EC642E00F30D90 /* MediaImporterLoggingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */; };
+		F672E4E629ED2BB200F30D90 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4E529ED2BB200F30D90 /* AppServices.swift */; };
 		F678881629E0981500BAF93F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F678881529E0981500BAF93F /* WatermarkView.swift */; };
 		F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
@@ -100,6 +104,10 @@
 		F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoViewModel.swift; sourceTree = "<group>"; };
 		F672E4C029EC27C900F30D90 /* kp2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kp2.jpg; sourceTree = "<group>"; };
 		F672E4C229EC545700F30D90 /* EditVideoImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoImagePicker.swift; sourceTree = "<group>"; };
+		F672E4DE29EC62F300F30D90 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F672E4E129EC637500F30D90 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterLoggingProxy.swift; sourceTree = "<group>"; };
+		F672E4E529ED2BB200F30D90 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		F678881529E0981500BAF93F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 			children = (
 				F654C47429DCBC6900CD7B76 /* Extensions */,
 				F654C46C29DCAA5600CD7B76 /* MediaImporter.swift */,
+				F672E4E529ED2BB200F30D90 /* AppServices.swift */,
 				F62AB6E929DD9F6F00994EC5 /* PreviewGenerator.swift */,
 				F69528E229E1AFD7003BCD1A /* PreviewHelper.swift */,
 				F672E4AD29E971B100F30D90 /* CampaignService.swift */,
@@ -293,6 +302,16 @@
 			path = EditVideo;
 			sourceTree = "<group>";
 		};
+		F672E4E029EC636400F30D90 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				F672E4DE29EC62F300F30D90 /* Logger.swift */,
+				F672E4E129EC637500F30D90 /* Event.swift */,
+				F672E4E329EC642E00F30D90 /* MediaImporterLoggingProxy.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		F69528EE29E1CB29003BCD1A /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +375,7 @@
 				F62AB6EB29DDA9BC00994EC5 /* Views */,
 				F654C47B29DCD3B500CD7B76 /* Models */,
 				F6FED3CB29DF0B83001926A0 /* Storage */,
+				F672E4E029EC636400F30D90 /* Logger */,
 				F62AB6E829DD9F4400994EC5 /* Helpers */,
 				F654C45329DC933700CD7B76 /* Resources */,
 				F6E829EE29DC8C1D00E01247 /* Preview Content */,
@@ -530,6 +550,7 @@
 				F672E4B229E974F800F30D90 /* AppViewModel.swift in Sources */,
 				F672E4C329EC545700F30D90 /* EditVideoImagePicker.swift in Sources */,
 				F654C46B29DCA7A100CD7B76 /* VideoPicker.swift in Sources */,
+				F672E4E429EC642E00F30D90 /* MediaImporterLoggingProxy.swift in Sources */,
 				F6FED3D329DF49BD001926A0 /* VideoView.swift in Sources */,
 				F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */,
 				F69528E329E1AFD7003BCD1A /* PreviewHelper.swift in Sources */,
@@ -549,7 +570,10 @@
 				F654C47129DCB49100CD7B76 /* CombineExtensions.swift in Sources */,
 				F62AB6EA29DD9F6F00994EC5 /* PreviewGenerator.swift in Sources */,
 				F654C47329DCB4F500CD7B76 /* NSObject+AnuCancellable.swift in Sources */,
+				F672E4E629ED2BB200F30D90 /* AppServices.swift in Sources */,
+				F672E4E229EC637500F30D90 /* Event.swift in Sources */,
 				F6B6A19B29E492050054093A /* SwipeToDismiss.swift in Sources */,
+				F672E4DF29EC62F300F30D90 /* Logger.swift in Sources */,
 				F604E54529E18EB900153BA7 /* VideoItemView.swift in Sources */,
 				F6B6A19D29E575A40054093A /* VideoPlayerEngine.swift in Sources */,
 				F6FED3CF29DF0C32001926A0 /* VideoCDM+CoreDataClass.swift in Sources */,

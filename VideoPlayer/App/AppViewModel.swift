@@ -11,11 +11,13 @@ import Foundation
 extension VideoPlayerApp {
     @MainActor class ViewModel: ObservableObject {
         @Published var campaign: CampaignService.Campaign?
-        let mainViewModel = MainView.ViewModel(videoImporter: .init())
+        let mainViewModel: MainView.ViewModel
         private let campaignService = CampaignService()
         private var subscriptions = Set<AnyCancellable>()
         
         init() {
+            let mediaImporter = AppServices.createMediaImporter()
+            self.mainViewModel = .init(videoImporter: mediaImporter)
             subscribeOnCampaigns()
         }
         

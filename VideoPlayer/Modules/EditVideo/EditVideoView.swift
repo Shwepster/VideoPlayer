@@ -46,7 +46,7 @@ struct EditVideoView: View {
 struct EditVideoView_Previews: PreviewProvider {
     static var viewModel: EditVideoView.ViewModel = .init(
         video: PreviewHelper.videoModels[0],
-        mediaImporter: .init()
+        mediaImporter: AppServices.createMediaImporter()
     )
     
     static var previews: some View {

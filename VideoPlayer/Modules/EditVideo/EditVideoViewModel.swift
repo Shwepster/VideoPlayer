@@ -26,11 +26,11 @@ extension EditVideoView {
         }
         
         private let storageService: StorageService
-        private let mediaImporter: MediaImporter
+        private let mediaImporter: MediaImporterProtocol
         private let video: VideoModel
         private var thumbnailURL: URL?
         
-        init(video: VideoModel, storageService: StorageService = .shared, mediaImporter: MediaImporter) {
+        init(video: VideoModel, storageService: StorageService = .shared, mediaImporter: MediaImporterProtocol) {
             self.video = video
             self.storageService = storageService
             self.mediaImporter = mediaImporter

@@ -25,10 +25,10 @@ extension MainView {
         }
         
         let videoListViewModel: VideoList.ViewModel
-        private let videoImporter: MediaImporter
+        private let videoImporter: MediaImporterProtocol
         private var subscriptions = Set<AnyCancellable>()
         
-        init(videoImporter: MediaImporter) {
+        init(videoImporter: MediaImporterProtocol) {
             self.videoImporter = videoImporter
             self.videoListViewModel = .init()
             setupObservers()
@@ -47,7 +47,7 @@ extension MainView {
                 .store(in: &subscriptions)
         }
         
-        private func handleImporterState(_ state: MediaImporter.State) {
+        private func handleImporterState(_ state: MediaImporterState) {
             switch state {
             case .loading:
                 importState = .loading
