@@ -44,8 +44,12 @@ final class MediaImporterPreviewDecorator: MediaImporterDecorator {
         let video = await super.loadVideo(from: selection)
 
         if let video {
-            let thumbnailURL = await previewGenerator.generatePreview(for: video)
-            video.imageURL = thumbnailURL
+            // Chain of Command
+            let handler = PreviewGenerationImportingHandler()
+            handler.setNext(PreviewCompressorImportingHandler())
+            
+            let video = await handler.handleVideo(video)
+            
             storageService.saveVideo(video)
             return video
         } else {

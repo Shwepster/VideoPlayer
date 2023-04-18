@@ -25,12 +25,7 @@ final class ThumbnailCompressorService {
                 try content.forEach { name in
                     let url = directory.appending(path: name)
                     print(url)
-                    
-                    guard let image = UIImage(contentsOfFile: url.path()),
-                          let data = image.jpegData(compressionQuality: compression)
-                    else { return }
-                    
-                    try data.write(to: url)
+                    try compressImage(at: url)
                 }
                 
                 print(content)
@@ -38,5 +33,15 @@ final class ThumbnailCompressorService {
                 print(error)
             }
         }
+    }
+    
+    func compressImage(at url: URL) throws {
+        guard let image = UIImage(contentsOfFile: url.path()),
+              let data = image.jpegData(compressionQuality: compression)
+        else { return }
+        
+        try data.write(to: url)
+        
+        print("Did compress at:\n\(url)")
     }
 }
