@@ -47,7 +47,7 @@ extension VideoModel: Equatable {
 
 extension VideoModel: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
-        VideoModel(id: id, title: title, videoURL: videoURL)
+        Self(id: id, title: title, videoURL: videoURL)
     }
 }
 

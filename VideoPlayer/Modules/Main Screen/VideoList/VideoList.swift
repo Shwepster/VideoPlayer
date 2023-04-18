@@ -47,16 +47,16 @@ struct VideoList: View {
     }
     
     @ViewBuilder func contextMenu(for video: VideoModel) -> some View {
-        Button(role: .destructive) {
-            viewModel.deleteVideo(video)
-        } label: {
-            Label("Delete", systemImage: "trash")
-        }
-        
         Button {
             viewModel.editVideo(video)
         } label: {
             Label("Edit", systemImage: "pencil")
+        }
+
+        Button(role: .destructive) {
+            viewModel.deleteVideo(video)
+        } label: {
+            Label("Delete", systemImage: "trash")
         }
     }
 }
