@@ -28,28 +28,35 @@ struct VideoList: View {
             .animation(.spring(), value: viewModel.videos)
             .tabViewStyle(.page)
         }
-        .fullScreenCover(item: $viewModel.selectedVideo) {
-            viewModel.deselectVideo()
-        } content: { video in
+        .fullScreenCover(item: $viewModel.selectedVideo) { video in
             VideoView(viewModel: .init(video: video))
                 .presentationBackground(.clear)
                 .modifier(SwipeToDismissModifier {
                     viewModel.selectedVideo = nil
                 })
         }
+        .sheet(item: $viewModel.editedVideo) { video in
+            EditVideoView(viewModel: .init(
+                video: video,
+                mediaImporter: AppServices.createMediaImporter()
+            ))
+            .presentationDetents([.fraction(0.7)])
+            .presentationDragIndicator(.visible)
+            .presentationContentInteraction(.resizes)
+        }
     }
     
     @ViewBuilder func contextMenu(for video: VideoModel) -> some View {
+        Button {
+            viewModel.editVideo(video)
+        } label: {
+            Label("Edit", systemImage: "pencil")
+        }
+
         Button(role: .destructive) {
             viewModel.deleteVideo(video)
         } label: {
             Label("Delete", systemImage: "trash")
-        }
-        
-        Button {
-            // TODO: Add edit
-        } label: {
-            Label("Edit", systemImage: "pencil")
         }
     }
 }

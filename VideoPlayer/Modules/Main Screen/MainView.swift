@@ -28,7 +28,7 @@ struct MainView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let viewModel = MainView.ViewModel(videoImporter: .init())
+    static let viewModel = MainView.ViewModel(videoImporter: AppServices.createMediaImporter())
     static var previews: some View {
         MainView(viewModel: viewModel)
     }

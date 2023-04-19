@@ -15,9 +15,7 @@ extension MainView {
         @Published var videoSelection: PhotosPickerItem? {
             didSet {
                 if let videoSelection {
-                    Task {
-                        await videoImporter.loadVideo(from: videoSelection)
-                    }
+                    importVideo(from: videoSelection)
                 } else {
                     importState = .idle
                 }
@@ -25,38 +23,24 @@ extension MainView {
         }
         
         let videoListViewModel: VideoList.ViewModel
-        private let videoImporter: VideoImporter
-        private var subscriptions = Set<AnyCancellable>()
+        private let videoImporter: MediaImporterProtocol
         
-        init(videoImporter: VideoImporter) {
+        init(videoImporter: MediaImporterProtocol) {
             self.videoImporter = videoImporter
             self.videoListViewModel = .init()
-            setupObservers()
         }
         
-        deinit {
-            subscriptions.removeAll()
-        }
-        
-        private func setupObservers() {
-            videoImporter.state
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] state in
-                    self?.handleImporterState(state)
-                }
-                .store(in: &subscriptions)
-        }
-        
-        private func handleImporterState(_ state: VideoImporter.State) {
-            switch state {
-            case .loading:
-                importState = .loading
-            case .fail, .empty, .loaded:
+        private func importVideo(from selection: PhotosPickerItem) {
+            importState = .loading
+            Task { @MainActor in
+                // is saved in DB during loading
+                let _ = await videoImporter.loadVideo(from: selection)
                 importState = .idle
             }
         }
     }
 }
+
 // MARK: - ImportState
 
 extension MainView.ViewModel {

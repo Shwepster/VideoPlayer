@@ -1,5 +1,5 @@
 //
-//  VideoItemImageView.swift
+//  ImageView.swift
 //  VideoPlayer
 //
 //  Created by Maxim Vynnyk on 15.04.2023.
@@ -7,35 +7,26 @@
 
 import SwiftUI
 
-struct VideoItemImageView: View {
-    let uiImage: UIImage?
+struct ImageView: View {
+    let image: Image?
     
     var body: some View {
         GeometryReader { geometry in
-            image
+            image?
+                .resizable()
                 .scaledToFill()
                 .frame(
                     width: geometry.size.width,
                     height: geometry.size.height
                 )
                 .contentShape(Rectangle())
-        }
-    }
-    
-    @ViewBuilder var image: some View {
-        if let uiImage {
-            Image(uiImage: uiImage)
-                .resizable()
-        } else {
-            Image("kp")
-                .resizable()
-                .background(Color.purple)
+                .animation(.default, value: image)
         }
     }
 }
 
 struct VideoItemImageView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoItemImageView(uiImage: .init(named: "kp"))
+        ImageView(image: .init("kp"))
     }
 }

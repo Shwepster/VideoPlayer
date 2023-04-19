@@ -13,6 +13,7 @@ extension VideoList {
     @MainActor class ViewModel: ObservableObject {
         @Published private(set) var videos: [VideoModel] = []
         @Published var selectedVideo: VideoModel?
+        @Published var editedVideo: VideoModel?
         @AppStorage("selectedVideoId") var selectedVideoId: String?
         
         private let storageService: StorageService
@@ -34,12 +35,12 @@ extension VideoList {
             selectedVideo = video
         }
         
-        func deselectVideo() {
-            selectedVideo = nil
-        }
-        
         func deleteVideo(_ video: VideoModel) {
             storageService.deleteVideo(video)
+        }
+        
+        func editVideo(_ video: VideoModel) {
+            editedVideo = video
         }
         
         private func loadVideos() {
@@ -55,6 +56,7 @@ extension VideoList {
         
         private func setupObservers() {
             storageService.updatesPublisher
+                .debounce(for: 0.3, scheduler: RunLoop.current) // storage can update few times a second
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] _ in
                     self?.loadVideos()

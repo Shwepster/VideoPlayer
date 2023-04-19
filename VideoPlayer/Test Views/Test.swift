@@ -31,6 +31,7 @@ struct TestChildView: View {
         }, label: {
             Text("Change Name")
         })
+        Text("\(model.name)")
     }
 }
 
@@ -40,6 +41,7 @@ class TestModel: ObservableObject {
     
     func changeName() {
         name = "\(UUID())"
+        print("changed name - \(name)")
     }
     
     deinit {

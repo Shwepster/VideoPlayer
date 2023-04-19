@@ -7,6 +7,7 @@
 
 import Foundation
 import AVKit
+import SwiftUI
 
 struct PreviewHelper {
     static let videoModels: [VideoModel] = [
@@ -14,7 +15,9 @@ struct PreviewHelper {
             id: "23",
             title: "test 1",
             videoURL: Bundle.main.url(forResource: "video",
-                                      withExtension: "MOV")!
+                                      withExtension: "MOV")!,
+            imageURL: Bundle.main.url(forResource: "kp2",
+                                      withExtension: "jpg")!
         ),
         
         .init(
@@ -44,4 +47,6 @@ struct PreviewHelper {
         let playerItem = AVPlayerItem(asset: asset)
         return AVPlayer(playerItem: playerItem)
     }()
+    
+    static let image = Image("kp")
 }

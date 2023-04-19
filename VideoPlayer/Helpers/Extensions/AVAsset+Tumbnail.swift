@@ -9,18 +9,19 @@ import AVKit
 
 extension AVAsset {
     func generateThumbnail() async -> UIImage? {
-        return await withCheckedContinuation { continuation in
+        await withCheckedContinuation { continuation in
             DispatchQueue.global().async {
                 let imageGenerator = AVAssetImageGenerator(asset: self)
                 let time = CMTime(seconds: 0.0, preferredTimescale: 600)
                 let times = [NSValue(time: time)]
-                imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { _, image, _, _, _ in
+                
+                imageGenerator.generateCGImagesAsynchronously(forTimes: times) { _, image, _, _, _ in
                     if let image = image {
                         continuation.resume(returning: UIImage(cgImage: image))
                     } else {
                         continuation.resume(returning: nil)
                     }
-                })
+                }
             }
         }
     }

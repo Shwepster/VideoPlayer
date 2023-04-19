@@ -17,7 +17,7 @@ struct VideoPlayerApp: App {
         WindowGroup {
 //            TestParentView(model: .init())
             MainView(viewModel: viewModel.mainViewModel)
-                .sheet(item: $viewModel.campaign, content: CampaignViewBuilder.buildCampaign)
+//                .sheet(item: $viewModel.campaign, content: CampaignViewBuilder.buildCampaign)
         }
     }
 }

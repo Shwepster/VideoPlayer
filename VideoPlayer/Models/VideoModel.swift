@@ -13,12 +13,6 @@ final class VideoModel: Identifiable {
     let title: String
     let videoURL: URL
     var imageURL: URL?
-    
-    lazy var image: UIImage? = {
-        guard let imageURL else { return nil }
-        return UIImage(contentsOfFile: imageURL.path())
-    }()
-    
     var asset: AVURLAsset {
         .init(url: videoURL)
     }
@@ -42,7 +36,18 @@ final class VideoModel: Identifiable {
 
 extension VideoModel: Equatable {
     static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
-        lhs.id == rhs.id
+        lhs.id       == rhs.id &&
+        lhs.title    == rhs.title &&
+        lhs.videoURL == rhs.videoURL &&
+        lhs.imageURL == rhs.imageURL
+    }
+}
+
+// MARK: - Copying
+
+extension VideoModel: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        Self(id: id, title: title, videoURL: videoURL)
     }
 }
 
