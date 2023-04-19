@@ -41,7 +41,6 @@ final class ThumbnailCompressorService {
         else { return }
         
         try data.write(to: url)
-        
         print("Did compress at:\n\(url)")
     }
 }
