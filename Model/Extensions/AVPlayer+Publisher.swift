@@ -8,7 +8,7 @@
 import AVFoundation
 import Combine
 
-extension AVPlayer {
+public extension AVPlayer {
     func periodicTimePublisher(forInterval interval: CMTime = CMTime(
         seconds: 0.5,
         preferredTimescale: CMTimeScale(NSEC_PER_SEC)

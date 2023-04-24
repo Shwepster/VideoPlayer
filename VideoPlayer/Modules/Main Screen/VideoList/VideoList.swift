@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Model
 
 struct VideoList: View {
     @ObservedObject var viewModel: ViewModel

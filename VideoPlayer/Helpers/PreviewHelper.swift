@@ -8,6 +8,7 @@
 import Foundation
 import AVKit
 import SwiftUI
+import Model
 
 struct PreviewHelper {
     static let videoModels: [VideoModel] = [

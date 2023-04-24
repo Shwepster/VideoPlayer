@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Model
 
 struct VideoItemView: View {
     let video: VideoModel

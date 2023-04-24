@@ -8,6 +8,7 @@
 import Combine
 import SwiftUI
 import PhotosUI
+import Model
 
 extension MainView {
     @MainActor class ViewModel: ObservableObject {

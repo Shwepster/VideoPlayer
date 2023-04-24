@@ -10,6 +10,7 @@ import UIKit
 import PhotosUI
 import SwiftUI
 import Combine
+import Model
 
 final class MediaImporterLoggingProxy: MediaImporterProtocol {    
     private let mediaImporter: MediaImporterProtocol

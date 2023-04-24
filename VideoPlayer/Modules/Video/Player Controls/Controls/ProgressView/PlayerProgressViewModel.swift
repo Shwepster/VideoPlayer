@@ -7,6 +7,7 @@
 
 import AVKit
 import Combine
+import Model
 
 extension PlayerProgressView {
     @MainActor class ViewModel: ObservableObject {

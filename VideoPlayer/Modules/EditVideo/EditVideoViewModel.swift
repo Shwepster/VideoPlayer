@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import PhotosUI
 import SwiftUI
+import Model
 
 extension EditVideoView {
     @MainActor class ViewModel: ObservableObject {

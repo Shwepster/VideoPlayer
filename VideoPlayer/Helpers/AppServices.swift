@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Model
 
 enum AppServices {
     static func createMediaImporter() -> MediaImporterProtocol {

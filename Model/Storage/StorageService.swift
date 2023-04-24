@@ -8,9 +8,9 @@
 import CoreData
 import Combine
 
-final class StorageService {
-    static let shared = StorageService()
-    let updatesPublisher: AnyPublisher<Bool, Never>
+public final class StorageService {
+    public static let shared = StorageService()
+    public let updatesPublisher: AnyPublisher<Bool, Never>
     
     private let fileManager = FileManager.default
     private let databaseName = "Database"
@@ -27,21 +27,21 @@ final class StorageService {
             .eraseToAnyPublisher()
     }
     
-    func getVideos() -> [VideoModel] {
+    public func getVideos() -> [VideoModel] {
         let models: [VideoCDM] = persistentContainer.getObjects() ?? []
         return models.map(VideoModel.init)
     }
     
-    func getVideo(for id: String) -> VideoModel? {
+    public func getVideo(for id: String) -> VideoModel? {
         let model: VideoCDM? = persistentContainer.getObject(predicate: VideoCDM.objectPredicate(id: id))
         return model.map(VideoModel.init)
     }
     
-    func saveVideo(_ video: VideoModel) {
+    public func saveVideo(_ video: VideoModel) {
         persistentContainer.createObject(type: VideoCDM.self, data: video)
     }
     
-    func deleteVideo(_ video: VideoModel) {
+    public func deleteVideo(_ video: VideoModel) {
         persistentContainer.deleteObjects(
             of: VideoCDM.self,
             predicate: VideoCDM.objectPredicate(id: video.id)

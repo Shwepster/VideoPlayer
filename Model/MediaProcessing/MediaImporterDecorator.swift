@@ -10,27 +10,27 @@ import SwiftUI
 import PhotosUI
 import Combine
 
-class MediaImporterDecorator: MediaImporterProtocol {
+open class MediaImporterDecorator: MediaImporterProtocol {
     private let mediaImporter: MediaImporterProtocol
     
     init(mediaImporter: MediaImporterProtocol) {
         self.mediaImporter = mediaImporter
     }
     
-    func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
+    open func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
         await mediaImporter.loadVideo(from: selection)
     }
     
-    func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
+    open func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
         await mediaImporter.loadImage(from: selection)
     }
 }
 
-final class MediaImporterPreviewDecorator: MediaImporterDecorator {
+public final class MediaImporterPreviewDecorator: MediaImporterDecorator {
     private let previewGenerator: PreviewGenerator
     private let storageService: StorageService
     
-    init(
+    public init(
         mediaImporter: MediaImporterProtocol,
         previewGenerator: PreviewGenerator = .shared,
         storageService: StorageService = .shared
@@ -40,7 +40,7 @@ final class MediaImporterPreviewDecorator: MediaImporterDecorator {
         super.init(mediaImporter: mediaImporter)
     }
 
-    override func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
+    public override func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
         let video = await super.loadVideo(from: selection)
 
         if let video {

@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 import AVKit
 
-protocol MediaImporterProtocol {
+public protocol MediaImporterProtocol {
     /// Creates `VideoModel` from selected video and saves it to storage
     /// - Parameter selection: Selected item from which to import video file
     /// - Returns: Created video model object
@@ -22,15 +22,15 @@ protocol MediaImporterProtocol {
     func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?)
 }
 
-final class MediaImporter: MediaImporterProtocol {
+public final class MediaImporter: MediaImporterProtocol {
     private var mediaSelection: PhotosPickerItem?
     private let storageService: StorageService
     
-    init(storageService: StorageService = .shared) {
+    public init(storageService: StorageService = .shared) {
         self.storageService = storageService
     }
     
-    func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
+    public func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
         mediaSelection = selection
         
         guard let videoModel = try? await selection.loadTransferable(type: VideoModel.self) else {
@@ -41,7 +41,7 @@ final class MediaImporter: MediaImporterProtocol {
         return videoModel
     }
     
-    func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
+    public func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
         mediaSelection = selection
 
         do {

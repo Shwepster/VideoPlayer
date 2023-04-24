@@ -7,8 +7,8 @@
 
 import AVKit
 
-final class PreviewGenerator {
-    static let shared = PreviewGenerator()
+public final class PreviewGenerator {
+    public static let shared = PreviewGenerator()
     private init() {}
     
     func generatePreview(for video: VideoModel) async -> URL? {

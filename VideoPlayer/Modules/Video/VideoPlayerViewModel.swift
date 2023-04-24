@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AVKit
+import Model
 
 extension VideoView {
     @MainActor class ViewModel: ObservableObject {

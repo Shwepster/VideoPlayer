@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TestCode
 
 @main
 struct VideoPlayerApp: App {

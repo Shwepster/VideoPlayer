@@ -7,6 +7,7 @@
 
 import Combine
 import AVKit
+import Model
 
 extension VideoPlayerControlsView {
     @MainActor class ViewModel: ObservableObject {

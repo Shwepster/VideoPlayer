@@ -8,19 +8,19 @@
 import AVKit
 import Combine
 
-final class VideoPlayerEngine {
-    var isPlaying = CurrentValueSubject<Bool, Never>(false)
-    var duration = CurrentValueSubject<CMTime?, Never>(nil)
-    var currentTime: Double {
+public final class VideoPlayerEngine {
+    public var isPlaying = CurrentValueSubject<Bool, Never>(false)
+    public var duration = CurrentValueSubject<CMTime?, Never>(nil)
+    public var currentTime: Double {
         player.currentTime().seconds
     }
     
-    private(set) var player: AVPlayer
+    private(set) public var player: AVPlayer
     private var playObserver: NSKeyValueObservation?
     private var subscriptions = Set<AnyCancellable>()
     private var didEnd = false
     
-    init(asset: AVAsset) {
+    public init(asset: AVAsset) {
         let item = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: item)
         player.actionAtItemEnd = .pause
@@ -32,7 +32,7 @@ final class VideoPlayerEngine {
         playObserver?.invalidate()
     }
     
-    func play() {
+    public func play() {
         if didEnd {
             player.seek(to: .zero)
             didEnd = false
@@ -41,11 +41,11 @@ final class VideoPlayerEngine {
         player.play()
     }
     
-    func pause() {
+    public func pause() {
         player.pause()
     }
     
-    func seek(to time: Double) {
+    public func seek(to time: Double) {
         let newTime = CMTime(
             seconds: time,
             preferredTimescale: duration.value?.timescale ?? 600
@@ -58,7 +58,7 @@ final class VideoPlayerEngine {
         )
     }
     
-    func seek(appendingSeconds: Double) {
+    public func seek(appendingSeconds: Double) {
         let newTime = CMTime(
             seconds: currentTime + appendingSeconds,
             preferredTimescale: duration.value?.timescale ?? 600
@@ -71,7 +71,7 @@ final class VideoPlayerEngine {
         )
     }
     
-    func subscribeOnProgress(
+    public func subscribeOnProgress(
         forWidth width: CGFloat,
         updateFrequency: Double = 0.5
     ) -> AnyPublisher<Double, Never> {
@@ -108,12 +108,7 @@ final class VideoPlayerEngine {
     private func subscribeOnPlayChange() {
         playObserver = player.observe(\.rate, options: [.initial, .new]) { [weak self] player, value in
             Task { @MainActor [weak self] in
-                guard player.error == nil else {
-                    self?.isPlaying.send(false)
-                    return
-                }
-                
-                self?.isPlaying.send(value.newValue == 1)
+                self?.isPlaying.send(player.isPlaying)
             }
         }
     }

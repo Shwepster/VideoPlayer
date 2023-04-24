@@ -8,16 +8,16 @@
 import AVKit
 import CoreTransferable
 
-final class VideoModel: Identifiable {
-    let id: String
-    let title: String
-    let videoURL: URL
-    var imageURL: URL?
-    var asset: AVURLAsset {
+public final class VideoModel: Identifiable {
+    public let id: String
+    public let title: String
+    public let videoURL: URL
+    public var imageURL: URL?
+    public var asset: AVURLAsset {
         .init(url: videoURL)
     }
    
-    init(id: String, title: String, videoURL: URL, imageURL: URL? = nil) {
+    public init(id: String, title: String, videoURL: URL, imageURL: URL? = nil) {
         self.id = id
         self.title = title
         self.videoURL = videoURL
@@ -35,7 +35,7 @@ final class VideoModel: Identifiable {
 // MARK: - Equatable
 
 extension VideoModel: Equatable {
-    static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
+    public static func == (lhs: VideoModel, rhs: VideoModel) -> Bool {
         lhs.id       == rhs.id &&
         lhs.title    == rhs.title &&
         lhs.videoURL == rhs.videoURL &&
@@ -46,7 +46,7 @@ extension VideoModel: Equatable {
 // MARK: - Copying
 
 extension VideoModel: NSCopying {
-    func copy(with zone: NSZone? = nil) -> Any {
+    public func copy(with zone: NSZone? = nil) -> Any {
         Self(id: id, title: title, videoURL: videoURL)
     }
 }
@@ -54,7 +54,7 @@ extension VideoModel: NSCopying {
 // MARK: - Transferable
 
 extension VideoModel: Transferable {
-    static var transferRepresentation: some TransferRepresentation {
+    public static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(contentType: .audiovisualContent) { video in
             SentTransferredFile(video.videoURL)
         } importing: { received in
