@@ -8,10 +8,14 @@
 import SwiftUI
 import PhotosUI
 
-struct VideoPicker: View {
+public struct VideoPicker: View {
     @Binding var videoSelection: PhotosPickerItem?
+    
+    public init(videoSelection: Binding<PhotosPickerItem?>) {
+        _videoSelection = videoSelection
+    }
         
-    var body: some View {
+    public var body: some View {
         PhotosPicker(
             selection: $videoSelection,
             matching: .videos) {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import CustomViews
 
 struct EditVideoImagePicker: View {
     @Binding var selection: PhotosPickerItem?

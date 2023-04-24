@@ -8,11 +8,16 @@
 import SwiftUI
 import AVKit
 
-struct PlayerPlayButton: View {
+public struct PlayerPlayButton: View {
     let isPlaying: Bool
     let onTap: () -> Void
     
-    var body: some View {
+    public init(isPlaying: Bool, onTap: @escaping () -> Void) {
+        self.isPlaying = isPlaying
+        self.onTap = onTap
+    }
+    
+    public var body: some View {
         GeometryReader { geometry in
             Button {
                 onTap()

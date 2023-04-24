@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Event {
+public struct Event {
     var parameters: [AnyHashable: Any]
     var name: String
     
-    init(name: String, parameters: [AnyHashable: Any] = [:]) {
+    public init(name: String, parameters: [AnyHashable: Any] = [:]) {
         self.parameters = parameters
         self.name = name
     }

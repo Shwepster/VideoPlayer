@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CustomViews
 
 struct MainView: View {
     @ObservedObject var viewModel: ViewModel

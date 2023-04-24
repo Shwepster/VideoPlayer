@@ -10,18 +10,17 @@ import UIKit
 import PhotosUI
 import SwiftUI
 import Combine
-import Model
 
-final class MediaImporterLoggingProxy: MediaImporterProtocol {    
+public final class MediaImporterLoggingProxy: MediaImporterProtocol {
     private let mediaImporter: MediaImporterProtocol
     private let logger: Logger
     
-    init(mediaImporter: MediaImporterProtocol, logger: Logger) {
+    public init(mediaImporter: MediaImporterProtocol, logger: Logger) {
         self.mediaImporter = mediaImporter
         self.logger = logger
     }
     
-    func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
+    public func loadVideo(from selection: PhotosPickerItem) async -> VideoModel? {
         logger.log(event: .startImportingVideo())
         let result = await mediaImporter.loadVideo(from: selection)
         
@@ -37,7 +36,7 @@ final class MediaImporterLoggingProxy: MediaImporterProtocol {
         return result
     }
     
-    func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
+    public func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
         await mediaImporter.loadImage(from: selection)
     }
 }

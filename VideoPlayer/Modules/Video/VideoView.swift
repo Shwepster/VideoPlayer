@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import CustomViews
 
 struct VideoView: View {
     @ObservedObject var viewModel: ViewModel

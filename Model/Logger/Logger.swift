@@ -7,12 +7,14 @@
 
 import Foundation
 
-protocol Logger {
+public protocol Logger {
     func log(event: Event)
 }
 
-final class BaseLogger: Logger {
-    func log(event: Event) {
+public final class BaseLogger: Logger {
+    public init() {}
+    
+    public func log(event: Event) {
         if event.parameters.isEmpty {
             NSLog("%@", event.name)
         } else {

@@ -7,20 +7,15 @@
 
 import SwiftUI
 
-extension CGSize {
-    func multiplied(by multiplier: CGFloat) -> CGSize {
-        .init(
-            width: width * multiplier,
-            height: height * multiplier
-        )
-    }
-}
-
-struct SwipeToDismissModifier: ViewModifier {
+public struct SwipeToDismissModifier: ViewModifier {
     var onDismiss: () -> Void
     @State private var offset: CGSize = .zero
     
-    func body(content: Content) -> some View {
+    public init(onDismiss: @escaping () -> Void) {
+        self.onDismiss = onDismiss
+    }
+    
+    public func body(content: Content) -> some View {
         content
             .scaleEffect(offset == .zero ? 1 : 0.97)
             .clipShape(Rectangle())

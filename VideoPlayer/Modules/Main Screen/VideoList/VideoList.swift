@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Model
+import CustomViews
 
 struct VideoList: View {
     @ObservedObject var viewModel: ViewModel

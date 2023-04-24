@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct ImageView: View {
+public struct ImageView: View {
     let image: Image?
     
-    var body: some View {
+    public init(image: Image?) {
+        self.image = image
+    }
+    
+    public var body: some View {
         GeometryReader { geometry in
             image?
                 .resizable()

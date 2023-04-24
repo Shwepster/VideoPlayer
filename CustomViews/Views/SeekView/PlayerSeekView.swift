@@ -7,11 +7,16 @@
 
 import SwiftUI
 
-struct PlayerSeekView: View {
+public struct PlayerSeekView: View {
     let onSeekForward: () -> Void
     let onSeekBack: () -> Void
     
-    var body: some View {
+    public init(onSeekForward: @escaping () -> Void, onSeekBack: @escaping () -> Void) {
+        self.onSeekForward = onSeekForward
+        self.onSeekBack = onSeekBack
+    }
+    
+    public var body: some View {
         HStack {
             SeekPartView(
                 side: .left,

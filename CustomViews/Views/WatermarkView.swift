@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct WatermarkView: View {
+public struct WatermarkView: View {
     let text: String
     
-    var body: some View {
+    public init(text: String) {
+        self.text = text
+    }
+    
+    public var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(text)

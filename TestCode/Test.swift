@@ -49,7 +49,7 @@ public final class TestModel: ObservableObject {
         name = "\(UUID())"
         print("changed name - \(name)")
         
-        var array = [10, 5, 2, 3, 7, 6, 8, 9, 1, 4]
+        _ = [10, 5, 2, 3, 7, 6, 8, 9, 1, 4]
         
         search()
     }
