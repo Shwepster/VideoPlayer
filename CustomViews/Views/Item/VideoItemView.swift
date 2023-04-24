@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
-import Model
+import Model // FIXME: Fix dependency
 
-struct VideoItemView: View {
+public struct VideoItemView: View {
     let video: VideoModel
     
-    var body: some View {
+    public init(video: VideoModel) {
+        self.video = video
+    }
+    
+    public var body: some View {
         ZStack(alignment: .bottomLeading) {
             ItemImageView(url: video.imageURL)
             
@@ -32,11 +36,5 @@ struct VideoItemView: View {
             color: .primary.opacity(0.5),
             radius: 4
         )
-    }
-}
-
-struct VideoItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        VideoItemView(video: PreviewHelper.videoModels[0])
     }
 }

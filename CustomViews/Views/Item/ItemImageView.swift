@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct ItemImageView: View {
+public struct ItemImageView: View {
     let url: URL?
     
-    var body: some View {
+    public init(url: URL?) {
+        self.url = url
+    }
+    
+    public var body: some View {
         GeometryReader { geometry in
             AsyncImage(url: url) {
                 ($0.image ?? Image("kp"))
@@ -24,11 +28,5 @@ struct ItemImageView: View {
             .contentShape(Rectangle())
             .animation(.default, value: url)
         }
-    }
-}
-
-struct VideoItemURLImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemImageView(url: PreviewHelper.videoModels[0].imageURL)
     }
 }

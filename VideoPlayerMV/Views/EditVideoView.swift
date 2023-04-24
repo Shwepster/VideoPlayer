@@ -1,36 +1,39 @@
 //
 //  EditVideoView.swift
-//  VideoPlayer
+//  VideoPlayerMV
 //
-//  Created by Maxim Vynnyk on 16.04.2023.
+//  Created by Maxim Vynnyk on 24.04.2023.
 //
 
 import SwiftUI
 import CustomViews
+import Model
 
 struct EditVideoView: View {
-    @StateObject var viewModel: ViewModel
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var videoManager: VideoManager
+    
+    var video: VideoModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
-                VideoImagePicker(
-                    selection: $viewModel.imageSelection,
-                    image: viewModel.thumbnail
-                )
+//                VideoImagePicker(
+//                    selection: $viewModel.imageSelection,
+//                    image: viewModel.thumbnail
+//                )
                 
                 HStack {
                     Text("Title")
                         .font(.headline)
                     Divider()
-                    TextField("Title", text: $viewModel.title)
+                    TextField("Title", text: video.title)
                 }
             }
             .scrollBounceBehavior(.basedOnSize)
             
             Button {
-                viewModel.save()
+                videoManager.saveVideo(video)
                 dismiss()
             } label: {
                 Text("Save")
@@ -45,11 +48,6 @@ struct EditVideoView: View {
 }
 
 struct EditVideoView_Previews: PreviewProvider {
-    static var viewModel: EditVideoView.ViewModel = .init(
-        video: PreviewHelper.videoModels[0],
-        mediaImporter: AppServices.createMediaImporter()
-    )
-    
     static var previews: some View {
         NavigationStack {
             EditVideoView(viewModel: viewModel)

@@ -1,19 +1,23 @@
 //
-//  EditVideoImagePicker.swift
-//  VideoPlayer
+//  VideoImagePicker.swift
+//  CustomViews
 //
-//  Created by Maxim Vynnyk on 16.04.2023.
+//  Created by Maxim Vynnyk on 24.04.2023.
 //
 
 import SwiftUI
 import PhotosUI
-import CustomViews
 
-struct EditVideoImagePicker: View {
+public struct VideoImagePicker: View {
     @Binding var selection: PhotosPickerItem?
     let image: Image?
     
-    var body: some View {
+    public init(selection: Binding<PhotosPickerItem?>, image: Image?) {
+        _selection = selection
+        self.image = image
+    }
+    
+    public var body: some View {
         ImageView(image: image)
             .aspectRatio(1, contentMode: .fit)
             .clipped()
@@ -33,11 +37,5 @@ struct EditVideoImagePicker: View {
                     }
                 }
             }
-    }
-}
-
-struct EditVideoImagePicker_Previews: PreviewProvider {
-    static var previews: some View {
-        EditVideoImagePicker(selection: .constant(nil), image: PreviewHelper.image)
     }
 }
