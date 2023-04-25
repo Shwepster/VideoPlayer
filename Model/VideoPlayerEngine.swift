@@ -8,14 +8,23 @@
 import AVKit
 import Combine
 
-public final class VideoPlayerEngine {
-    public var isPlaying = CurrentValueSubject<Bool, Never>(false)
-    public var duration = CurrentValueSubject<CMTime?, Never>(nil)
-    public var currentTime: Double {
-        player.currentTime().seconds
+public final class VideoPlayerEngine: ObservableObject {
+    @Published public var isPlaying = false {
+        didSet {
+            guard oldValue != isPlaying else { return }
+            isPlaying ? play() : pause()
+        }
     }
     
-    private(set) public var player: AVPlayer
+    @Published public var duration: CMTime? = nil
+    @Published public var currentTime: Double = 0 {
+        didSet {
+            guard !isPlaying else { return }
+            seek(to: currentTime)
+        }
+    }
+    
+    public private(set) var player: AVPlayer
     private var playObserver: NSKeyValueObservation?
     private var subscriptions = Set<AnyCancellable>()
     private var didEnd = false
@@ -32,7 +41,7 @@ public final class VideoPlayerEngine {
         playObserver?.invalidate()
     }
     
-    public func play() {
+    private func play() {
         if didEnd {
             player.seek(to: .zero)
             didEnd = false
@@ -41,14 +50,14 @@ public final class VideoPlayerEngine {
         player.play()
     }
     
-    public func pause() {
+    private func pause() {
         player.pause()
     }
     
     public func seek(to time: Double) {
         let newTime = CMTime(
             seconds: time,
-            preferredTimescale: duration.value?.timescale ?? 600
+            preferredTimescale: duration?.timescale ?? 600
         )
         
         player.seek(
@@ -61,7 +70,7 @@ public final class VideoPlayerEngine {
     public func seek(appendingSeconds: Double) {
         let newTime = CMTime(
             seconds: currentTime + appendingSeconds,
-            preferredTimescale: duration.value?.timescale ?? 600
+            preferredTimescale: duration?.timescale ?? 600
         )
         
         player.seek(
@@ -72,13 +81,19 @@ public final class VideoPlayerEngine {
     }
     
     public func subscribeOnProgress(
-        forWidth width: CGFloat,
+        forWidth width: CGFloat? = nil,
         updateFrequency: Double = 0.5
     ) -> AnyPublisher<Double, Never> {
-        duration
+        $duration
             .compactMap { $0 }
             .map { time in
-                let updateSeconds = updateFrequency * time.seconds / width
+                let updateSeconds: Double = {
+                    if let width {
+                        return updateFrequency * time.seconds / width
+                    }
+                    return updateFrequency
+                }()
+                
                 return CMTime(seconds: updateSeconds, preferredTimescale: time.timescale)
             }
             .flatMap { [weak self] time in
@@ -91,12 +106,25 @@ public final class VideoPlayerEngine {
             .eraseToAnyPublisher()
     }
     
+    public func startTrackingProgress(
+        forWidth width: CGFloat? = nil,
+        updateFrequency: Double = 0.5
+    ) {
+        subscribeOnProgress(forWidth: width, updateFrequency: updateFrequency)
+            .sink { [weak self] seconds in
+                self?.currentTime = seconds
+            }
+            .store(in: &subscriptions)
+    }
+    
     // MARK: - Private
 
     private func loadDuration() {
         Task { [weak self] in
             let duration = try? await self?.player.currentItem?.asset.load(.duration)
-            self?.duration.send(duration)
+            Task { @MainActor [weak self] in
+                self?.duration = duration
+            }
         }
     }
     
@@ -108,7 +136,7 @@ public final class VideoPlayerEngine {
     private func subscribeOnPlayChange() {
         playObserver = player.observe(\.rate, options: [.initial, .new]) { [weak self] player, value in
             Task { @MainActor [weak self] in
-                self?.isPlaying.send(player.isPlaying)
+                self?.isPlaying = player.isPlaying
             }
         }
     }

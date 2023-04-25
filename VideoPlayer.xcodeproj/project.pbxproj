@@ -78,6 +78,9 @@
 		F63230D229F7F3ED00CF106A /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230D129F7F3ED00CF106A /* VideoPlayerView.swift */; };
 		F63230D429F7F3FE00CF106A /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230D329F7F3FE00CF106A /* VideoView.swift */; };
 		F63230D729F7F6D600CF106A /* PlayerEngine+ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230D529F7F6BB00CF106A /* PlayerEngine+ObservableObject.swift */; };
+		F63230DA29F7FB2800CF106A /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230D929F7FB2800CF106A /* ProgressView.swift */; };
+		F63230DC29F7FC1900CF106A /* Double+TimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230DB29F7FC1900CF106A /* Double+TimeString.swift */; };
+		F63230DE29F8007000CF106A /* ViewSizeMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230DD29F8007000CF106A /* ViewSizeMeasurer.swift */; };
 		F654C45829DC939200CD7B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F654C45A29DC939200CD7B76 /* Localizable.strings */; };
 		F654C46929DCA3E500CD7B76 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C46829DCA3E500CD7B76 /* VideoList.swift */; };
 		F654C46F29DCB19800CD7B76 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F654C46E29DCB19800CD7B76 /* MainViewModel.swift */; };
@@ -226,6 +229,9 @@
 		F63230D129F7F3ED00CF106A /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		F63230D329F7F3FE00CF106A /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		F63230D529F7F6BB00CF106A /* PlayerEngine+ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerEngine+ObservableObject.swift"; sourceTree = "<group>"; };
+		F63230D929F7FB2800CF106A /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		F63230DB29F7FC1900CF106A /* Double+TimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+TimeString.swift"; sourceTree = "<group>"; };
+		F63230DD29F8007000CF106A /* ViewSizeMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeMeasurer.swift; sourceTree = "<group>"; };
 		F654C45929DC939200CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F654C45E29DC939C00CD7B76 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F654C46829DCA3E500CD7B76 /* VideoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
@@ -512,8 +518,17 @@
 			children = (
 				F63230D329F7F3FE00CF106A /* VideoView.swift */,
 				F63230D129F7F3ED00CF106A /* VideoPlayerView.swift */,
+				F63230D829F7FAAB00CF106A /* Progress */,
 			);
 			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		F63230D829F7FAAB00CF106A /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				F63230D929F7FB2800CF106A /* ProgressView.swift */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 		F654C45329DC933700CD7B76 /* Resources */ = {
@@ -536,6 +551,7 @@
 				F654C47729DCD2AF00CD7B76 /* AVAsset+Tumbnail.swift */,
 				F6FED3DA29DF51D0001926A0 /* AVPlayerExtensions.swift */,
 				F654C47529DCCDDC00CD7B76 /* Data+Saving.swift */,
+				F63230DB29F7FC1900CF106A /* Double+TimeString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -609,6 +625,7 @@
 		F6B6A19929E491E20054093A /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				F63230DD29F8007000CF106A /* ViewSizeMeasurer.swift */,
 				F632308E29F6C33C00CF106A /* CGSize+Extensions.swift */,
 				F6B6A19A29E492050054093A /* SwipeToDismiss.swift */,
 			);
@@ -989,6 +1006,7 @@
 				F632306329F6B96D00CF106A /* PreviewGenerator.swift in Sources */,
 				F632306629F6B96D00CF106A /* ThumbnailCompressorService.swift in Sources */,
 				F632306229F6B96D00CF106A /* MediaImporter.swift in Sources */,
+				F63230DC29F7FC1900CF106A /* Double+TimeString.swift in Sources */,
 				F632305A29F6B84C00CF106A /* BaseCDM.swift in Sources */,
 				F632305E29F6B84C00CF106A /* VideoCDM+CoreDataProperties.swift in Sources */,
 				F632306529F6B96D00CF106A /* MediaImporterDecorator.swift in Sources */,
@@ -1012,6 +1030,7 @@
 				F632309729F6C6EC00CF106A /* ImageView.swift in Sources */,
 				F632309429F6C5C500CF106A /* PlayerSeekView.swift in Sources */,
 				F632309229F6C39C00CF106A /* VideoPicker.swift in Sources */,
+				F63230DE29F8007000CF106A /* ViewSizeMeasurer.swift in Sources */,
 				F632309029F6C39800CF106A /* SwipeToDismiss.swift in Sources */,
 				F63230CB29F6DCF000CF106A /* VideoImagePicker.swift in Sources */,
 				F632309329F6C46100CF106A /* CGSize+Extensions.swift in Sources */,
@@ -1039,6 +1058,7 @@
 				F63230A229F6C8D800CF106A /* VideoPlayerMVApp.swift in Sources */,
 				F63230D429F7F3FE00CF106A /* VideoView.swift in Sources */,
 				F63230D229F7F3ED00CF106A /* VideoPlayerView.swift in Sources */,
+				F63230DA29F7FB2800CF106A /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
