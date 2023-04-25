@@ -23,11 +23,8 @@ struct VideoView: View {
             
             WatermarkView(text: video.title)
             
-            
-            PlayerProgressView()
-                .padding(.bottom, 50)
-//            VideoPlayerControlsView(viewModel: viewModel.controlsViewModel)
-//                .simultaneousGesture(zoomGesture)
+            VideoControlsView()
+                .simultaneousGesture(zoomGesture)
         }
     }
     
