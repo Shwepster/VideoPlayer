@@ -37,6 +37,14 @@ public final class MediaImporterLoggingProxy: MediaImporterProtocol {
     }
     
     public func loadImage(from selection: PhotosPickerItem) async -> (UIImage?, URL?) {
-        await mediaImporter.loadImage(from: selection)
+        logger.log(event: .startImportingImage())
+        let result = await mediaImporter.loadImage(from: selection)
+        
+        if result.0 != nil, let path = result.1 {
+            logger.log(event: .imageImportedSuccess(path: path.path()))
+        }
+        
+        logger.log(event: .finishImportingImage())
+        return result
     }
 }

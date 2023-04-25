@@ -10,7 +10,7 @@ import CustomViews
 import Model
 
 struct MainView: View {
-    @EnvironmentObject var videoImporter: VideoImportManager
+    @EnvironmentObject var mediaImporter: MediaImportManager
     @EnvironmentObject var videoManager: VideoManager
     
     @State private var editedVideo: VideoModel? = nil
@@ -27,13 +27,25 @@ struct MainView: View {
             }
             .navigationTitle("Your Videos")
             .toolbar {
-                if videoImporter.importState == .idle {
-                    VideoPicker(videoSelection: $videoImporter.videoSelection)
+                if mediaImporter.importState == .idle {
+                    VideoPicker(videoSelection: $mediaImporter.mediaSelection)
                         .padding()
                 } else {
                     ProgressView()
                         .padding()
                 }
+            }
+            .sheet(item: $editedVideo) { video in
+                EditVideoView(video: video) { updatedVideo in
+                    videoManager.saveVideo(updatedVideo)
+                    editedVideo = nil
+                }
+                .presentationDetents([.fraction(0.7)])
+                .presentationDragIndicator(.visible)
+                .presentationContentInteraction(.resizes)
+                .environmentObject(MediaImportManager(
+                    mediaImporter: AppServices.createImageImporter()
+                ))
             }
         }
     }

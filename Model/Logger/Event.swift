@@ -19,11 +19,11 @@ public struct Event {
 
 extension Event {
     static func startImportingVideo() -> Self {
-        .init(name: "Start importing")
+        .init(name: "Start importing video")
     }
     
     static func finishImportingVideo() -> Self {
-        .init(name: "Finish importing")
+        .init(name: "Finish importing video")
     }
     
     static func generatedPreview(path: String) -> Self {
@@ -32,5 +32,17 @@ extension Event {
     
     static func videoImportedSuccess(videoPath: String) -> Self {
         .init(name: "Video imported success", parameters: ["path": videoPath])
+    }
+    
+    static func startImportingImage() -> Self {
+        .init(name: "Start importing image")
+    }
+    
+    static func finishImportingImage() -> Self {
+        .init(name: "Finish importing image")
+    }
+    
+    static func imageImportedSuccess(path: String) -> Self {
+        .init(name: "Image imported success", parameters: ["path": path])
     }
 }

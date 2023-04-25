@@ -8,9 +8,9 @@
 import AVKit
 import CoreTransferable
 
-public final class VideoModel: Identifiable {
+public struct VideoModel: Identifiable {
     public let id: String
-    public let title: String
+    public var title: String
     public let videoURL: URL
     public var imageURL: URL?
     public var asset: AVURLAsset {
@@ -40,14 +40,6 @@ extension VideoModel: Equatable {
         lhs.title    == rhs.title &&
         lhs.videoURL == rhs.videoURL &&
         lhs.imageURL == rhs.imageURL
-    }
-}
-
-// MARK: - Copying
-
-extension VideoModel: NSCopying {
-    public func copy(with zone: NSZone? = nil) -> Any {
-        Self(id: id, title: title, videoURL: videoURL)
     }
 }
 

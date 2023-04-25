@@ -10,7 +10,7 @@ import Model
 
 final class VideoManager: ObservableObject {
     @Published private(set) var videos: [VideoModel] = []
-    let importManager: VideoImportManager
+    let importManager: MediaImportManager
     
     private let version: Version
     private let storageService: StorageService
@@ -19,7 +19,7 @@ final class VideoManager: ObservableObject {
     init(version: Version = .normal, storageService: StorageService = .shared) {
         self.version = version
         self.storageService = storageService
-        self.importManager = .init(videoImporter: AppServices.createMediaImporter())
+        self.importManager = .init(mediaImporter: AppServices.createVideoImporter())
         setupObservers()
     }
     

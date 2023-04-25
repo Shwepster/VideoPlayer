@@ -55,6 +55,6 @@ struct VideoList: View {
 struct VideoList_Previews: PreviewProvider {
     static var previews: some View {
         VideoList()
-            .environmentObject(VideoManager())
+            .environmentObject(VideoManager(version: .debug))
     }
 }

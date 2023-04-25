@@ -35,6 +35,7 @@ final class PreviewGenerationImportingHandler: ImportingHandler {
     
     func handleVideo(_ video: VideoModel) async -> VideoModel {
         let previewURL = await previewGenerator.generatePreview(for: video)
+        var video = video
         video.imageURL = previewURL
         return await next?.handleVideo(video) ?? video
     }

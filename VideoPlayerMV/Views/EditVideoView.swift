@@ -10,31 +10,30 @@ import CustomViews
 import Model
 
 struct EditVideoView: View {
-    @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var videoManager: VideoManager
-    
-    var video: VideoModel
+    @EnvironmentObject var imageImporter: MediaImportManager
+    @State var video: VideoModel // State creates a copy of injected video
+    @State private var image = Image("kp")
+    var onSave: (VideoModel) -> Void
     
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
-//                VideoImagePicker(
-//                    selection: $viewModel.imageSelection,
-//                    image: viewModel.thumbnail
-//                )
+                VideoImagePicker(
+                    selection: $imageImporter.mediaSelection,
+                    image: image
+                )
                 
                 HStack {
                     Text("Title")
                         .font(.headline)
                     Divider()
-                    TextField("Title", text: video.title)
+                    TextField("Title", text: $video.title)
                 }
             }
             .scrollBounceBehavior(.basedOnSize)
             
             Button {
-                videoManager.saveVideo(video)
-                dismiss()
+                onSave(video)
             } label: {
                 Text("Save")
                     .padding(.vertical)
@@ -44,13 +43,28 @@ struct EditVideoView: View {
             .background(Color.accentColor)
             .clipShape(Capsule(style: .continuous))
         }
+        .onReceive(imageImporter.$importedMedia) { output in
+            switch output {
+            case let .image(uiImage, path):
+                video.imageURL = path
+                image = Image(uiImage: uiImage)
+            case .video, .empty:
+                image = Image(
+                    uiImage: UIImage(
+                        contentsOfFile: video.imageURL?.path() ?? ""
+                    ) ?? UIImage(named: "kp")!
+                )
+            }
+        }
+        
     }
 }
 
 struct EditVideoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            EditVideoView(viewModel: viewModel)
+            EditVideoView(video: PreviewHelper.videoModels[0], onSave: { _ in })
+                .environmentObject(VideoManager(version: .debug))
         }
     }
 }

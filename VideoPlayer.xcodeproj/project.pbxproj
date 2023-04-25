@@ -70,7 +70,7 @@
 		F63230C029F6D04100CF106A /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230BF29F6D04100CF106A /* VideoManager.swift */; };
 		F63230C129F6D4E200CF106A /* ItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4EB29EDB2E100F30D90 /* ItemImageView.swift */; };
 		F63230C229F6D4E200CF106A /* VideoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604E54429E18EB900153BA7 /* VideoItemView.swift */; };
-		F63230C429F6D6A500CF106A /* VideoImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230C329F6D6A500CF106A /* VideoImportManager.swift */; };
+		F63230C429F6D6A500CF106A /* MediaImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230C329F6D6A500CF106A /* MediaImportManager.swift */; };
 		F63230C529F6D93700CF106A /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F632303A29F6B71700CF106A /* Model.framework */; };
 		F63230C629F6D93700CF106A /* Model.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F632303A29F6B71700CF106A /* Model.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F63230CB29F6DCF000CF106A /* VideoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63230CA29F6DCF000CF106A /* VideoImagePicker.swift */; };
@@ -217,7 +217,7 @@
 		F63230A829F6C8D900CF106A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F63230BD29F6CE2600CF106A /* VideoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
 		F63230BF29F6D04100CF106A /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
-		F63230C329F6D6A500CF106A /* VideoImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoImportManager.swift; sourceTree = "<group>"; };
+		F63230C329F6D6A500CF106A /* MediaImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImportManager.swift; sourceTree = "<group>"; };
 		F63230CA29F6DCF000CF106A /* VideoImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoImagePicker.swift; sourceTree = "<group>"; };
 		F63230CC29F6DDA200CF106A /* EditVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoView.swift; sourceTree = "<group>"; };
 		F654C45929DC939200CD7B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -494,7 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				F63230BF29F6D04100CF106A /* VideoManager.swift */,
-				F63230C329F6D6A500CF106A /* VideoImportManager.swift */,
+				F63230C329F6D6A500CF106A /* MediaImportManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1010,7 +1010,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F63230C429F6D6A500CF106A /* VideoImportManager.swift in Sources */,
+				F63230C429F6D6A500CF106A /* MediaImportManager.swift in Sources */,
 				F63230AE29F6C92A00CF106A /* PreviewHelper.swift in Sources */,
 				F63230CD29F6DDA200CF106A /* EditVideoView.swift in Sources */,
 				F63230AF29F6C92A00CF106A /* ViewImageFetcher.swift in Sources */,
