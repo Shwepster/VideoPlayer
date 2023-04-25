@@ -47,6 +47,14 @@ struct MainView: View {
                     mediaImporter: AppServices.createImageImporter()
                 ))
             }
+            .fullScreenCover(item: $selectedVideo) { video in
+                VideoView(video: video)
+                    .presentationBackground(.clear)
+                    .modifier(SwipeToDismissModifier {
+                        selectedVideo = nil
+                    })
+                    .environmentObject(VideoPlayerEngine(asset: video.asset))
+            }
         }
     }
 }

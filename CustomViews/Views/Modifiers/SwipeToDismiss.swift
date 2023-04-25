@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct SwipeToDismissModifier: ViewModifier {
     var onDismiss: () -> Void
+    var changeOpacity = true
     @State private var offset: CGSize = .zero
     
     public init(onDismiss: @escaping () -> Void) {
@@ -18,6 +19,7 @@ public struct SwipeToDismissModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .scaleEffect(offset == .zero ? 1 : 0.97)
+            .opacity(calculateOpacity())
             .clipShape(Rectangle())
             .offset(y: offset.height)
             .ignoresSafeArea()
@@ -37,5 +39,14 @@ public struct SwipeToDismissModifier: ViewModifier {
                         }
                     }
             )
+    }
+    
+    private func calculateOpacity() -> CGFloat {
+        if offset == .zero { return 1 }
+
+        let divider: CGFloat = 250
+        let verticalOffset = abs(offset.height) / divider
+        let opacity = 1 - verticalOffset
+        return max(opacity, 0.75)
     }
 }
