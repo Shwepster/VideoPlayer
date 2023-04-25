@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import Model
 
 struct VideoPlayerView: View {
     let player: AVPlayer

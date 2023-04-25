@@ -10,9 +10,7 @@ import CustomViews
 import Model
 
 struct MainView: View {
-    @EnvironmentObject var mediaImporter: MediaImportManager
     @EnvironmentObject var videoManager: VideoManager
-    
     @State private var editedVideo: VideoModel? = nil
     @State private var selectedVideo: VideoModel? = nil
     
@@ -27,8 +25,8 @@ struct MainView: View {
             }
             .navigationTitle("Your Videos")
             .toolbar {
-                if mediaImporter.importState == .idle {
-                    VideoPicker(videoSelection: $mediaImporter.mediaSelection)
+                if videoManager.importManager.importState == .idle {
+                    VideoPicker(videoSelection: $videoManager.importManager.mediaSelection)
                         .padding()
                 } else {
                     ProgressView()

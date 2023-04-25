@@ -8,10 +8,9 @@
 import Foundation
 import AVKit
 import SwiftUI
-import Model
 
-struct PreviewHelper {
-    static let videoModels: [VideoModel] = [
+public struct PreviewHelper {
+    public static let videoModels: [VideoModel] = [
         .init(
             id: "23",
             title: "test 1",
@@ -43,11 +42,11 @@ struct PreviewHelper {
         )
     ]
     
-    static let player: AVPlayer = {
+    public static let player: AVPlayer = {
         let asset = videoModels[1].asset
         let playerItem = AVPlayerItem(asset: asset)
         return AVPlayer(playerItem: playerItem)
     }()
     
-    static let image = Image("kp")
+    public static let image = Image("kp")
 }

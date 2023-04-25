@@ -15,7 +15,6 @@ struct VideoPlayerMVApp: App {
         WindowGroup {
             MainView()
                 .environmentObject(videoManager)
-                .environmentObject(videoManager.importManager)
         }
     }
 }

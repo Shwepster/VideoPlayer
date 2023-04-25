@@ -10,7 +10,7 @@ import Model
 import CustomViews
 
 struct VideoList: View {
-    @EnvironmentObject var videoManager: VideoManager
+    @EnvironmentObject private var videoManager: VideoManager
     var onSelect: (VideoModel) -> Void = { _ in }
     var onDelete: (VideoModel) -> Void = { _ in }
     var onEdit:   (VideoModel) -> Void = { _ in }
@@ -37,7 +37,7 @@ struct VideoList: View {
         }
     }
     
-    @ViewBuilder func contextMenu(for video: VideoModel) -> some View {
+    @ViewBuilder private func contextMenu(for video: VideoModel) -> some View {
         Button {
             onEdit(video)
         } label: {
