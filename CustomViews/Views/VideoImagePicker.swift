@@ -39,3 +39,9 @@ public struct VideoImagePicker: View {
             }
     }
 }
+
+struct Previews_VideoImagePicker_Previews: PreviewProvider {
+    static var previews: some View {
+        VideoImagePicker(selection: .constant(nil), image: nil)
+    }
+}
