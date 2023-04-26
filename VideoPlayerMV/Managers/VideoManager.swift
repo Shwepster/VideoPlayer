@@ -10,7 +10,7 @@ import Model
 
 final class VideoManager: ObservableObject {
     @Published private(set) var videos: [VideoModel] = []
-    var importManager: MediaImportManager
+    var importManager: MediaImportService
     
     private let version: Version
     private let storageService: StorageService

@@ -13,6 +13,8 @@ struct MainView: View {
     @EnvironmentObject var videoManager: VideoManager
     @State private var editedVideo: VideoModel? = nil
     @State private var selectedVideo: VideoModel? = nil
+    @State private var isImportsListShown = false
+    @State private var isImportProgressShown = false
     
     var body: some View {
         NavigationStack { 
@@ -25,13 +27,18 @@ struct MainView: View {
             }
             .navigationTitle("Your Videos")
             .toolbar {
-                if videoManager.importManager.importState == .idle {
-                    VideoPicker(videoSelection: $videoManager.importManager.mediaSelection)
-                        .padding()
-                } else {
+                if isImportProgressShown {
                     ProgressView()
-                        .padding()
                 }
+                
+                Button {
+                    isImportsListShown.toggle()
+                } label: {
+                    Label("Import", systemImage: "arrow.down.circle")
+                }
+            }
+            .onReceive(videoManager.importManager.$runningImports) {
+                isImportProgressShown = !$0.isEmpty
             }
             .sheet(item: $editedVideo) { video in
                 EditVideoView(video: video) { updatedVideo in
@@ -44,6 +51,10 @@ struct MainView: View {
                 .environmentObject(MediaImportManager(
                     mediaImporter: AppServices.createImageImporter()
                 ))
+            }
+            .sheet(isPresented: $isImportsListShown) {
+                VideoImportListView()
+                    .environmentObject(videoManager.importManager)
             }
             .fullScreenCover(item: $selectedVideo) { video in
                 VideoView(video: video)

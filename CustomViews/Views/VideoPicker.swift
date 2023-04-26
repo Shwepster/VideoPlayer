@@ -9,24 +9,29 @@ import SwiftUI
 import PhotosUI
 
 public struct VideoPicker: View {
-    @Binding var videoSelection: PhotosPickerItem?
+    @Binding var videoSelection: [PhotosPickerItem]
     
-    public init(videoSelection: Binding<PhotosPickerItem?>) {
+    public init(videoSelection: Binding<[PhotosPickerItem]>) {
         _videoSelection = videoSelection
     }
         
     public var body: some View {
         PhotosPicker(
             selection: $videoSelection,
-            matching: .videos) {
-                Label("Import", systemImage: "arrow.down.circle")
-                    .bold()
+            maxSelectionCount: 4,
+            matching: .videos
+        ) {
+            HStack {
+                Text("Import").bold()
+                Spacer()
+                Image(systemName: "plus.circle")
+            }
         }
     }
 }
 
 struct VideoPicker_Previews: PreviewProvider {
     static var previews: some View {
-        VideoPicker(videoSelection: .constant(nil))
+        VideoPicker(videoSelection: .constant([]))
     }
 }
