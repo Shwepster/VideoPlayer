@@ -15,7 +15,7 @@ struct MainView: View {
     @State private var selectedVideo: VideoModel? = nil
     
     var body: some View {
-        NavigationStack {
+        NavigationStack { 
             VideoList { video in
                 selectedVideo = video
             } onDelete: { video in
@@ -63,6 +63,5 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(Self.videoManager)
-            .environmentObject(Self.videoManager.importManager)
     }
 }

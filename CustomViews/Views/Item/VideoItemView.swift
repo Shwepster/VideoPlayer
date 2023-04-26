@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Model // FIXME: Fix dependency
+import Model
 
 public struct VideoItemView: View {
     let video: VideoModel

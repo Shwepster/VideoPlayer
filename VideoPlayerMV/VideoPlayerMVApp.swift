@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct VideoPlayerMVApp: App {
-    @StateObject var videoManager = VideoManager()
+    @StateObject private var videoManager = VideoManager()
     
     var body: some Scene {
         WindowGroup {

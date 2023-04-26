@@ -64,7 +64,7 @@ struct EditVideoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             EditVideoView(video: PreviewHelper.videoModels[0], onSave: { _ in })
-                .environmentObject(VideoManager(version: .debug))
+                .environmentObject(VideoManager(version: .debug).importManager)
         }
     }
 }
