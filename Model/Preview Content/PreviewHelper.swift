@@ -52,5 +52,7 @@ public struct PreviewHelper {
         return AVPlayer(playerItem: playerItem)
     }()
     
+    public static let engine: VideoPlayerEngine = .init(asset: videoModels[0].asset)
+    
     public static let image = Image("kp")
 }

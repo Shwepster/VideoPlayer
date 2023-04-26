@@ -11,17 +11,17 @@ import CustomViews
 import Model
 
 struct VideoControlsView: View {
-    @EnvironmentObject private var engine: VideoPlayerEngine
+    var onSeekForward: () -> Void = {}
+    var onSeekBack: () -> Void = {}
+    @Binding var isPlaying: Bool
     @State private var isControlsShown = true
-    private let seekTime = 5.0
-    
+        
     var body: some View {
         ZStack {
-            PlayerSeekView {
-                engine.seek(appendingSeconds: seekTime)
-            } onSeekBack: {
-                engine.seek(appendingSeconds: -seekTime)
-            }
+            PlayerSeekView(
+                onSeekForward: onSeekForward,
+                onSeekBack: onSeekBack
+            )
             .onTapGesture {
                 isControlsShown.toggle()
             }
@@ -36,13 +36,13 @@ struct VideoControlsView: View {
     }
     
     @ViewBuilder var playButton: some View {
-        PlayerPlayButton(isPlaying: engine.isPlaying) {
-            engine.isPlaying.toggle()
+        PlayerPlayButton(isPlaying: isPlaying) {
+            isPlaying.toggle()
         }
         .frame(width: 80, height: 80)
         .animation(
             .spring().speed(1.5),
-            value: engine.isPlaying
+            value: isPlaying
         )
     }
     
@@ -54,5 +54,19 @@ struct VideoControlsView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 50)
         }
+    }
+}
+
+struct Previews_VideoControlsView_Previews: PreviewProvider {
+    struct TestView: View {
+        @State private var isPlaying = false
+        var body: some View {
+            VideoControlsView(isPlaying: $isPlaying)
+                .environmentObject(PreviewHelper.engine)
+        }
+    }
+    
+    static var previews: some View {
+        TestView()
     }
 }

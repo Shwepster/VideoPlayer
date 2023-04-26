@@ -13,6 +13,7 @@ struct VideoView: View {
     let video: VideoModel
     @EnvironmentObject var engine: VideoPlayerEngine
     @State private var contentMode: ContentMode = .fill
+    private let seekTime: Double = 5
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -23,8 +24,14 @@ struct VideoView: View {
             
             WatermarkView(text: video.title)
             
-            VideoControlsView()
-                .simultaneousGesture(zoomGesture)
+            VideoControlsView(
+                onSeekForward: {
+                    engine.seek(appendingSeconds: seekTime)
+                }, onSeekBack: {
+                    engine.seek(appendingSeconds: -seekTime)
+                }, isPlaying: $engine.isPlaying
+            )
+            .simultaneousGesture(zoomGesture)
         }
     }
     

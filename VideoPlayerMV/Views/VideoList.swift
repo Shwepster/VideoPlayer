@@ -19,14 +19,17 @@ struct VideoList: View {
         ScrollView(.vertical) {
             LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
                 ForEach(videoManager.videos) { video in
-                    VideoItemView(video: video)
-                        .aspectRatio(10/16, contentMode: .fit)
-                        .onTapGesture {
-                            onSelect(video)
-                        }
-                        .contextMenu {
-                            contextMenu(for: video)
-                        }
+                    VideoItemView(
+                        title: video.title,
+                        imageURL: video.imageURL
+                    )
+                    .aspectRatio(10/16, contentMode: .fit)
+                    .onTapGesture {
+                        onSelect(video)
+                    }
+                    .contextMenu {
+                        contextMenu(for: video)
+                    }
                 }
             }
             .padding(.horizontal)

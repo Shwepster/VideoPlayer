@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
-import Model
 
 public struct VideoItemView: View {
-    let video: VideoModel
+    let title: String
+    var imageURL: URL?
     
-    public init(video: VideoModel) {
-        self.video = video
+    public init(title: String, imageURL: URL? = nil) {
+        self.title = title
+        self.imageURL = imageURL
     }
     
     public var body: some View {
         ZStack(alignment: .bottomLeading) {
-            ItemImageView(url: video.imageURL)
+            ItemImageView(url: imageURL)
             
             LinearGradient(
                 gradient: Gradient(colors: [.black, .clear]),
@@ -25,7 +26,7 @@ public struct VideoItemView: View {
                 endPoint: .init(x: 0.5, y: 0.75)
             )
             
-            Text(video.title)
+            Text(title)
                 .font(.headline)
                 .bold()
                 .foregroundColor(.white)
