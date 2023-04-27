@@ -59,7 +59,7 @@ extension PlayerProgressView {
         // MARK: - Private
 
         private func subscribe() {
-            engine.duration
+            engine.$duration
                 .receive(on: DispatchQueue.main)
                 .compactMap(\.?.seconds)
                 .sink { [weak self] time in

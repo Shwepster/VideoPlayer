@@ -17,9 +17,9 @@ protocol BaseCDM: NSManagedObject {
 }
 
 extension BaseCDM {
-    static var entityName: String {
-        String(describing: self)
-    }
+//    static var entityName: String {
+//        String(describing: self)
+//    }
     
     static func fetchRequest(predicate: NSPredicate?) -> NSFetchRequest<Self> {
         let request = NSFetchRequest<Self>(entityName: entityName)

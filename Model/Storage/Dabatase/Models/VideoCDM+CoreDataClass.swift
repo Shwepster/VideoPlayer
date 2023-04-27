@@ -11,5 +11,11 @@ import CoreData
 
 @objc(VideoCDM)
 final class VideoCDM: NSManagedObject, BaseCDM {
+    static var entityName: String { "VideoCDM" }
+    
     typealias Identifier = String
+    
+    override var description: String {
+        "VideoCDM"
+    }
 }

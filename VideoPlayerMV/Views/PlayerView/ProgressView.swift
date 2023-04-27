@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Model
-import CustomViews
+import PreviewKit
 
 struct PlayerProgressView: View {
     @EnvironmentObject var engine: VideoPlayerEngine
@@ -32,7 +32,7 @@ struct PlayerProgressView: View {
             }
             .tint(.white.opacity(0.6))
             .task {
-                engine.startTrackingProgress(forWidth: geometry.size.width)
+                engine.startTrackingProgress(forWidth: geometry.width)
             }
         }
         .fixedSize(horizontal: false, vertical: true)

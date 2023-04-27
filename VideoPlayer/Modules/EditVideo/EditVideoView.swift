@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CustomViews
+import Model
+import PreviewKit
 
 struct EditVideoView: View {
     @StateObject var viewModel: ViewModel
@@ -47,7 +49,7 @@ struct EditVideoView: View {
 struct EditVideoView_Previews: PreviewProvider {
     static var viewModel: EditVideoView.ViewModel = .init(
         video: PreviewHelper.videoModels[0],
-        mediaImporter: AppServices.createMediaImporter()
+        mediaImporter: AppServices.createImageImporter()
     )
     
     static var previews: some View {

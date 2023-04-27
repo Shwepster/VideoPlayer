@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CustomViews
+import Model
 
 struct MainView: View {
     @ObservedObject var viewModel: ViewModel
@@ -29,7 +30,7 @@ struct MainView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let viewModel = MainView.ViewModel(videoImporter: AppServices.createMediaImporter())
+    static let viewModel = MainView.ViewModel(videoImporter: AppServices.createVideoImporter())
     static var previews: some View {
         MainView(viewModel: viewModel)
     }

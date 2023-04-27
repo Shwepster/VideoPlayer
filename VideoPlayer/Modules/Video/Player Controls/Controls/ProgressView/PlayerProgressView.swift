@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AVKit
+import PreviewKit
 
 struct PlayerProgressView: View {
     @ObservedObject var viewModel: ViewModel
@@ -30,13 +30,12 @@ struct PlayerProgressView: View {
             }
             .tint(.white.opacity(0.6))
             .task {
-                await viewModel.didDraw(with: geometry.size.width)
+                await viewModel.didDraw(with: geometry.width)
             }
         }
         .fixedSize(horizontal: false, vertical: true)
     }
 }
-
 
 struct PlayerProgressView_Previews: PreviewProvider {
     static let vm = PlayerProgressView.ViewModel(engine: .init(

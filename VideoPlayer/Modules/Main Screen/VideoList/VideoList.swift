@@ -16,7 +16,7 @@ struct VideoList: View {
         ScrollView(.vertical) {
             LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
                 ForEach(viewModel.videos) { video in
-                    VideoItemView(video: video)
+                    VideoItemView(title: video.title, imageURL: video.imageURL)
                         .aspectRatio(10/16, contentMode: .fit)
                         .onTapGesture {
                             viewModel.selectVideo(video)
@@ -40,7 +40,7 @@ struct VideoList: View {
         .sheet(item: $viewModel.editedVideo) { video in
             EditVideoView(viewModel: .init(
                 video: video,
-                mediaImporter: AppServices.createMediaImporter()
+                mediaImporter: AppServices.createImageImporter()
             ))
             .presentationDetents([.fraction(0.7)])
             .presentationDragIndicator(.visible)

@@ -30,9 +30,7 @@ extension VideoPlayerControlsView {
         // MARK: - Actions
         
         func togglePlay() {
-            isPlaying
-            ? player.pause()
-            : player.play()
+            player.isPlaying.toggle()
         }
         
         func seekForward() {
@@ -46,7 +44,7 @@ extension VideoPlayerControlsView {
         // MARK: - Private
         
         private func subscribe() {
-            player.isPlaying.assign(to: &$isPlaying)
+            player.$isPlaying.assign(to: &$isPlaying) // FIXME: Make onWeak self
         }
     }
 }

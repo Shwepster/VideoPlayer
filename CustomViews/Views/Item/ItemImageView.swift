@@ -22,8 +22,8 @@ public struct ItemImageView: View {
             }
             .scaledToFill()
             .frame(
-                width: geometry.size.width,
-                height: geometry.size.height
+                width: geometry.width,
+                height: geometry.height
             )
             .contentShape(Rectangle())
             .animation(.default, value: url)

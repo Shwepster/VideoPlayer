@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import AVKit
 import CustomViews
-import Model
+import PreviewKit
 
 struct VideoControlsView: View {
     var onSeekForward: () -> Void = {}

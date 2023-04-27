@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import Model
 
 extension VideoPlayerApp {
     @MainActor class ViewModel: ObservableObject {
@@ -16,7 +17,7 @@ extension VideoPlayerApp {
         private var subscriptions = Set<AnyCancellable>()
         
         init() {
-            let mediaImporter = AppServices.createMediaImporter()
+            let mediaImporter = AppServices.createVideoImporter()
             self.mainViewModel = .init(videoImporter: mediaImporter)
             subscribeOnCampaigns()
         }

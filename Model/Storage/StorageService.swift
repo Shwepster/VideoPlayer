@@ -11,11 +11,21 @@ import Combine
 public final class StorageService {
     public static let shared = StorageService()
     public let updatesPublisher: AnyPublisher<Bool, Never>
-    
     private let fileManager = FileManager.default
-    private let databaseName = "Database"
+    
     private lazy var persistentContainer: PersistentContainer = {
-        let container = PersistentContainer(name: databaseName)
+        let databaseName = "Database"
+        let bundle = Bundle(identifier: "max.Model")!
+        
+        guard let modelURL = bundle.url(forResource: databaseName, withExtension:"momd") else {
+            fatalError("Error loading model from bundle")
+        }
+        
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Error initializing mom from: \(modelURL)")
+        }
+
+        let container = PersistentContainer(name: databaseName, managedObjectModel: mom)
         container.setup()
         return container
     }()

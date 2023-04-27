@@ -16,7 +16,7 @@ struct SeekPartView: View {
         GeometryReader { geometry in
             Color.black
                 .opacity(0.0001)
-                .frame(width: geometry.size.width)
+                .frame(width: geometry.width)
                 .overlay {
                     if isArrowsShown {
                         Image(systemName: "chevron.\(side).2")
@@ -25,9 +25,9 @@ struct SeekPartView: View {
                             .scaledToFit()
                             .foregroundColor(.white)
                             .opacity(0.6)
-                            .padding(geometry.size.width / 8)
+                            .padding(geometry.width / 8)
                             .clipShape(RoundedRectangle(
-                                cornerRadius: geometry.size.width / 4
+                                cornerRadius: geometry.width / 4
                             ))
                             .scaleEffect(0.8, anchor: side.anchor)
                             .padding(.horizontal)

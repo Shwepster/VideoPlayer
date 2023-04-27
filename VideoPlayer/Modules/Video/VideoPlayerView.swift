@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import PreviewKit
 
 struct VideoPlayerView: View {
     let player: AVPlayer
@@ -19,8 +20,8 @@ struct VideoPlayerView: View {
                 .disabled(true)
                 .aspectRatio(contentMode: contentMode)
                 .frame(
-                    width: geometry.size.width,
-                    height: geometry.size.height
+                    width: geometry.width,
+                    height: geometry.height
                 )
         }
         .background(Color.black)

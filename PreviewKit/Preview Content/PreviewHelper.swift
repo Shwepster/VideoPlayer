@@ -8,10 +8,11 @@
 import Foundation
 import AVKit
 import SwiftUI
+import Model
 
 public struct PreviewHelper {
     static var current: Bundle {
-        Bundle(identifier: "max.Model")!
+        Bundle(identifier: "max.PreviewKit")!
     }
     
     public static let videoModels: [VideoModel] = [

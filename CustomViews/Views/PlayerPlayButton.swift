@@ -27,12 +27,12 @@ public struct PlayerPlayButton: View {
                     .opacity(isPlaying ? 0.4 : 0.6)
             }
             .tint(.white)
-            .padding(geometry.size.width / 8)
+            .padding(geometry.width / 8)
             .background(
                 Color.black
                     .opacity(0.4)
             )
-            .clipShape(RoundedRectangle(cornerRadius: geometry.size.width / 4))
+            .clipShape(RoundedRectangle(cornerRadius: geometry.width / 4))
             .scaleEffect(isPlaying ? 0.8 : 1)
         }
     }

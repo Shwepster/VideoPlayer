@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import AVKit
 import CustomViews
+import PreviewKit
 
 struct VideoView: View {
     @ObservedObject var viewModel: ViewModel

@@ -7,6 +7,7 @@
 
 import Combine
 import Model
+import PreviewKit
 
 final class VideoManager: ObservableObject {
     @Published private(set) var videos: [VideoModel] = []

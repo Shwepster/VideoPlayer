@@ -13,10 +13,10 @@ import Model
 extension MainView {
     @MainActor class ViewModel: ObservableObject {
         @Published var importState = ImportState.idle
-        @Published var videoSelection: PhotosPickerItem? {
+        @Published var videoSelection: [PhotosPickerItem] = [] {
             didSet {
-                if let videoSelection {
-                    importVideo(from: videoSelection)
+                if let selection = videoSelection.first {
+                    importVideo(from: selection)
                 } else {
                     importState = .idle
                 }
@@ -37,6 +37,7 @@ extension MainView {
                 // is saved in DB during loading
                 let _ = await videoImporter.loadVideo(from: selection)
                 importState = .idle
+                videoSelection.removeAll()
             }
         }
     }

@@ -20,8 +20,8 @@ public struct ImageView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(
-                    width: geometry.size.width,
-                    height: geometry.size.height
+                    width: geometry.width,
+                    height: geometry.height
                 )
                 .contentShape(Rectangle())
                 .animation(.default, value: image)
