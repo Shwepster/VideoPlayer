@@ -15,10 +15,14 @@ public final class StorageService {
     
     private lazy var persistentContainer: PersistentContainer = {
         let databaseName = "Database"
-        let bundle = Bundle(identifier: "max.Model")!
-        
-        guard let modelURL = bundle.url(forResource: databaseName, withExtension:"momd") else {
-            fatalError("Error loading model from bundle")
+        guard let modelBundlePath = Bundle.main.path(forResource: "ModelBundle", ofType: "bundle"),
+              let bundle = Bundle(path: modelBundlePath)
+        else {
+            fatalError("Error loading ModelBundle")
+        }
+                
+        guard let modelURL = bundle.url(forResource: databaseName, withExtension: "momd") else {
+            fatalError("Error loading mom from bundle")
         }
         
         guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {

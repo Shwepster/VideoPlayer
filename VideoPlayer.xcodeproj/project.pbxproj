@@ -105,6 +105,10 @@
 		F68DFC1C29FAAD3D0090DEEC /* PreviewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6775DDE29FAAC6700C296E5 /* PreviewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F68DFC1F29FAAE670090DEEC /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F632303A29F6B71700CF106A /* Model.framework */; };
 		F68DFC2029FAAE670090DEEC /* Model.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F632303A29F6B71700CF106A /* Model.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F68DFC3E29FADB9A0090DEEC /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6FED3C729DF021D001926A0 /* Database.xcdatamodeld */; };
+		F68DFC3F29FADB9A0090DEEC /* ModelMapper_1.0-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F6309C7B29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel */; };
+		F68DFC4029FADBE00090DEEC /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F632303A29F6B71700CF106A /* Model.framework */; };
+		F68DFC4129FADC770090DEEC /* ModelBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
 		F69528E829E1B6CD003BCD1A /* PlayerProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */; };
 		F6E829E929DC8C1D00E01247 /* VideoPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */; };
@@ -297,7 +301,7 @@
 		F68DFC1229FAACA20090DEEC /* test_video.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test_video.MOV; sourceTree = "<group>"; };
 		F68DFC1329FAACA20090DEEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F68DFC1429FAACA20090DEEC /* kp2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kp2.jpg; sourceTree = "<group>"; };
-		F68DFC2D29FADA5B0090DEEC /* LoadableBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadableBundle.h; sourceTree = "<group>"; };
+		F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
 		F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgressViewModel.swift; sourceTree = "<group>"; };
 		F69528F229E4488C003BCD1A /* PlayerSeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSeekView.swift; sourceTree = "<group>"; };
@@ -359,6 +363,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F68DFC1F29FAAE670090DEEC /* Model.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68DFC3729FADAF90090DEEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F68DFC4029FADBE00090DEEC /* Model.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,14 +666,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F68DFC2C29FADA5B0090DEEC /* LoadableBundle */ = {
-			isa = PBXGroup;
-			children = (
-				F68DFC2D29FADA5B0090DEEC /* LoadableBundle.h */,
-			);
-			path = LoadableBundle;
-			sourceTree = "<group>";
-		};
 		F69528EE29E1CB29003BCD1A /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,7 +710,6 @@
 				F632308329F6C1E500CF106A /* CustomViews */,
 				F6775DDF29FAAC6700C296E5 /* PreviewKit */,
 				F632307229F6BF4000CF106A /* TestCode */,
-				F68DFC2C29FADA5B0090DEEC /* LoadableBundle */,
 				F6E829E629DC8C1D00E01247 /* Products */,
 				895C5E8853EB58DCD5092CCE /* Pods */,
 				F204BFE0FAD42E5FF2C6D899 /* Frameworks */,
@@ -722,6 +725,7 @@
 				F632308229F6C1E500CF106A /* CustomViews.framework */,
 				F632309F29F6C8D800CF106A /* VideoPlayerMV.app */,
 				F6775DDE29FAAC6700C296E5 /* PreviewKit.framework */,
+				F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -927,6 +931,23 @@
 			productReference = F6775DDE29FAAC6700C296E5 /* PreviewKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F68DFC3929FADAF90090DEEC /* ModelBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F68DFC3B29FADAFA0090DEEC /* Build configuration list for PBXNativeTarget "ModelBundle" */;
+			buildPhases = (
+				F68DFC3629FADAF90090DEEC /* Sources */,
+				F68DFC3729FADAF90090DEEC /* Frameworks */,
+				F68DFC3829FADAF90090DEEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModelBundle;
+			productName = ModelBundle;
+			productReference = F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F6E829E429DC8C1D00E01247 /* VideoPlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6E829F329DC8C1D00E01247 /* Build configuration list for PBXNativeTarget "VideoPlayer" */;
@@ -977,6 +998,9 @@
 					F6775DDD29FAAC6700C296E5 = {
 						CreatedOnToolsVersion = 14.3;
 					};
+					F68DFC3929FADAF90090DEEC = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					F6E829E429DC8C1D00E01247 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -1004,6 +1028,7 @@
 				F632307029F6BF4000CF106A /* TestCode */,
 				F632308129F6C1E500CF106A /* CustomViews */,
 				F6775DDD29FAAC6700C296E5 /* PreviewKit */,
+				F68DFC3929FADAF90090DEEC /* ModelBundle */,
 			);
 		};
 /* End PBXProject section */
@@ -1034,6 +1059,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68DFC4129FADC770090DEEC /* ModelBundle.bundle in Resources */,
 				F63230B029F6C93700CF106A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1047,6 +1073,13 @@
 				F68DFC1629FAACA20090DEEC /* video.MOV in Resources */,
 				F68DFC1829FAACA20090DEEC /* test_video.MOV in Resources */,
 				F68DFC1A29FAACA20090DEEC /* kp2.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68DFC3829FADAF90090DEEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1177,6 +1210,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F68DFC1529FAACA20090DEEC /* PreviewHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68DFC3629FADAF90090DEEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F68DFC3E29FADB9A0090DEEC /* Database.xcdatamodeld in Sources */,
+				F68DFC3F29FADB9A0090DEEC /* ModelMapper_1.0-1.1.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1604,6 +1646,50 @@
 			};
 			name = Release;
 		};
+		F68DFC3C29FADAFA0090DEEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3QS73BWYFX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = max.ModelBundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F68DFC3D29FADAFA0090DEEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3QS73BWYFX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = max.ModelBundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		F6E829F129DC8C1D00E01247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1830,6 +1916,15 @@
 			buildConfigurations = (
 				F6775DE729FAAC6700C296E5 /* Debug */,
 				F6775DE829FAAC6700C296E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F68DFC3B29FADAFA0090DEEC /* Build configuration list for PBXNativeTarget "ModelBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68DFC3C29FADAFA0090DEEC /* Debug */,
+				F68DFC3D29FADAFA0090DEEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

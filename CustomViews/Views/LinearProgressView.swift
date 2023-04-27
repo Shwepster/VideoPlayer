@@ -35,3 +35,9 @@ public struct LinearProgressView: View {
         }
     }
 }
+
+struct Previews_LinearProgressView_Previews: PreviewProvider {
+    static var previews: some View {
+        LinearProgressView()
+    }
+}
