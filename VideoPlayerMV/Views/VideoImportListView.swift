@@ -8,7 +8,7 @@
 import SwiftUI
 import CustomViews
 import PhotosUI
-import Model
+import VideoPlayerModel
 
 struct VideoImportListView: View {
     @EnvironmentObject var videoImportService: MediaImportService

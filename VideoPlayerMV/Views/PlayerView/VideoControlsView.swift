@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CustomViews
-import PreviewKit
+import VideoPlayerModel
 
 struct VideoControlsView: View {
     var onSeekForward: () -> Void = {}
@@ -61,7 +61,7 @@ struct Previews_VideoControlsView_Previews: PreviewProvider {
         @State private var isPlaying = false
         var body: some View {
             VideoControlsView(isPlaying: $isPlaying)
-                .environmentObject(PreviewHelper.engine)
+                .environmentObject(Mockups.engine)
         }
     }
     

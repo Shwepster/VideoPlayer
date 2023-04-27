@@ -5,15 +5,11 @@
 //  Created by Maxim Vynnyk on 08.04.2023.
 //
 
-import Foundation
 import AVKit
 import SwiftUI
-import Model
 
-public struct PreviewHelper {
-    static var current: Bundle {
-        Bundle(identifier: "max.PreviewKit")!
-    }
+public struct Mockups {
+    static var current = Bundle(identifier: "max.PreviewKit")!
     
     public static let videoModels: [VideoModel] = [
         .init(

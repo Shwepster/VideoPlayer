@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Model
+import VideoPlayerModel
 import PreviewKit
 
 struct PlayerProgressView: View {
@@ -59,13 +59,13 @@ struct PlayerProgressView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
                 .padding(.all)
                 .previewLayout(.sizeThatFits)
-                .environmentObject(VideoPlayerEngine(asset: PreviewHelper.videoModels[0].asset))
+                .environmentObject(VideoPlayerEngine(asset: Mockups.videoModels[0].asset))
             
             PlayerProgressView()
                 .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
                 .preferredColorScheme(.dark)
                 .previewDevice("iPhone 14 Pro")
-                .environmentObject(VideoPlayerEngine(asset: PreviewHelper.videoModels[0].asset))
+                .environmentObject(VideoPlayerEngine(asset: Mockups.videoModels[0].asset))
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CustomViews
-import Model
+import VideoPlayerModel
 import PreviewKit
 
 struct VideoView: View {
@@ -53,11 +53,11 @@ struct VideoView: View {
 
 struct VideoView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoView(video: PreviewHelper.videoModels[0])
+        VideoView(video: Mockups.videoModels[0])
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
             .environmentObject(VideoPlayerEngine(
-                asset: PreviewHelper.videoModels[0].asset
+                asset: Mockups.videoModels[0].asset
             ))
     }
 }

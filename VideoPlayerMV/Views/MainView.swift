@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CustomViews
-import Model
+import VideoPlayerModel
 
 struct MainView: View {
     @EnvironmentObject var videoManager: VideoManager

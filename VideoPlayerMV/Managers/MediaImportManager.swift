@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 import PhotosUI
-import Model
+import VideoPlayerModel
 
 final class MediaImportManager: ObservableObject {
     private let mediaImporter: MediaImporterProtocol

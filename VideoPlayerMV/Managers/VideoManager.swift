@@ -6,7 +6,7 @@
 //
 
 import Combine
-import Model
+import VideoPlayerModel
 import PreviewKit
 
 final class VideoManager: ObservableObject {
@@ -47,7 +47,7 @@ final class VideoManager: ObservableObject {
         // TODO: Replace with provider
         switch version {
         case .debug:
-            videos = PreviewHelper.videoModels
+            videos = Mockups.videoModels
         case .normal:
             videos = storageService.getVideos().reversed()
         }

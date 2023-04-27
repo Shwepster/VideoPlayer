@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AVKit
-import PreviewKit
+import VideoPlayerModel
 
 struct VideoPlayerView: View {
     let player: AVPlayer
@@ -31,6 +31,6 @@ struct VideoPlayerView: View {
 
 struct VideoPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoPlayerView(player: PreviewHelper.player, contentMode: .fill)
+        VideoPlayerView(player: Mockups.player, contentMode: .fill)
     }
 }
