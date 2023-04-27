@@ -108,7 +108,8 @@
 		F68DFC3E29FADB9A0090DEEC /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6FED3C729DF021D001926A0 /* Database.xcdatamodeld */; };
 		F68DFC3F29FADB9A0090DEEC /* ModelMapper_1.0-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F6309C7B29DEE14C004D5D1C /* ModelMapper_1.0-1.1.xcmappingmodel */; };
 		F68DFC4029FADBE00090DEEC /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F632303A29F6B71700CF106A /* Model.framework */; };
-		F68DFC4129FADC770090DEEC /* ModelBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */; };
+		F68DFC4229FADFA40090DEEC /* ModelBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */; };
+		F68DFC4529FAE7E30090DEEC /* ModelBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F68DFC3A29FADAFA0090DEEC /* ModelBundle.bundle */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
 		F69528E829E1B6CD003BCD1A /* PlayerProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */; };
 		F6E829E929DC8C1D00E01247 /* VideoPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E829E829DC8C1D00E01247 /* VideoPlayerApp.swift */; };
@@ -441,7 +442,6 @@
 			isa = PBXGroup;
 			children = (
 				F672E4B829EA095200F30D90 /* Item */,
-				F6B6A19929E491E20054093A /* Modifiers */,
 				F69528F629E46B01003BCD1A /* SeekView */,
 				F68518BF29F99FC300F92DB7 /* LinearProgressView.swift */,
 				F654C46A29DCA7A100CD7B76 /* VideoPicker.swift */,
@@ -449,7 +449,6 @@
 				F672E4B629EA086A00F30D90 /* ImageView.swift */,
 				F678881529E0981500BAF93F /* WatermarkView.swift */,
 				F604E54C29E1A95500153BA7 /* PlayerPlayButton.swift */,
-				F6775DD229FAA75500C296E5 /* Extensions */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +512,8 @@
 		F632308329F6C1E500CF106A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				F6775DD229FAA75500C296E5 /* Extensions */,
+				F6B6A19929E491E20054093A /* Modifiers */,
 				F62AB6EB29DDA9BC00994EC5 /* Views */,
 				F632308429F6C1E500CF106A /* CustomViews.h */,
 			);
@@ -1059,7 +1060,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F68DFC4129FADC770090DEEC /* ModelBundle.bundle in Resources */,
+				F68DFC4529FAE7E30090DEEC /* ModelBundle.bundle in Resources */,
 				F63230B029F6C93700CF106A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1087,6 +1088,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68DFC4229FADFA40090DEEC /* ModelBundle.bundle in Resources */,
 				F6E829F029DC8C1D00E01247 /* Preview Assets.xcassets in Resources */,
 				F654C45829DC939200CD7B76 /* Localizable.strings in Resources */,
 				F6E829ED29DC8C1D00E01247 /* Assets.xcassets in Resources */,
