@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Model
+import VideoPlayerModel
 import CustomViews
 
 struct VideoList: View {

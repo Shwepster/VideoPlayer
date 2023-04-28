@@ -5,10 +5,11 @@
 //  Created by Maxim Vynnyk on 24.04.2023.
 //
 
+import Foundation
 import Combine
 import VideoPlayerModel
-import PreviewKit
 
+@dynamicMemberLookup
 final class VideoManager: ObservableObject {
     @Published private(set) var videos: [VideoModel] = []
     var importManager: MediaImportService
@@ -22,6 +23,11 @@ final class VideoManager: ObservableObject {
         self.storageService = storageService
         self.importManager = .init(mediaImporter: AppServices.createVideoImporter())
         setupObservers()
+    }
+    
+    // Just to remember this feature
+    subscript<T>(dynamicMember keyPath: KeyPath<MediaImportService, T>) -> T {
+        importManager[keyPath: keyPath]
     }
     
     deinit {

@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import CustomViews
+import VideoPlayerViews
 import VideoPlayerModel
-import PreviewKit
 
 struct EditVideoView: View {
     @EnvironmentObject var imageImporter: MediaImportManager

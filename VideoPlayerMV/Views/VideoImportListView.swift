@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import CustomViews
 import PhotosUI
+import VideoPlayerViews
 import VideoPlayerModel
 
 struct VideoImportListView: View {

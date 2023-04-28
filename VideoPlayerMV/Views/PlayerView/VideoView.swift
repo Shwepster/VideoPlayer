@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import CustomViews
+import VideoPlayerViews
 import VideoPlayerModel
-import PreviewKit
 
 struct VideoView: View {
     let video: VideoModel

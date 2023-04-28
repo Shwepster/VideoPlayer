@@ -7,7 +7,6 @@
 
 import SwiftUI
 import VideoPlayerModel
-import PreviewKit
 
 struct PlayerProgressView: View {
     @EnvironmentObject var engine: VideoPlayerEngine
