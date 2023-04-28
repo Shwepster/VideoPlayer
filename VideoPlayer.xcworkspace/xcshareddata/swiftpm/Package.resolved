@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Shwepster/VideoPlayerViews.git",
       "state" : {
-        "revision" : "1145df860d8d1d6057e769a44a05a2f31b6cf695",
-        "version" : "1.0.0"
+        "revision" : "61fd20e0a1a8a8a9a9a3aa63d8d4cec07b99aeb6",
+        "version" : "1.0.1"
       }
     }
   ],
