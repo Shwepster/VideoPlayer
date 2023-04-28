@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "videoplayermodel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Shwepster/VideoPlayerModel.git",
+      "state" : {
+        "revision" : "2749b1d0adf78824b856c08cde3e8dcfdfe9ca0b",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "videoplayerviews",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Shwepster/VideoPlayerViews.git",
