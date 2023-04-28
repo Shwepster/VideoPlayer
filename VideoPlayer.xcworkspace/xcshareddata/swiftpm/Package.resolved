@@ -1,39 +1,21 @@
 {
   "pins" : [
     {
-      "identity" : "kingfisher",
+      "identity" : "videoplayermodel",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "location" : "https://github.com/Shwepster/VideoPlayerModel.git",
       "state" : {
-        "revision" : "af4be924ad984cf4d16f4ae4df424e79a443d435",
-        "version" : "7.6.2"
+        "revision" : "2749b1d0adf78824b856c08cde3e8dcfdfe9ca0b",
+        "version" : "1.0.0"
       }
     },
     {
-      "identity" : "r.swift",
+      "identity" : "videoplayerviews",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mac-cain13/R.swift",
+      "location" : "https://github.com/Shwepster/VideoPlayerViews.git",
       "state" : {
-        "revision" : "589493fe3907251b62f7684c8451330ee08f4426",
-        "version" : "7.3.0"
-      }
-    },
-    {
-      "identity" : "swift-argument-parser",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-argument-parser",
-      "state" : {
-        "revision" : "fee6933f37fde9a5e12a1e4aeaa93fe60116ff2a",
-        "version" : "1.2.2"
-      }
-    },
-    {
-      "identity" : "xcodeedit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tomlokhorst/XcodeEdit",
-      "state" : {
-        "revision" : "cd466d6e8c5ffd2f2b61165d37b0646f09068e1e",
-        "version" : "2.9.0"
+        "revision" : "61fd20e0a1a8a8a9a9a3aa63d8d4cec07b99aeb6",
+        "version" : "1.0.1"
       }
     }
   ],
