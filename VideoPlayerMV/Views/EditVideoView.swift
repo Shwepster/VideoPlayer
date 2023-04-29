@@ -12,51 +12,50 @@ import VideoPlayerModel
 struct EditVideoView: View {
     @EnvironmentObject var imageImporter: MediaImportManager
     @State var video: VideoModel // State creates a copy of injected video
-    @State private var image = Image("kp")
+    @State private var image = Image(systemName: "scribble.variable")
+    @FocusState private var textFieldIsFocused: Bool
     var onSave: (VideoModel) -> Void
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            Form {
-                VideoImagePicker(
-                    selection: $imageImporter.mediaSelection,
-                    image: image
-                )
-                
-                HStack {
-                    Text("Title")
-                        .font(.headline)
-                    Divider()
-                    TextField("Title", text: $video.title)
+        Form {
+            HStack {
+                Spacer()
+                Button {
+                    onSave(video)
+                } label: {
+                    Text("Save")
+                        .bold()
+                        .disabled(imageImporter.importState == .loading)
                 }
             }
-            .scrollBounceBehavior(.basedOnSize)
             
-            Button {
-                onSave(video)
-            } label: {
-                Text("Save")
-                    .padding(.vertical)
-                    .padding(.horizontal, 100)
+            VideoImagePicker(
+                selection: $imageImporter.mediaSelection,
+                image: image
+            )
+            .frame(height: 200)
+            .clipped()
+            
+            HStack {
+                Text("Title")
+                    .font(.headline)
+                Divider()
+                TextField("Title", text: $video.title)
+                    .focused($textFieldIsFocused)
             }
-            .foregroundColor(Color(uiColor: .systemBackground))
-            .background(Color.accentColor)
-            .clipShape(Capsule(style: .continuous))
         }
+        .scrollBounceBehavior(.basedOnSize)
         .onReceive(imageImporter.$importedMedia) { output in
             switch output {
             case let .image(uiImage, path):
                 video.imageURL = path
                 image = Image(uiImage: uiImage)
             case .video, .empty:
-                image = Image(
-                    uiImage: UIImage(
-                        contentsOfFile: video.imageURL?.path() ?? ""
-                    ) ?? UIImage(named: "kp")!
-                )
+                if let uiImage = UIImage(contentsOfFile: video.imageURL?.path() ?? "") {
+                    image = Image(uiImage: uiImage)
+                }
             }
         }
-        
     }
 }
 
