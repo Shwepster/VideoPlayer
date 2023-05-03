@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import VideoPlayerModel
+import VideoPlayerKit
 
 @dynamicMemberLookup
 final class VideoManager: ObservableObject {
@@ -46,16 +47,17 @@ final class VideoManager: ObservableObject {
     func loadVideos() async {
         // load only if there is no videos, if new videos are needed use 'refresh'
         guard videos.isEmpty else { return }
-        reloadVideos()
+        await reloadVideos()
     }
     
-    private func reloadVideos() {
+    @MainActor
+    private func reloadVideos() async {
         // TODO: Replace with provider
         switch version {
         case .debug:
             videos = Mockups.videoModels
         case .normal:
-            videos = storageService.getVideos().reversed()
+            videos = await storageService.getVideos().reversed()
         }
     }
     
@@ -63,8 +65,8 @@ final class VideoManager: ObservableObject {
         storageService.updatesPublisher
             .debounce(for: 0.3, scheduler: RunLoop.current) // storage can update few times a second
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.reloadVideos()
+            .asyncSink { [weak self] _ in
+                await self?.reloadVideos()
             }
             .store(in: &subscriptions)
     }

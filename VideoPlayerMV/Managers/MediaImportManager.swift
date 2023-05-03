@@ -35,8 +35,8 @@ final class MediaImportManager: ObservableObject {
             var result = ImportedMedia.empty
             
             if selection.supportedContentTypes.contains(.jpeg) {
-                let imageResult = await mediaImporter.loadImage(from: selection)
-                if let image = imageResult.0, let url = imageResult.1 {
+                let (image, url) = await mediaImporter.loadImage(from: selection)
+                if let image, let url {
                     result = .image(image, url)
                 }
             } else {
