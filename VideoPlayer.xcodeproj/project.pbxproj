@@ -150,6 +150,7 @@
 		F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoView.swift; sourceTree = "<group>"; };
 		F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoViewModel.swift; sourceTree = "<group>"; };
 		F672E4E929EDADC100F30D90 /* ViewImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageFetcher.swift; sourceTree = "<group>"; };
+		F67C29A42A03D6CF00D7CC13 /* VideoPlayerViews */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VideoPlayerViews; path = ../VideoPlayerViews; sourceTree = "<group>"; };
 		F68518BD29F9937900F92DB7 /* VideoImportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoImportListView.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
 		F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgressViewModel.swift; sourceTree = "<group>"; };
@@ -343,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				F66C2D2529FD74F700EB085B /* VideoPlayerModel */,
+				F67C29A42A03D6CF00D7CC13 /* VideoPlayerViews */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
