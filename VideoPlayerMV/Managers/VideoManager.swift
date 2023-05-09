@@ -36,22 +36,20 @@ final class VideoManager: ObservableObject {
     }
     
     func deleteVideo(_ video: VideoModel) {
-        storageService.deleteVideo(video)
+        Task { await storageService.deleteVideoAsync(video) }
     }
     
     func saveVideo(_ video: VideoModel) {
-        storageService.saveVideo(video)
+        Task { await storageService.saveVideoAsync(video) }
     }
     
-    @MainActor
     func loadVideos() async {
         // load only if there is no videos, if new videos are needed use 'refresh'
         guard videos.isEmpty else { return }
         await reloadVideos()
     }
     
-    @MainActor
-    private func reloadVideos() async {
+    @MainActor private func reloadVideos() async {
         // TODO: Replace with provider
         switch version {
         case .debug:

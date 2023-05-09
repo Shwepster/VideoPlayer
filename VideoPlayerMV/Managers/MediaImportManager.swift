@@ -31,24 +31,24 @@ final class MediaImportManager: ObservableObject {
     private func importVideo(from selection: PhotosPickerItem) {
         importState = .loading
         
-        Task {
+        Task.detached(priority: .low) {
             var result = ImportedMedia.empty
             
             if selection.supportedContentTypes.contains(.jpeg) {
-                let (image, url) = await mediaImporter.loadImage(from: selection)
+                let (image, url) = await self.mediaImporter.loadImage(from: selection)
                 if let image, let url {
                     result = .image(image, url)
                 }
             } else {
                 // is saved in DB during loading
-                if let videoModel = await mediaImporter.loadVideo(from: selection) {
+                if let videoModel = await self.mediaImporter.loadVideo(from: selection) {
                     result = .video(videoModel)
                 }
             }
             
-            Task { @MainActor [result] in
-                importState = .idle
-                importedMedia = result
+            await MainActor.run { [result] in
+                self.importState = .idle
+                self.importedMedia = result
             }
         }
     }
