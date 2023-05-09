@@ -45,7 +45,7 @@ struct MainView: View {
                     videoManager.saveVideo(updatedVideo)
                     editedVideo = nil
                 }
-                .presentationDetents([.fraction(0.7)])
+                .presentationDetents([.fraction(0.95)])
                 .presentationDragIndicator(.visible)
                 .presentationContentInteraction(.resizes)
                 .environmentObject(MediaImportManager(

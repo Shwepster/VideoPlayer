@@ -33,11 +33,13 @@ extension MainView {
         
         private func importVideo(from selection: PhotosPickerItem) {
             importState = .loading
-            Task { @MainActor in
-                // is saved in DB during loading
-                let _ = await videoImporter.loadVideo(from: selection)
-                importState = .idle
-                videoSelection.removeAll()
+            // is saved in DB during loading
+            Task.detached {
+                await videoImporter.loadVideo(from: selection)
+                MainActor.run {
+                    importState = .idle
+                    videoSelection.removeAll()
+                }
             }
         }
     }
