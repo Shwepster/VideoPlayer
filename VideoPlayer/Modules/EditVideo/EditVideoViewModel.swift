@@ -38,7 +38,7 @@ extension EditVideoView {
             self.title = video.title
             self.thumbnailURL = video.imageURL
             
-            Task {
+            Task.detached(priority: .userInitiated) {
                 thumbnail = await ViewImageFetcher.makeImage(from: video.imageURL)
             }
         }
@@ -57,17 +57,19 @@ extension EditVideoView {
         private func loadImage(from selection: PhotosPickerItem) {
             imageLoadingState = .loading
             
-            Task { @MainActor in
+            Task.detached {
                 let (image, url) = await mediaImporter.loadImage(from: selection)
                 
-                guard let image, let url else {
-                    imageLoadingState = .error
-                    return
+                MainActor.run {
+                    guard let image, let url else {
+                        imageLoadingState = .error
+                        return
+                    }
+                    
+                    thumbnail = Image(uiImage: image)
+                    thumbnailURL = url
+                    imageLoadingState = .idle
                 }
-                
-                thumbnail = Image(uiImage: image)
-                thumbnailURL = url
-                imageLoadingState = .idle
             }
         }
     }

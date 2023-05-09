@@ -36,11 +36,11 @@ final class VideoManager: ObservableObject {
     }
     
     func deleteVideo(_ video: VideoModel) {
-        Task { await storageService.deleteVideoAsync(video) }
+        Task.detached { await self.storageService.deleteVideoAsync(video) }
     }
     
     func saveVideo(_ video: VideoModel) {
-        Task { await storageService.saveVideoAsync(video) }
+        Task.detached { await self.storageService.saveVideoAsync(video) }
     }
     
     func loadVideos() async {
