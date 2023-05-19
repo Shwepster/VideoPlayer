@@ -33,8 +33,8 @@ struct EditVideoView: View {
                 selection: $imageImporter.mediaSelection,
                 image: image
             )
-            .frame(height: 200)
-            .clipped()
+            .scaledToFill()
+            .frame(width: 375, height: 560)
             
             HStack {
                 Text("Title")
@@ -63,7 +63,7 @@ struct EditVideoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             EditVideoView(video: Mockups.videoModels[0], onSave: { _ in })
-                .environmentObject(VideoManager(version: .debug).importManager)
+                .environmentObject(MediaImportManager(mediaImporter: AppServices.createImageImporter()))
         }
     }
 }

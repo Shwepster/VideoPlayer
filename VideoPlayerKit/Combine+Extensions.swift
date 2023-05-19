@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 extension AnyCancellable {
-    func store(untilDeallocating object: NSObject) {
+    public func store(untilDeallocating object: NSObject) {
         object.subscriptions[.retain]?.insert(self)
     }
 }

@@ -25,7 +25,7 @@ struct VideoImportListView: View {
                     .padding(.vertical)
             }
             
-            VideoPicker(videoSelection: $videoImportService.mediaSelection)
+            VideoPicker(videoSelection: $videoImportService.mediaSelection, maxCount: 10)
         }
         .animation(.spring(), value: videoImportService.runningImports.count)
     }
