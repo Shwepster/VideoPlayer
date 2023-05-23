@@ -46,7 +46,7 @@
 		F672E4BA29EA0ECB00F30D90 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4B929EA0ECB00F30D90 /* VideoPlayerView.swift */; };
 		F672E4BD29EC1CB600F30D90 /* EditVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */; };
 		F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */; };
-		F680053E2A1D160C007D53A0 /* VideoPlayerModel in Frameworks */ = {isa = PBXBuildFile; productRef = F680053D2A1D160C007D53A0 /* VideoPlayerModel */; };
+		F68005412A1D1C97007D53A0 /* VideoPlayerModel in Frameworks */ = {isa = PBXBuildFile; productRef = F68005402A1D1C97007D53A0 /* VideoPlayerModel */; };
 		F68518BE29F9937900F92DB7 /* VideoImportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68518BD29F9937900F92DB7 /* VideoImportListView.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
 		F69528E829E1B6CD003BCD1A /* PlayerProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */; };
@@ -193,7 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F64075552A02F9F500D37958 /* libVideoPlayerKit.a in Frameworks */,
-				F680053E2A1D160C007D53A0 /* VideoPlayerModel in Frameworks */,
+				F68005412A1D1C97007D53A0 /* VideoPlayerModel in Frameworks */,
 				F66C2D1A29FC08DB00EB085B /* VideoPlayerViews in Frameworks */,
 				66DBDF609AA6A85FFBC9BFF9 /* Pods_VideoPlayer.framework in Frameworks */,
 			);
@@ -528,7 +528,7 @@
 			name = VideoPlayer;
 			packageProductDependencies = (
 				F66C2D1929FC08DB00EB085B /* VideoPlayerViews */,
-				F680053D2A1D160C007D53A0 /* VideoPlayerModel */,
+				F68005402A1D1C97007D53A0 /* VideoPlayerModel */,
 			);
 			productName = VideoPlayer;
 			productReference = F6E829E529DC8C1D00E01247 /* VideoPlayer.app */;
@@ -571,7 +571,7 @@
 			mainGroup = F6E829DC29DC8C1D00E01247;
 			packageReferences = (
 				F66C2D1829FC08DB00EB085B /* XCRemoteSwiftPackageReference "VideoPlayerViews" */,
-				F680053C2A1D160C007D53A0 /* XCRemoteSwiftPackageReference "VideoPlayerModel" */,
+				F680053F2A1D1C97007D53A0 /* XCRemoteSwiftPackageReference "VideoPlayerModel" */,
 			);
 			productRefGroup = F6E829E629DC8C1D00E01247 /* Products */;
 			projectDirPath = "";
@@ -1127,7 +1127,7 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		F680053C2A1D160C007D53A0 /* XCRemoteSwiftPackageReference "VideoPlayerModel" */ = {
+		F680053F2A1D1C97007D53A0 /* XCRemoteSwiftPackageReference "VideoPlayerModel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Shwepster/VideoPlayerModel.git";
 			requirement = {
@@ -1152,9 +1152,9 @@
 			package = F66C2D1829FC08DB00EB085B /* XCRemoteSwiftPackageReference "VideoPlayerViews" */;
 			productName = VideoPlayerViews;
 		};
-		F680053D2A1D160C007D53A0 /* VideoPlayerModel */ = {
+		F68005402A1D1C97007D53A0 /* VideoPlayerModel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F680053C2A1D160C007D53A0 /* XCRemoteSwiftPackageReference "VideoPlayerModel" */;
+			package = F680053F2A1D1C97007D53A0 /* XCRemoteSwiftPackageReference "VideoPlayerModel" */;
 			productName = VideoPlayerModel;
 		};
 /* End XCSwiftPackageProductDependency section */
