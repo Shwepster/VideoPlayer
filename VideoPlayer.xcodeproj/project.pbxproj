@@ -47,6 +47,9 @@
 		F672E4BD29EC1CB600F30D90 /* EditVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */; };
 		F672E4BF29EC1D7400F30D90 /* EditVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */; };
 		F68005412A1D1C97007D53A0 /* VideoPlayerModel in Frameworks */ = {isa = PBXBuildFile; productRef = F68005402A1D1C97007D53A0 /* VideoPlayerModel */; };
+		F68005492A1F7704007D53A0 /* VideoPlayerMVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68005482A1F7704007D53A0 /* VideoPlayerMVUITests.swift */; };
+		F680054B2A1F7704007D53A0 /* VideoPlayerMVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F680054A2A1F7704007D53A0 /* VideoPlayerMVUITestsLaunchTests.swift */; };
+		F68005522A1F77A3007D53A0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68005512A1F77A3007D53A0 /* SnapshotHelper.swift */; };
 		F68518BE29F9937900F92DB7 /* VideoImportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68518BD29F9937900F92DB7 /* VideoImportListView.swift */; };
 		F69528E529E1B643003BCD1A /* PlayerControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */; };
 		F69528E829E1B6CD003BCD1A /* PlayerProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */; };
@@ -74,6 +77,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F640754A2A02F9DE00D37958;
 			remoteInfo = VideoPlayerKit;
+		};
+		F680054C2A1F7704007D53A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6E829DD29DC8C1D00E01247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F632309E29F6C8D800CF106A;
+			remoteInfo = VideoPlayerMV;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -149,6 +159,10 @@
 		F672E4BC29EC1CB600F30D90 /* EditVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoView.swift; sourceTree = "<group>"; };
 		F672E4BE29EC1D7400F30D90 /* EditVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoViewModel.swift; sourceTree = "<group>"; };
 		F672E4E929EDADC100F30D90 /* ViewImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageFetcher.swift; sourceTree = "<group>"; };
+		F68005462A1F7703007D53A0 /* VideoPlayerMVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoPlayerMVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F68005482A1F7704007D53A0 /* VideoPlayerMVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerMVUITests.swift; sourceTree = "<group>"; };
+		F680054A2A1F7704007D53A0 /* VideoPlayerMVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerMVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F68005512A1F77A3007D53A0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		F68518BD29F9937900F92DB7 /* VideoImportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoImportListView.swift; sourceTree = "<group>"; };
 		F69528E429E1B643003BCD1A /* PlayerControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsViewModel.swift; sourceTree = "<group>"; };
 		F69528E729E1B6CD003BCD1A /* PlayerProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgressViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +196,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F65B03722A052D2300C59693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68005432A1F7703007D53A0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,6 +380,16 @@
 			path = EditVideo;
 			sourceTree = "<group>";
 		};
+		F68005472A1F7704007D53A0 /* VideoPlayerMVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F68005482A1F7704007D53A0 /* VideoPlayerMVUITests.swift */,
+				F68005512A1F77A3007D53A0 /* SnapshotHelper.swift */,
+				F680054A2A1F7704007D53A0 /* VideoPlayerMVUITestsLaunchTests.swift */,
+			);
+			path = VideoPlayerMVUITests;
+			sourceTree = "<group>";
+		};
 		F69528EE29E1CB29003BCD1A /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +414,7 @@
 				F63230A029F6C8D800CF106A /* VideoPlayerMV */,
 				F640754C2A02F9DE00D37958 /* VideoPlayerKit */,
 				F65B03762A052D2300C59693 /* TestApp */,
+				F68005472A1F7704007D53A0 /* VideoPlayerMVUITests */,
 				F6E829E629DC8C1D00E01247 /* Products */,
 				895C5E8853EB58DCD5092CCE /* Pods */,
 				F204BFE0FAD42E5FF2C6D899 /* Frameworks */,
@@ -396,6 +428,7 @@
 				F632309F29F6C8D800CF106A /* VideoPlayerMV.app */,
 				F640754B2A02F9DE00D37958 /* libVideoPlayerKit.a */,
 				F65B03752A052D2300C59693 /* TestApp.app */,
+				F68005462A1F7703007D53A0 /* VideoPlayerMVUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -510,6 +543,24 @@
 			productReference = F65B03752A052D2300C59693 /* TestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F68005452A1F7703007D53A0 /* VideoPlayerMVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F68005502A1F7704007D53A0 /* Build configuration list for PBXNativeTarget "VideoPlayerMVUITests" */;
+			buildPhases = (
+				F68005422A1F7703007D53A0 /* Sources */,
+				F68005432A1F7703007D53A0 /* Frameworks */,
+				F68005442A1F7703007D53A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F680054D2A1F7704007D53A0 /* PBXTargetDependency */,
+			);
+			name = VideoPlayerMVUITests;
+			productName = VideoPlayerMVUITests;
+			productReference = F68005462A1F7703007D53A0 /* VideoPlayerMVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F6E829E429DC8C1D00E01247 /* VideoPlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6E829F329DC8C1D00E01247 /* Build configuration list for PBXNativeTarget "VideoPlayer" */;
@@ -554,6 +605,10 @@
 					F65B03742A052D2300C59693 = {
 						CreatedOnToolsVersion = 14.3;
 					};
+					F68005452A1F7703007D53A0 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = F632309E29F6C8D800CF106A;
+					};
 					F6E829E429DC8C1D00E01247 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -581,6 +636,7 @@
 				F632309E29F6C8D800CF106A /* VideoPlayerMV */,
 				F640754A2A02F9DE00D37958 /* VideoPlayerKit */,
 				F65B03742A052D2300C59693 /* TestApp */,
+				F68005452A1F7703007D53A0 /* VideoPlayerMVUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -600,6 +656,13 @@
 			files = (
 				F65B037F2A052D2400C59693 /* Preview Assets.xcassets in Resources */,
 				F65B037C2A052D2400C59693 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68005442A1F7703007D53A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +745,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F68005422A1F7703007D53A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F68005522A1F77A3007D53A0 /* SnapshotHelper.swift in Sources */,
+				F680054B2A1F7704007D53A0 /* VideoPlayerMVUITestsLaunchTests.swift in Sources */,
+				F68005492A1F7704007D53A0 /* VideoPlayerMVUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6E829E129DC8C1D00E01247 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -719,6 +792,11 @@
 			isa = PBXTargetDependency;
 			target = F640754A2A02F9DE00D37958 /* VideoPlayerKit */;
 			targetProxy = F64075562A02F9F500D37958 /* PBXContainerItemProxy */;
+		};
+		F680054D2A1F7704007D53A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F632309E29F6C8D800CF106A /* VideoPlayerMV */;
+			targetProxy = F680054C2A1F7704007D53A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -889,6 +967,40 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F680054E2A1F7704007D53A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3QS73BWYFX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = max.VideoPlayerMVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VideoPlayerMV;
+			};
+			name = Debug;
+		};
+		F680054F2A1F7704007D53A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3QS73BWYFX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = max.VideoPlayerMVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VideoPlayerMV;
 			};
 			name = Release;
 		};
@@ -1100,6 +1212,15 @@
 			buildConfigurations = (
 				F65B03802A052D2400C59693 /* Debug */,
 				F65B03812A052D2400C59693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F68005502A1F7704007D53A0 /* Build configuration list for PBXNativeTarget "VideoPlayerMVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F680054E2A1F7704007D53A0 /* Debug */,
+				F680054F2A1F7704007D53A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
