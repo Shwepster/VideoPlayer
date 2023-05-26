@@ -46,7 +46,7 @@
 		C0459CAB27261886002CDFB9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = $SRCROOT/../..;
+			dstPath = "$SRCROOT/../..";
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -55,7 +55,7 @@
 		CBB24959B1B43758D5BDE5CE /* FastlaneRunnerCopySigned */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = $SRCROOT/../..;
+			dstPath = "$SRCROOT/../..";
 			dstSubfolderSpec = 0;
 			files = (
 				CB4AC049386E60B185F858CE /* FastlaneRunner in FastlaneRunnerCopySigned */,

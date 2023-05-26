@@ -13,5 +13,12 @@ class Fastfile: LaneFile {
         desc("Description of what the lane does")
         logger.log(message: "Test log")
         // add actions here: https://docs.fastlane.tools/actions
+        captureScreenshots()
+        frameScreenshots()
+    }
+    
+    func makeScreenshotsLane() {
+        captureScreenshots()
+        frameScreenshots()
     }
 }

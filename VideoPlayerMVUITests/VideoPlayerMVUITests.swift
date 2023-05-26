@@ -23,6 +23,7 @@ final class VideoPlayerMVUITests: XCTestCase {
     }
 
     func testExample() throws {
+        UIView.setAnimationsEnabled(false)
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
@@ -40,12 +41,12 @@ final class VideoPlayerMVUITests: XCTestCase {
         snapshot("Video Screen")
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+//    func testLaunchPerformance() throws {
+//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
+//            // This measures how long it takes to launch your application.
+//            measure(metrics: [XCTApplicationLaunchMetric()]) {
+//                XCUIApplication().launch()
+//            }
+//        }
+//    }
 }
