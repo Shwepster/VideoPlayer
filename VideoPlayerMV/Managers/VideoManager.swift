@@ -49,7 +49,8 @@ final class VideoManager: ObservableObject {
         await reloadVideos()
     }
     
-    @MainActor private func reloadVideos() async {
+    @MainActor 
+    private func reloadVideos() async {
         // TODO: Replace with provider
         switch version {
         case .debug:

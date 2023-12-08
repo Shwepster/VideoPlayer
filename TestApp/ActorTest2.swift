@@ -14,11 +14,20 @@ fileprivate final class User {
 actor UserActor {
     private var user = User()
     
-    nonisolated func renameUser(current: Bool = true) {
+    nonisolated func notCorrectRenameUser(current: Bool = true) {
         Task {
-            let user = await getUser(new: !current)
+            let user = await getUser(new: !current) // To fix this, need to make it in one transaction in isolated context ("correctRenameUser")
             user.name = "New Name"
             print("Current user: \(await self.user.name)") // test without this print
+            print("Local user: \(user.name)") // test without this print
+        }
+    }
+    
+    func correctRenameUser(current: Bool = true) {
+        Task { // can remove "Task" block
+            let user = getUser(new: !current)
+            user.name = "New Name"
+            print("Current user: \(self.user.name)") // test without this print
             print("Local user: \(user.name)") // test without this print
         }
     }
@@ -28,10 +37,29 @@ actor UserActor {
     }
 }
 
-final class UserTest {
+final class UserTest: Sendable {
     let userActor = UserActor()
     
     func start() {
-        userActor.renameUser()
+        Task {
+            await userActor.correctRenameUser()
+        }
+    }
+}
+
+final class SendableTest {
+    private func doItLater(_ job: @Sendable @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: job)
+    }
+    
+    private func procrastinate() {
+//        var someVal = 1
+        //            So the warning, in this case, is really “if someone changes this function and adds concurrency, or if I [the compiler] didn’t notice existing concurrency, you’re screwed.”
+        
+        let someVal = 1
+
+        doItLater {
+            print(someVal)
+        }
     }
 }

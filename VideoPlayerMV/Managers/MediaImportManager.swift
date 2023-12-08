@@ -10,7 +10,7 @@ import SwiftUI
 import PhotosUI
 import VideoPlayerModel
 
-final class MediaImportManager: ObservableObject {
+final class MediaImportManager: ObservableObject, Sendable {
     private let mediaImporter: MediaImporterProtocol
     @Published var importState = ImportState.idle
     @Published var importedMedia = ImportedMedia.empty
