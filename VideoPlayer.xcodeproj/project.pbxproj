@@ -57,6 +57,8 @@
 		F6E829EB29DC8C1D00E01247 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E829EA29DC8C1D00E01247 /* MainView.swift */; };
 		F6E829ED29DC8C1D00E01247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E829EC29DC8C1D00E01247 /* Assets.xcassets */; };
 		F6E829F029DC8C1D00E01247 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E829EF29DC8C1D00E01247 /* Preview Assets.xcassets */; };
+		F6FC388A2C73935A001362EA /* CodeSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FC38892C73935A001362EA /* CodeSnippets.swift */; };
+		F6FC388C2C73B36B001362EA /* LoggedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FC388B2C73B36B001362EA /* LoggedValue.swift */; };
 		F6FED3D329DF49BD001926A0 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FED3D229DF49BD001926A0 /* VideoView.swift */; };
 		F6FED3D529DF4A37001926A0 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FED3D429DF4A37001926A0 /* VideoPlayerViewModel.swift */; };
 		F6FED3D929DF5073001926A0 /* VideoPlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FED3D829DF5073001926A0 /* VideoPlayerControlsView.swift */; };
@@ -171,6 +173,8 @@
 		F6E829EA29DC8C1D00E01247 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F6E829EC29DC8C1D00E01247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6E829EF29DC8C1D00E01247 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F6FC38892C73935A001362EA /* CodeSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnippets.swift; sourceTree = "<group>"; };
+		F6FC388B2C73B36B001362EA /* LoggedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedValue.swift; sourceTree = "<group>"; };
 		F6FED3D229DF49BD001926A0 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		F6FED3D429DF4A37001926A0 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		F6FED3D829DF5073001926A0 /* VideoPlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerControlsView.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				F63230A129F6C8D800CF106A /* VideoPlayerMVApp.swift */,
+				F6FC38892C73935A001362EA /* CodeSnippets.swift */,
 				F63230CE29F6DE8B00CF106A /* Views */,
 				F63230CF29F6DE9400CF106A /* Managers */,
 			);
@@ -336,6 +341,7 @@
 				F654C47229DCB4F500CD7B76 /* NSObject+AnyCancellable.swift */,
 				F672E4E929EDADC100F30D90 /* ViewImageFetcher.swift */,
 				F64075582A02FA4500D37958 /* Publisher+Async.swift */,
+				F6FC388B2C73B36B001362EA /* LoggedValue.swift */,
 			);
 			path = VideoPlayerKit;
 			sourceTree = "<group>";
@@ -593,7 +599,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F632309E29F6C8D800CF106A = {
 						CreatedOnToolsVersion = 14.3;
@@ -710,6 +716,7 @@
 			files = (
 				F63230C429F6D6A500CF106A /* MediaImportManager.swift in Sources */,
 				F63230CD29F6DDA200CF106A /* EditVideoView.swift in Sources */,
+				F6FC388A2C73935A001362EA /* CodeSnippets.swift in Sources */,
 				F63230E029F8945B00CF106A /* VideoControlsView.swift in Sources */,
 				F63230C029F6D04100CF106A /* VideoManager.swift in Sources */,
 				F68518BE29F9937900F92DB7 /* VideoImportListView.swift in Sources */,
@@ -729,6 +736,7 @@
 				F640755C2A02FA8400D37958 /* ViewImageFetcher.swift in Sources */,
 				F64075592A02FA4500D37958 /* Publisher+Async.swift in Sources */,
 				F640755B2A02FA8400D37958 /* NSObject+AnyCancellable.swift in Sources */,
+				F6FC388C2C73B36B001362EA /* LoggedValue.swift in Sources */,
 				F640755A2A02FA8400D37958 /* Combine+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1010,6 +1018,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1042,6 +1052,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1071,6 +1082,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1103,6 +1116,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

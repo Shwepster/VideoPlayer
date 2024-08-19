@@ -10,8 +10,12 @@ import SwiftUI
 import PhotosUI
 import VideoPlayerModel
 
+extension PhotosPickerItem: @unchecked Sendable {
+    
+}
+
 final class MediaImportManager: ObservableObject, Sendable {
-    private let mediaImporter: MediaImporterProtocol
+    private let mediaImporter: MediaImporterProtocol & Sendable
     @Published var importState = ImportState.idle
     @Published var importedMedia = ImportedMedia.empty
     @Published var mediaSelection: PhotosPickerItem? {
@@ -24,7 +28,7 @@ final class MediaImportManager: ObservableObject, Sendable {
         }
     }
     
-    init(mediaImporter: MediaImporterProtocol) {
+    init(mediaImporter: MediaImporterProtocol & Sendable) {
         self.mediaImporter = mediaImporter
     }
     
@@ -32,6 +36,7 @@ final class MediaImportManager: ObservableObject, Sendable {
         importState = .loading
         
         Task.detached(priority: .low) {
+            @LoggedValue(title: "Importing result")
             var result = ImportedMedia.empty
             
             if selection.supportedContentTypes.contains(.jpeg) {
@@ -57,12 +62,12 @@ final class MediaImportManager: ObservableObject, Sendable {
 // MARK: - Enums
 
 extension MediaImportManager {
-    enum ImportState {
+    enum ImportState: Sendable {
         case loading
         case idle
     }
     
-    enum ImportedMedia {
+    enum ImportedMedia: Sendable {
         case video(VideoModel)
         case image(UIImage, URL)
         case empty

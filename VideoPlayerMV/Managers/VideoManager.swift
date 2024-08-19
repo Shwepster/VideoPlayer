@@ -11,9 +11,9 @@ import VideoPlayerModel
 import VideoPlayerKit
 
 @dynamicMemberLookup
-final class VideoManager: ObservableObject {
+final class VideoManager: ObservableObject, Sendable {
     @Published private(set) var videos: [VideoModel] = []
-    var importManager: MediaImportService
+    let importManager: MediaImportService
     
     private let version: Version
     private let storageService: StorageService
