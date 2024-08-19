@@ -11,9 +11,9 @@ import VideoPlayerModel
 import VideoPlayerKit
 
 @dynamicMemberLookup
-final class VideoManager: ObservableObject {
+final class VideoManager: ObservableObject, Sendable {
     @Published private(set) var videos: [VideoModel] = []
-    var importManager: MediaImportService
+    let importManager: MediaImportService
     
     private let version: Version
     private let storageService: StorageService
@@ -49,7 +49,8 @@ final class VideoManager: ObservableObject {
         await reloadVideos()
     }
     
-    @MainActor private func reloadVideos() async {
+    @MainActor 
+    private func reloadVideos() async {
         // TODO: Replace with provider
         switch version {
         case .debug:

@@ -46,7 +46,7 @@ extension PlayerProgressView {
         
         func didDraw(with width: CGFloat) async {
             engine.subscribeOnProgress(forWidth: width, updateFrequency: updateFrequency)
-                .receive(on: DispatchQueue.main)
+                .receive(on: .main)
                 .sink { [weak self] time in
                     // Update only when user is not manually scrolling time
                     if self?.isEditing == false {
@@ -60,7 +60,7 @@ extension PlayerProgressView {
 
         private func subscribe() {
             engine.$duration
-                .receive(on: DispatchQueue.main)
+                .receive(on: .main)
                 .compactMap(\.?.seconds)
                 .sink { [weak self] time in
                     self?.totalTime = time
